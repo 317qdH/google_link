@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#66a6ff",
+  "navigationBarTitleText": "创建客户",
+  "usingComponents": {
+    "cardBgSelection": "../../../../components/cardBgSelection/cardBgSelection"
+  }
+}

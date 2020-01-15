@@ -1,0 +1,19 @@
+<top-nav inner-title="帮助手册"></top-nav>
+<view class='help-container'>
+  <view class='help-item'>
+    <text>Q： 如何制作电子名片?</text>
+    <text class='help-text'>A: 在「名片」页面，可以选择“拍照创建名片”，也可以选择模板后点击“创建我的名片”，进行名片制作。</text>
+  </view>
+  <view class='help-item'>
+    <text>Q： 如何修改我的名片？</text>
+    <text class='help-text'>A: 如您需修改名片，点击名片封面或首页的“编辑名片”，即可进行名片信息修改。</text>
+  </view>
+   <view class='help-item'>
+    <text>Q： 如何发送自己的名片?</text>
+    <text class='help-text'>A: 在「名片」页面，点击“发送朋友”或者“递名片”按钮，即可将您的名片发送至微信聊天；也可点击“分享朋友圈”按钮，生成带有专属二维码的名片图片，保存至相册后，可以发送至微信聊天或者分享至朋友圈。对方可以长按识别图中二维码，便捷的保存您的名片。</text>
+  </view>
+   <view class='help-item'>
+    <text>Q： 如何拍照收纳纸名片?</text>
+    <text class='help-text'>A: 对于已收到的纸名片，可以在「客户」页面，选择“拍照添加”按钮，拍摄他人的纸质名片，通过自动识别纸质名片信息，收纳纸名片；或从手机相册选择已有的纸名片图片，进行识别收纳。</text>
+  </view>
+</view>

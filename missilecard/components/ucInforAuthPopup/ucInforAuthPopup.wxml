@@ -1,0 +1,14 @@
+<!--components/ucInforAuthPopup/ucInforAuthPopup.wxml-->
+<view class="login-auth-popup" wx:if="{{ucInfoAuthShow}}">
+  <view class="lap-bg"></view>
+  <view class="lap-content">
+    <view class="lap-content-text">您还未登录</view>
+    <view class="lap-content-tip">请先登录后再进行操作</view>
+    <image class="lap-auth-img" src="/images/second-edition/mc-uc-auth-img.png"></image>
+    <view class="lap-btn-box">
+      <view class="lap-btn-unlogin gradient-blue-btn" bindtap="unloginClick">暂不登录</view>
+      <button class="lap-btn-login gradient-blue-btn" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">授权登录</button>
+    </view>
+  </view>
+</view>
+

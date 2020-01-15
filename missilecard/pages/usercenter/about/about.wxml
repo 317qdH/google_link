@@ -1,0 +1,13 @@
+<top-nav inner-title="关于我们"></top-nav>
+<view class="header">
+  <view class='images'><image src='/images/rocket.png'></image></view>
+  <text>导弹名片是搜好货网（www.912688.com) 针对中小型企业推出的一款集智能名片、AI检测线索、企业营销、客户管理、数据分析等于一体的智能小程序，为企业打破营销活动边界，多维度、全方位采集客户线索，提升企业营销裂变能力，让营销变得更简单。</text>
+  <text>搜好货目前可为企业提供电商云、营销云、工具云和金融云服务，让企业获得更低成本、更简单易用的产品服务，赋能中小企业转型升级，快速发展。</text>
+</view>
+<view class='footer'>
+  <text>联系我们</text>
+  <text>如遇任何问题，请致电:</text>
+  <view><image class='about' src='/images/about.png'></image></view>
+  <text>0571-26235666</text>
+  <text>工作时间: 周一至周五 9:00-18:00</text>
+</view>

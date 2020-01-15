@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#66a6ff",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "客户详情",
+  "usingComponents": {
+    "ec-canvas": "../../components/ec-canvas/ec-canvas"}
+}

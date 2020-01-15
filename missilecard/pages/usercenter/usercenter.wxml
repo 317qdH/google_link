@@ -1,0 +1,131 @@
+<wxs src="../../utils/wxs/tools.wxs" module="timeTranslate"></wxs>
+<top-nav inner-title="我的" is-show-back="false"></top-nav>
+
+<view class='toast' wx:if="{{showtoast}}">
+  <view>恭喜，账号关联成功!</view>
+  <view>即可开启营销之路</view>
+  <view bindtap='checkindex'>回首页</view>
+  <view bindtap='checkmarket'>去营销</view>
+</view>
+<view class='mask' wx:if="{{showtoast}}" bindtap='cancelmask'>
+</view>
+<view class='mine-header'>
+  <view class='mine-container'>
+    <view class='mine-containerleft'>
+      <image src="{{userInfos.avatarPath || '/images/cie-avatar.jpg'}}"></image>
+      <view class="mine-usertext" wx:if="{{ahturiFlag == 1}}">
+        <view class='mine-name' wx:if="{{userInfos.name}}">{{userInfos.name}}
+          <image wx:if="{{havelogin && payFlag == 1}}" class="mine-name-ctt-unvip" src="/images/second-edition/mc-uc-ctt-vip-icon.png"></image>
+          <!-- <image wx:if="{{havelogin && !isVip && !probationFlag}}" class="mine-name-ctt-unvip" src="/images/second-edition/mc-uc-ctt-unvip-icon.png"></image> -->
+        </view>
+        <view class='mine-name' wx:if="{{!userInfos.name}}">姓名未编辑</view>
+        <text class="mine-date" wx:if="{{havelogin && payFlag == 1}}">{{timeTranslate.timestampToTime2(userCardObj.payServiceEndTime)}} 到期</text>
+        <text class="mine-date" wx:if="{{havelogin && isVip && probationFlag}}">{{userCardObj.probationLastDays}}天后即将到期</text>
+        <text class="mine-date" wx:if="{{havelogin && !isVip}}">已到期</text>
+      </view>
+      <view class="mine-login" wx:if="{{ahturiFlag == 0}}" bindtap="ucAuthPopupShow">立即登录</view>
+    </view>
+    <view wx:if="{{ahturiFlag == 1}}" bindtap='checkoutedit' class='mine-containerright'>
+      <text>编辑</text>
+      <image class='editicon' src='/images/mc-arrowlight.png'></image>
+    </view>
+  </view>
+</view>
+<view class="ctt-vip-guide" wx:if="{{havelogin && payFlag == 0}}">
+  <image src="/images/second-edition/mc-uc-ctt-avtivity-bg.png"></image>
+</view>
+<!-- 列表 -->
+<view class='mine-formcontainer'>
+  <view class='mine-form' bindtap='switch'>
+    <view class='mine-formleft'>
+      <view class='mine-icon'></view>
+      <text>账号相关</text>
+    </view>
+    <view class='mine-formright'>
+      <text>{{detail}}</text>
+      <image src='/images/mc-arrow.png'></image>
+    </view>
+  </view>
+  <view class='mine-form' bindtap='toCttVip'>
+    <view class='mine-formleft'>
+      <view class='mine-icon ctt-vip'></view>
+      <text>会员中心</text>
+    </view>
+    <view class='mine-formright'>
+      <text></text>
+      <image src='/images/mc-arrow.png'></image>
+    </view>
+  </view>
+  <view class='mine-form' bindtap='switchcard'>
+    <view class='mine-formleft'>
+      <view class='mine-icon mine-iconcard'></view>
+      <text>名片图片</text>
+    </view>
+    <view class='mine-formright'>
+      <text></text>
+      <image src='/images/mc-arrow.png'></image>
+    </view>
+  </view>
+  <view class='mine-form' bindtap='switchhelp'>
+    <view class='mine-formleft'>
+      <view class='mine-icon mine-help'></view>
+      <text>帮助手册</text>
+    </view>
+    <view class='mine-formright'>
+      <text></text>
+      <image src='/images/mc-arrow.png'></image>
+    </view>
+  </view>
+  <view class='mine-form' bindtap='switchsuggestion'>
+    <view class='mine-formleft'>
+      <view class='mine-icon mine-suggetion'></view>
+      <text>意见反馈</text>
+    </view>
+    <view class='mine-formright'>
+      <text></text>
+      <image src='/images/mc-arrow.png'></image>
+    </view>
+  </view>
+  <view class='mine-form' bindtap='switchsuggestion'>
+    <view class='mine-formleft'>
+      <view class='mine-icon mine-call-service'></view>
+      <text>联系客服</text>
+    </view>
+    <view class='mine-formright'>
+      <text></text>
+      <image src='/images/mc-arrow.png'></image>
+    </view>
+  </view>
+  <view class='mine-form' bindtap='switchabout'>
+    <view class='mine-formleft'>
+      <view class='mine-icon mine-about'></view>
+      <text>关于我们</text>
+    </view>
+    <view class='mine-formright'>
+      <text>V2.0.0</text>
+      <image src='/images/mc-arrow.png'></image>
+    </view>
+  </view>
+</view>
+<view class='footer'>
+  <text>导弹名片由搜好货提供技术服务</text>
+</view>
+<!-- 账号关联成功弹窗 -->
+<view class='showtoast' wx:if="{{showModal}}">
+  <view class='showtoastheader'>
+    <view>图片</view>
+    <text>恭喜 · 账号关联成功</text>
+  </view>
+  <view class='showtoasttext'>
+    <text>· 恭喜，您已开启了产品营销功能</text>
+    <text>· 恭喜，您已开启了产品营销功能</text>
+    <text>· 电话客服全天候帮您快速答疑解惑</text>
+    <text>· 客户电话: 0571-26263777</text>
+  </view>
+  <view class='showtoastbutton'>
+    <text class='addborder'>回首页</text>
+    <text>去营销</text>
+  </view>
+</view>
+<!--授权弹窗-->
+<ucInforAuthPopup uc-info-auth-show="{{ucInfoAuthShow}}" binducAuth="onGotUserInfo"></ucInforAuthPopup>

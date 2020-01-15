@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "authorizedPopup": "../../../../components/authorizedPopup/authorizedPopup"
+  },
+  "navigationBarTitleText": "企业营销"
+}

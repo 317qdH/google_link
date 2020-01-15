@@ -1,0 +1,109 @@
+<top-nav inner-title="采通通" is-show-back="true" navigator-bg-color="#ff7619" arrow-color="white" navigator-color="#fff"></top-nav>
+<!--pages/channel/joinus.wxml-->
+<view class="wrapper">
+  <view class="ctt zfb">
+    <view class="headers"></view>
+    <view class="content">
+      <view class="ctt-main ctt-ll">
+        <view class="ctt-title">全生态多场景热门流量</view>
+        <view class="ctt-text">搜好货多场景的生态布局为客户提供优质的真实流量</view>
+      </view>
+      <view class="ctt-main ctt-cp">
+        <view class="ctt-title">六大核心捕获全域顶级流量</view>
+        <view class="ctt-text"> 采通通多产品多渠道助您轻松链接BAT等顶级流量巨头</view>
+        <view class="cp-box flexBox flexBetween flexWrap">
+          <view class="img-box box-1">
+            <view class="cp-title">营销型导弹名片</view>
+            <view class="cp-text">客户维护在线沟通效果看得见</view>
+          </view>
+          <view class="img-box box-2">
+            <view class="cp-title">视频商机</view>
+            <view class="cp-text">产品详情头图描述双视频播放</view>
+          </view>
+          <view class="img-box box-3">
+            <view class="cp-title">站内排名加权</view>
+            <view class="cp-text">四端平台产品搜索排名提升</view>
+          </view>
+          <view class="img-box box-4">
+            <view class="cp-title">移动双端小程序店铺</view>
+            <view class="cp-text">微信+百度双重流量全掌握</view>
+          </view>
+          <view class="img-box box-5">
+            <view class="cp-title">平台双端炫铺</view>
+            <view class="cp-text">电脑手机双端助您捕获平台流量</view>
+          </view>
+          <view class="img-box box-6">
+            <view class="cp-title">独立域名双端官网</view>
+            <view class="cp-text">电脑手机双端官网提升品牌形象</view>
+          </view>
+        </view>
+      </view>
+      <view class="ctt-main ctt-kh">
+        <view class="ctt-title">助您斩获更多优质客户</view>
+        <view class="ctt-text"> 采通通多场景的产品布局，为客户提供多渠道流量捕获服务</view>
+        <view class="kh-main">
+          <view class="kh-box kh-box1">
+            <view class="kh-text">平台意向客户订单平均成交率约
+              <span class="text-str">70</span>%</view>
+          </view>
+          <view class="kh-box kh-box2">
+            <view class="kh-text">电脑端手机端店铺访问量提升约
+              <span class="text-str">40</span>倍</view>
+          </view>
+          <view class="kh-box kh-box3">
+            <view class="kh-text">产品信息站内排名平均提升约
+              <span class="text-str">110</span>位</view>
+          </view>
+          <view class="kh-box kh-box4">
+            <view class="kh-text">产品信息站内展现量提升约
+              <span class="text-str">5000</span>次</view>
+          </view>
+          <view class="kh-box kh-box5">
+            <view class="kh-text">产品信息站外搜索收录率提升约
+              <span class="text-str">70</span>%</view>
+          </view>
+          <view class="kh-box kh-box6">
+            <view class="kh-text">平台买家留言询盘数量提升约
+              <span class="text-str">160</span>倍</view>
+          </view>
+        </view>
+      </view>
+      <view class="ctt-main ctt-sj">
+        <view class="ctt-title">采通通商家会</view>
+        <view class="ctt-text"> 营销获客，品牌宣传，产品效果，看看用户怎么说</view>
+        <view class="sj-main">
+        <swiper circular autoplay="5000" duration="1000" class="swiper-container swiper-banner temp-wrap">
+          <block >
+            <swiper-item>
+              <view class="swiper-slide">
+                <image src="http://img0.912688.com/x2-swper1.jpg" />
+              </view>
+            </swiper-item>
+            <swiper-item>
+              <view class="swiper-slide">
+                <image src="http://img0.912688.com/x2-swper2.jpg" />
+              </view>
+            </swiper-item>
+            <swiper-item>
+              <view class="swiper-slide">
+                <image src="http://img0.912688.com/x2-swper3.jpg" />
+              </view>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+        <!-- 底线s -->
+        <view class="purchase-bottom-divider">
+          <text>www.912688.com</text>
+        </view>
+        <!-- 底线e -->
+      </view>
+
+    </view>
+    <view class="btn" bindtap="showPopup">
+      <view id="btn" class="btn-foot">加入采通通</view>
+    </view>
+  </view>
+
+</view>
+<joinus-popup flag="{{flag}}" source="{{source}}" popup-show="{{popupShow}}"></joinus-popup>

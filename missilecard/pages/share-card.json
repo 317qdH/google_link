@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTitleText": "分享朋友圈",
+  "usingComponents": {
+    "authorizedPopup": "../components/authorizedPopup/authorizedPopup"
+  }
+}

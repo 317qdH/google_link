@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#66a6ff",
+  "navigationBarTitleText": "编辑名片",
+  "usingComponents": {
+    "cardBgSelection": "../../../../components/cardBgSelection/cardBgSelection"
+  }
+}

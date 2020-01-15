@@ -1,0 +1,304 @@
+@import '../../styles/card.wxss';
+/* pages/marketing/marketing.wxss */
+.scene-marketing-eg{
+  padding: 50rpx 30rpx;
+  padding-bottom: 30rpx;
+}
+.scene-marketing-eg .sme-title{
+  padding-bottom:20rpx;
+  margin-bottom: 30rpx; 
+  color: #666666;
+  font-size: 28rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+/* .scene-marketing-eg>image{
+  width: 690rpx;
+  height: 1000rpx;
+} */
+.sme-box{
+  position: relative;
+}
+.sceneswiper {
+  width: 690rpx;
+  height: 1000rpx;
+}
+.item {
+  height: 100%;
+  width: 100%;
+}
+.pagination{
+  position: absolute;
+  left: 50%;
+  bottom: 50rpx;
+  margin-left: -68rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiper-pagination-bullet{
+  width: 15rpx;
+  height: 15rpx;
+  margin-left: 20rpx;
+  background-color: #dddddd;
+  border-radius: 50%;
+}
+.swiper-pagination-bullet-active{
+  background-color: #64a3fb;
+}
+/*导航栏*/
+.nav-send{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35rpx 60rpx;
+  color: #777777;
+  font-size: 24rpx;
+  border-bottom: 20rpx solid #f0f0f0;
+}
+.nav-to-friend{
+  width:120rpx;
+  height: 132rpx;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  color: #777777;
+  font-size: 24rpx;
+  line-height: 1.25;
+  background-color: #fff;
+  border-radius: 0;
+  border: 1rpx solid transparent;
+  overflow: visible;
+}
+
+/*导航栏*/
+.nav-send .nav-to-friend>view{
+  height: 90rpx;
+  margin-bottom: 10rpx;
+  background: url(http://img0.912688.com/mc-card-icons.png) no-repeat;
+  background-position: center -480rpx;
+  background-size: 81rpx 921rpx;  
+}
+.nav-send .nav-to-timeline>view{
+  height: 90rpx;
+  margin-bottom: 10rpx;
+  background: url(http://img0.912688.com/mc-card-icons.png) no-repeat;
+  background-position: center -598rpx;
+  background-size: 81rpx 921rpx;  
+}
+.nav-send .nav-card-qrcode>view{
+  height: 90rpx;
+  margin-bottom: 10rpx;
+  background: url(http://img0.912688.com/mc-card-icons.png) no-repeat;
+  background-position: center -718rpx;
+  background-size: 81rpx 921rpx;  
+}
+.nav-send .nav-edit-card>view{
+  height: 90rpx;
+  margin-bottom: 10rpx;
+  background: url(http://img0.912688.com/mc-card-icons.png) no-repeat;
+  background-position: center -840rpx;
+  background-size: 81rpx 921rpx;  
+}
+.introductions {
+  width: 100%;
+  font-size: 30rpx;
+  color: #fff;
+}
+.introductions view:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 750rpx;
+  height: 940rpx;
+  background: url(http://img2.912688.com/mc-introduction-first.jpg) no-repeat;
+  background-size: 750rpx 940rpx;
+}
+.introductions view:nth-child(1) text {
+  text-indent: 60rpx;
+  margin: 0 auto;
+  width: 660rpx;
+  line-height: 1.5;
+}
+.introductions view:nth-child(2) {
+  width: 750rpx;
+  height: 640rpx;
+  background: url(http://img2.912688.com/mc-introduction-two.jpg) no-repeat;
+  background-size: 750rpx 640rpx;
+}
+.introductions view:nth-child(3) {
+  width: 750rpx;
+  height: 1064rpx;
+  background: url(http://img2.912688.com/mc-introduction-thr.jpg) no-repeat;
+  background-size: 750rpx 1064rpx;
+}
+.introductions view:nth-child(4) {
+  width: 750rpx;
+  height: 750rpx;
+  background: url(http://img2.912688.com/mc-introduction-four.jpg) no-repeat;
+  background-size: 750rpx 750rpx;
+}
+.introductions view:nth-child(5) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 750rpx;
+  height: 858rpx;
+  background: url(http://img2.912688.com/mc-introduction-five.jpg) no-repeat;
+  background-size: 750rpx 858rpx;
+  padding-bottom: 120rpx;
+}
+.texttop, .texttwo {
+  position: relative;
+  top: 20rpx;
+}
+.imagecon {
+  position: fixed;
+  width: 100%;
+  height: 120rpx;
+  background: #2195ff;
+  bottom: 0;
+  box-shadow: 0 5rpx 1rpx #f0f0f0;
+}
+.imagecon image {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  margin-left: -140rpx;
+  margin-top: -40rpx;
+  width: 280rpx;
+  height: 80rpx;
+}
+/*是否采通通会员*/
+.ctt-vip-popup {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+}
+
+.cvp-bg {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.3;
+}
+.cvp-content{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -315rpx;
+  margin-left: -280rpx;
+  width: 560rpx;
+  height: 630rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  background: #fff url('https://img0.912688.com/mc-alert-ctt-vip-bg.png');
+  background-size: 560rpx auto;
+}
+.cvp-close{
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  width: 26rpx;
+  height: 26rpx;
+}
+.cvp-tip{
+  color: #333333;
+  font-size: 30rpx;
+  margin: 250rpx 0 6rpx 0; 
+}
+.cvp-only-vip{
+  color: #999999;
+  font-size: 28rpx;
+  margin-bottom: 48rpx;
+}
+.cvp-text{
+  color: #ff9900;
+  font-size: 28rpx;
+}
+.cvp-btn{
+  width: 300rpx;
+  height: 80rpx;
+  margin: 34rpx auto 0 auto;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 10rpx;
+  background: #ff9900;
+}
+/*没有名片弹窗*/
+.login-auth-popup {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+}
+
+.lap-bg {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.3;
+  cursor: pointer;
+}
+.lap-content{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -270rpx;
+  margin-left: -275rpx;
+  width: 550rpx;
+  height: 540rpx;
+  text-align: center;
+  border-radius: 20rpx;
+  background: #fff;
+}
+.lap-content-text{
+  color: #66a6ff;
+  font-size: 34rpx;
+  margin-top: 52rpx;
+  margin-bottom: 12rpx;
+}
+.lap-content-tip{
+  color: #333333;
+  font-size: 30rpx;
+  margin-bottom: 34rpx;
+}
+.lap-auth-img{
+  width: 170rpx;
+  height: 188rpx;
+  margin-bottom: 42rpx;
+}
+.card-lap-auth-img{
+  width: 168rpx;
+  height: 168rpx;
+  margin: 10rpx 0 48rpx 0;
+}
+.lap-btn-box{
+  padding: 0 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.lap-btn-unlogin{
+  color: #66a6ff;
+  border: 1rpx solid #66a6ff;
+  background: #fff;
+}
+.lap-btn-login{
+  color: #fff;
+  background: linear-gradient(to right, #74c7f8, #66a6ff 10%);
+}
+.gradient-blue-btn{
+  width: 230rpx;
+  height: 70rpx;
+  line-height: 70rpx; 
+  text-align: center;
+  font-size: 32rpx;
+  border-radius: 35rpx;
+}

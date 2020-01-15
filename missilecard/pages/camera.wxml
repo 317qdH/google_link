@@ -1,0 +1,27 @@
+<!--pages/camera.wxml-->
+<view>
+  <camera class="camera-player" bindinitdone="cameraLoading">
+    <cover-view class="cp-adjuvant">
+      <cover-view class="cp-frame"></cover-view>
+      <cover-view class="cp-text">请将名片放入线框内，水平居中拍照</cover-view>
+    </cover-view>
+  </camera>
+  <view class="camera-take-area">
+    <view class="cta-resize" bindtap="goBack">取消</view>
+    <image class="cta-take-photo" bindtap="takePhoto" src="/images/second-edition/mc-camera-btn.png"></image>
+    <view class="cta-album" bindtap="photoAlbum">相册</view>
+  </view>
+</view>
+<cover-view class="loadding-black" wx:if="{{loadingFlag}}">
+</cover-view>
+<cover-image wx:if="{{takePhotoFlag}}" mode="aspectFill" class="camera-player" src="{{tempFilePaths}}"></cover-image>
+<view class="camera-take-area" wx:if="{{takePhotoFlag}}">
+  <view class="cta-left" bindtap="resizeCamera">
+    <image src="/images/second-edition/mc-resize-take-photo.png"></image>
+    <text>重新拍摄</text>
+  </view>
+  <view class="cta-right" bindtap="comfirmPhoto">
+    <image src="/images/second-edition/mc-comfirm-take-photo.png"></image>
+    <text>确认</text>
+  </view>
+</view>

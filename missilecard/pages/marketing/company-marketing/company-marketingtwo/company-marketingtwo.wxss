@@ -1,0 +1,422 @@
+/* pages/marketing/company-marketing/company-marketingtwo/company-marketingtwo.wxss */
+
+.company-info {
+  width: 100%;
+  height: 340rpx;
+  background: #fff;
+  position: relative;
+}
+
+.triangle-bottomleft {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-bottom: 341rpx solid #2a65ac;
+  border-right: 750rpx solid transparent;
+}
+
+.company-introduct {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 160rpx;
+  font-size: 32rpx;
+  color: #2a65ac;
+}
+
+.company-introduct text:first-child {
+  margin-bottom: 10rpx;
+}
+
+.company-introduction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 418rpx;
+  background: #2a65ac;
+  font-size: 26rpx;
+  color: #fff;
+}
+
+.company-introduction text {
+  margin: 0 30rpx;
+  line-height: 45rpx;
+}
+
+.company-imagecontainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 594rpx;
+  background: #2a65ac;
+}
+
+.company-imageborder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 612rpx;
+  height: 470rpx;
+  border: 2rpx solid #fff;
+}
+
+.company-image {
+  width: 570rpx;
+  height: 428rpx;
+  background: #f0f0f0;
+}
+
+.company-image .swipers, .company-image .swipers image {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.company-charecteristics {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 349rpx;
+  background: #2a65ac;
+}
+
+.company-charecteristics .company-charecteristicsitem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  text-align: center;
+}
+
+.company-charecteristics .company-charecteristicsitem text {
+  font-size: 32rpx;
+  color: #fff;
+  border: 2rpx solid #fff;
+  padding: 10rpx 20rpx 10rpx 20rpx;
+}
+
+.company-charecteristics .company-charecteristicsitem view {
+  height: 100rpx;
+  width: 100rpx;
+  margin-bottom: 20rpx;
+}
+
+.company-charecteristics .company-charecteristicsitem view image {
+  width: 100%;
+  height: 100%;
+}
+
+/* .company-infos {
+  width: 100%;
+  height: 634rpx;
+  background: #2a65ac;
+} */
+
+.company-infos {
+  height: 635rpx;
+  padding-left: 30rpx;
+  background: #2a65ac;
+}
+
+.company-infosleft {
+  display: flex;
+  flex-direction: column;
+  float: left;
+  width: 22%;
+  height: 100%;
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.company-infosleft > text, .company-infosright > text {
+  margin-bottom: 18rpx;
+}
+
+.company-infosright {
+  display: flex;
+  flex-direction: column;
+  float: right;
+  padding-right: 40rpx;
+  box-sizing: border-box;
+  width: 78%;
+  height: 100%;
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.company-addr {
+  margin-top: 36rpx;
+}
+
+.company-sharecontainer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  width: 100%;
+  height: 120rpx;
+}
+
+.company-share {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 690rpx;
+  height: 120rpx;
+  margin: 0 auto;
+}
+
+.company-share view {
+  width: 330rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  background: #66a6ff;
+  text-align: center;
+  font-size: 32rpx;
+  color: #fff;
+  border-radius: 50rpx;
+}
+.company-share button {
+  width: 330rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  background: #66a6ff;
+  text-align: center;
+  font-size: 32rpx;
+  color: #fff;
+  border-radius: 50rpx;
+}
+
+.info {
+  font-size: 36rpx;
+  color: #2a65ac;
+  position: absolute;
+  top: 35rpx;
+  right: 20rpx;
+}
+
+.infoname {
+  font-size: 34rpx;
+  position: absolute;
+  top: 95rpx;
+  left: 45rpx;
+  color: #fff;
+}
+
+.infooffer {
+  font-size: 28rpx;
+  color: #fff;
+  position: absolute;
+  top: 154rpx;
+  left: 45rpx;
+}
+
+.infoiphone {
+  position: absolute;
+  top: 219rpx;
+  left: 45rpx;
+  font-size: 34rpx;
+  color: #fff;
+}
+
+.infoaddr {
+  position: absolute;
+  top: 276rpx;
+  left: 45rpx;
+  font-size: 34rpx;
+  color: #fff;
+}
+
+.imagesleft {
+  width: 128rpx;
+  height: 8rpx;
+  position: relative;
+  top: -23rpx;
+  right: -155rpx;
+}
+
+.imagesright {
+  width: 128rpx;
+  height: 8rpx;
+  position: relative;
+  top: -30rpx;
+  right: 155rpx;
+  transform: rotate(180deg);
+}
+
+.circle {
+  position: absolute;
+  width: 116rpx;
+  height: 117rpx;
+  top: 115rpx;
+  right: 50rpx;
+  border-radius: 50%;
+}
+
+.short-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background: #2a65ac;
+  box-sizing: border-box;
+  padding: 55rpx 0 50rpx 0;
+}
+
+.company-shortcut {
+  width: 657rpx;
+  font-size: 26rpx;
+  color: #fff;
+  text-indent:40rpx;
+}
+
+.prev, .next {
+  width: 22rpx;
+  height: 40rpx;
+}
+
+.prev image, .next image {
+  width: 100%;
+  height: 100%;
+}
+
+.prev {
+  position: absolute;
+  top: 265rpx;
+  left: 18rpx;
+}
+
+.next {
+  position: absolute;
+  top: 265rpx;
+  right: 18rpx;
+}
+
+.itemcontainer {
+  padding: 45rpx 45rpx 45rpx 30rpx;
+  background: #2a65ac;
+  padding-bottom: 120rpx;
+}
+
+.itemtext {
+  display: flex;
+  line-height: 1.8;
+}
+
+.lefttext {
+  color: #fff;
+  font-size: 28rpx;
+  width: 160rpx;
+}
+
+.righttext {
+  color: #fff;
+  font-size: 28rpx;
+  flex: 1;
+}
+
+.iconleftC {
+  position: absolute;
+  left: 0;
+  width: 60rpx;
+  height: 150rpx;
+  background: transparent;
+  bottom: 220rpx;
+}
+
+.iconrightC {
+  position: absolute;
+  right: 0;
+  width: 60rpx;
+  height: 150rpx;
+  background: transparent;
+  bottom: 220rpx;
+}
+
+
+.edit {
+  width: 88rpx;
+  height: 88rpx;
+  position: fixed;
+  top: 160rpx;
+  right: 40rpx;
+  z-index: 999;
+}
+
+.edit image {
+  width: 100%;
+  height: 100%;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 120rpx;
+  background: #fff;
+}
+
+/*画布*/
+
+.poster-canvas {
+  /* display: none; *//* width: 560rpx;
+  height: 996rpx; */
+  width: 750rpx;
+  height: 1900rpx;
+  margin: 200rpx auto 100rpx auto;
+}
+.canvas-hide{
+  position: absolute;
+  top: 20000rpx;
+  left: 0;
+  width:0px;
+  height:0px;
+  overflow:hidden;
+}
+.create-card{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 120rpx;
+  background: #fff;
+}
+.create-card>view{
+  margin: 16rpx auto;
+}
+.company-sharecontainer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 120rpx;
+  background: #fff;
+}
+
+.company-share {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 690rpx;
+  padding: 0 30rpx;
+  height: 120rpx;
+  margin: 0 auto;
+}
+
+.company-share view {
+  width: 330rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  background: #66a6ff;
+  text-align: center;
+  font-size: 32rpx;
+  color: #fff;
+  border-radius: 50rpx;
+}

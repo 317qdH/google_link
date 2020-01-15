@@ -1,0 +1,71 @@
+<top-nav inner-title="我的营销" is-show-back="false"></top-nav>
+<!--pages/marketing/marketing.wxml-->
+<view class='imagecon' wx:if="{{!havelogin}}"><image src='/images/mc-button.png' bindtap='checkregister'></image></view>
+<view class='introductions' wx:if="{{!havelogin}}">
+  <view>
+    <text class='texttop'>一家服务于中小型企业客户，专业做企业服务于营销推广的互联网公司，大力推送一款便捷智能的名片营销工具，既方便管理客户，又可针对不同用户群体进行营销</text>
+    <text class='texttwo'>通过绑定搜好货企业账号，即刻享受几大服务优势。</text>
+  </view>
+  <view></view>
+  <view></view>
+  <view></view>
+  <view></view>
+</view>
+<view wx:if="{{havelogin}}">
+  <view class="user-card-bg" bindtap='toUserCard'>
+    <view class="u-card-box {{cardClassName}}" animation="{{slide_card}}">
+      <image mode="aspectFill" class="uc-avatar" src="{{userInfoObj.avatarPath}}"></image>
+      <!-- <view class="uc-avatar"><open-data type="userAvatarUrl"></open-data></view> -->
+      <view class="uc-title">
+        <view>{{userInfoObj.name}}</view>
+        <text>{{userInfoObj.position}}</text>
+      </view>
+      <image class="uc-bg" src='{{cardImageSrc}}'></image>
+      <view class="uc-infor">
+        <view class="us-company-name">{{userInfoObj.companyName}}</view>
+        <view class="us-iphone">{{userInfoObj.mobile}}</view>
+        <view class="us-email">{{userInfoObj.mail}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="nav-send">
+    <view bindtap="marketingNavClick" data-idx="0" class="nav-to-friend">
+      <view></view>企业营销</view>
+    <view bindtap="marketingNavClick" data-idx="1" class="nav-to-timeline">
+      <view></view>商品营销</view>
+    <view bindtap="marketingNavClick" data-idx="2" class="nav-card-qrcode">
+      <view></view>场景营销</view>
+    <view bindtap="marketingNavClick" data-idx="3" class="nav-edit-card">
+      <view></view>名片营销</view>
+  </view>
+  <view class="scene-marketing-eg">
+    <view class="sme-title">营销示例</view>
+    <view class="sme-box">
+      <swiper class='sceneswiper' circular easing-function="easeInOutCubic" bindchange="easeInCubic" autoplay interval="5000">
+        <swiper-item wx:for="{{imgUrls}}" wx:key="index">
+          <image class='item' src='{{item}}'></image>
+        </swiper-item>
+      </swiper>
+      <view class="pagination">
+        <view wx:for="{{imgUrls}}" wx:key="index" class="swiper-pagination-bullet {{current==index?'swiper-pagination-bullet-active':''}}"></view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<no-ctt un-ctt-vip-flag="{{unCttVipFlag}}"></no-ctt>
+
+<view class="login-auth-popup" wx:if="{{unCardFlag}}">
+  <view class="lap-bg"></view>
+  <view class="lap-content">
+    <view class="lap-content-text">您还未创建名片</view>
+    <view class="lap-content-tip">请先创建后再进行操作</view>
+    <image class="card-lap-auth-img" src="/images/second-edition/mc-marketing-uncreate-card.png"></image>
+    <view class="lap-btn-box">
+      <view class="lap-btn-unlogin gradient-blue-btn" bindtap="unCreateCard">暂不创建</view>
+      <view class="lap-btn-login gradient-blue-btn" bindtap="createCard">立即创建</view>
+    </view>
+  </view>
+</view>
+<ucInforAuthPopup uc-info-auth-show="{{ucInfoAuthShow}}" binducAuth="onGotUserInfo"></ucInforAuthPopup>

@@ -1,0 +1,106 @@
+{
+  "pages": [
+    "pages/index",
+    "pages/customer/customer",
+    "pages/marketing/marketing",
+    "pages/usercenter/usercenter",
+    "pages/usercenter/account/account",
+    "pages/usercenter/help/help",
+    "pages/usercenter/suggestion/suggestion",
+    "pages/usercenter/about/about",
+    "pages/share-card",
+    "pages/card-qrcode",
+    "pages/marketing/marketing-category",
+    "pages/marketing/commodity-detail",
+    "pages/marketing/company-marketing/company-marketingfirst/company-marketingfirst",
+    "pages/marketing/company-marketing/company-marketingtwo/company-marketingtwo",
+    "pages/marketing/company-marketing/company-marketingthr/company-marketingthr",
+    "pages/marketing/company-marketing/company-marketingfour/company-marketingfour",
+    "pages/marketing/company-marketing/company-edit/company-edit",
+    "pages/customer/customer-search/customer-search",
+    "pages/customer/customer-detail/customer-detail",
+    "pages/customer/customer-select/customer-select",
+    "pages/marketing/enterprise-marketing/enterprise-marketing",
+    "pages/usercenter/userCard/userCard",
+    "pages/login",
+    "components/ucInforAuthPopup/ucInforAuthPopup",
+    "pages/camera",
+    "pages/ai/radar",
+    "pages/ai/ai-analyze",
+    "pages/ai/customer-detail",
+    "pages/message/message-list",
+    "pages/message/chat/chat",
+    "pages/channel/ctt",
+    "pages/usercenter/ctt-vip/ctt-vip"
+  ],
+  "plugins": {
+    "WechatSI": {
+      "version": "0.3.1",
+      "provider": "wx069ba97219f66d99"
+    }
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于名片地址展示"
+    }
+  },
+  "window": {
+    "navigationStyle": "custom",
+    "backgroundTextStyle": "light",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#66a7fe"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#66a6ff",
+    "list": [
+      {
+        "pagePath": "pages/index",
+        "text": "首页",
+        "iconPath": "images/tabbar-icon/card-icon.png",
+        "selectedIconPath": "images/tabbar-icon/card-icon-active.png"
+      },
+      {
+        "pagePath": "pages/marketing/marketing",
+        "text": "营销",
+        "iconPath": "images/tabbar-icon/marketing-icon.png",
+        "selectedIconPath": "images/tabbar-icon/marketing-icon-active.png"
+      },
+      {
+        "pagePath": "pages/message/message-list",
+        "text": "消息",
+        "iconPath": "images/tabbar-icon/message-icon.png",
+        "selectedIconPath": "images/tabbar-icon/message-icon-active.png"
+      },
+      {
+        "pagePath": "pages/customer/customer",
+        "text": "客户",
+        "iconPath": "images/tabbar-icon/customer-icon.png",
+        "selectedIconPath": "images/tabbar-icon/customer-icon-active.png"
+      },
+      {
+        "pagePath": "pages/usercenter/usercenter",
+        "text": "我的",
+        "iconPath": "images/tabbar-icon/user-icon.png",
+        "selectedIconPath": "images/tabbar-icon/user-icon-active.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "ucInforAuthPopup": "../components/ucInforAuthPopup/ucInforAuthPopup",
+    "top-nav": "../components/top-nav/top-nav"
+  },
+  "subPackages": [
+    {
+      "root": "pages/editCard/",
+      "pages": [
+        "pages/create-card/create-card",
+        "pages/create-customer/create-customer",
+        "pages/change-customer/change-customer",
+        "pages/crop/crop"
+      ]
+    }
+  ],
+  "sitemapLocation": "sitemap.json"
+}

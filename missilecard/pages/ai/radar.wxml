@@ -1,0 +1,49 @@
+<wxs src="../../utils/chooseTime.wxs" module="dateUtil" />
+<top-nav inner-title="全部雷达线索" is-show-back="false"></top-nav>
+<!--pages/ai/radar.wxml-->
+<view class="radar-card-information">
+  <view class="rci-left">
+    <image class="rci-avatar" src="{{userInforObj.avatarPath}}"></image>
+    <view class="rci-information">
+      <view class="rci-companyname">{{userInforObj.name}}</view>
+      <view class="rci-post">{{userInforObj.position}}</view>
+      <view class="rci-phone">
+        <text class="iconfont iconshouji indust-icon"></text>
+        <text>{{userInforObj.mobile}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="rci-edit" bindtap="toEdition">
+    <text>编辑</text>
+    <text class="iconfont iconyoujiantou indust-icon"></text>
+  </view>
+</view>
+<!--雷达消息列表-->
+<view class="uc-message-box">
+  <view class="uc-message-item" wx:for="{{customerMessList}}" data-idx="{{item.launchUserId}}" bindtap="toCustomerDet">
+        <image class="ucmi-img" src="{{item.avatarPath}}"></image>
+        <view class="ucm-content">
+          <view class="ucmc-text">
+            <text class="ucmc-title">{{item.name}}</text>
+            <text class="ucmc-time">{{dateUtil.dateFormat(item.lastInteractionTime,'yyyy-MM-dd hh:mm', nowDate,'msg')}}</text>
+          </view>
+          <view class="ucmc-tip" wx:if="{{item.type == 1}}">查看了您的名片{{item.total}}次</view>
+          <view class="ucmc-tip" wx:if="{{item.type == 2}}">向您发送了
+            <text class="ucmc-message" catchtap="checkMessageDet" data-idx="{{item.launchUserId}}">私信消息</text>
+          </view>
+          <view class="ucmc-tip" wx:if="{{item.type == 3}}">转发了您的名片{{item.total}}次</view>
+          <view class="ucmc-tip" wx:if="{{item.type == 4}}">将您存为了客户</view>
+          <view class="ucmc-tip" wx:if="{{item.type == 5}}">与您互换了名片</view>
+          <view class="ucmc-tip" wx:if="{{item.type == 6}}">觉得您的名片很赞</view>
+          <view class="ucmc-tip" wx:if="{{item.type == 7}}">查看了您的企业{{item.total}}次</view>
+          <view class="ucmc-tip" wx:if="{{item.type == 8}}">查看了您的商品{{item.total}}次</view>
+          <view class="ucmc-tip" wx:if="{{item.type == 9}}">正在浏览您的企业场景秀</view>
+        </view>
+      </view>
+</view>
+<view class="tc" wx:if="{{hasMore}}">
+  <view class="weui-loading"></view>
+</view>
+<view class="has-to-bottom" wx:else>已经到底了哦~</view>
+
+<totop id="totop"></totop>

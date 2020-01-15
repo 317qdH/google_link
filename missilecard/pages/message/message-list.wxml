@@ -1,0 +1,156 @@
+<top-nav inner-title="消息" is-show-back="false"></top-nav>
+<!--pages/message/message-list.wxml-->
+<wxs src="../../utils/chooseTime.wxs" module="dateUtil" />
+
+<view class="message">
+  <!-- 有消息  wx:if="{{hasOrderFlag != 1}}"-->
+  <view class='message-y' wx:if="{{hasmessage == 1}}">
+    <view class="msg-top" style="top:{{someData.statusBarHeight+someData.titleBarHeight}}px">
+      <view class="msg-dy flexBox flexBetween flexAlignCenter">
+        <view class="dy-txt">请订阅服务通知，您可以第一时间收到私信通知哦~</view>
+        <view class="dy-btn" bindtap="messageDy">订阅</view>
+      </view>
+    </view>
+    <navigator class='m-list' url='/pages/message/chat/chat?launchUserId={{item.launchUserId}}&acceptUserId={{item.acceptUserId}}' hover-class="none" wx:for="{{messageList}}" wx:key="index">
+      <view class='msg flexBox flexAlignCenter van-hairline--bottom'>
+        <view class='avatar-box'>
+          <image class='avatar' src="{{item.avatarPath}}"></image>
+        </view>
+        <view class='msg-pro'>
+          <view class='msg-pro-top flexBox flexBetween flexAlignCenter'>
+            <view class='msg-tit text-hide'>{{item.clientCarteName}}</view>
+            <view class='msg-time'>{{dateUtil.dateFormat(item.recordTimestamp+'000','yyyy-MM-dd hh:mm', nowDate,'msg')}}</view>
+          </view>
+          <view class='msg-pro-bottom flexBox flexBetween flexAlignCenter'>
+            <view class='msg-txt text-hide' wx:if="{{item.type == 1}}">{{item.content}}</view>
+            <view class='msg-txt text-hide' wx:if="{{item.type == 2}}">[图片]</view>
+            <view class='msg-none'>
+              <view class='wd' wx:if="{{item.notReadAmount && item.notReadAmount<100}}">{{item.notReadAmount}}</view>
+              <view class="wd wd-more" wx:if="{{item.notReadAmount && item.notReadAmount>=100}}">99+</view>
+              <!-- <mp-badge content="99+"></mp-badge> -->
+              <view class='pb' wx:if="{{item.shieldUserFlag}}">
+                <text class='pb-icon iconfont iconpingbi'></text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </navigator>
+    <!-- <navigator class='m-list' url='/pages/message/chat/chat' hover-class="none">
+      <view class='msg flexBox flexAlignCenter van-hairline--bottom'>
+        <view class='avatar-box'>
+          <image class='avatar' src='../../images/mc-commodity-bg1.jpg'></image>
+        </view>
+        <view class='msg-pro'>
+          <view class='msg-pro-top flexBox flexBetween flexAlignCenter'>
+            <view class='msg-tit text-hide'>顺藤网络销售</view>
+            <view class='msg-time'>{{dateUtil.dateFormat(dataTime2,'yyyy-MM-dd hh:mm', nowDate,'msg')}}</view>
+          </view>
+          <view class='msg-pro-bottom flexBox flexBetween flexAlignCenter'>
+            <view class='msg-txt text-hide'>您好</view>
+            <view class='msg-none'>
+              <view class='wd'>1</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </navigator>
+    <navigator class='m-list' url='/pages/message/chat/chat' hover-class="none">
+      <view class='msg flexBox flexAlignCenter van-hairline--bottom'>
+        <view class='avatar-box'>
+          <image class='avatar' src='../../images/mc-commodity-bg1.jpg'></image>
+        </view>
+        <view class='msg-pro'>
+          <view class='msg-pro-top flexBox flexBetween flexAlignCenter'>
+            <view class='msg-tit text-hide'>顺藤网络销售马经理顺藤网络销售</view>
+            <view class='msg-time'>{{dateUtil.dateFormat(dataTime3,'yyyy-MM-dd hh:mm', nowDate,'msg')}}</view>
+          </view>
+          <view class='msg-pro-bottom flexBox flexBetween flexAlignCenter'>
+            <view class='msg-txt text-hide'>好的，那您给一下地址，立马发货</view>
+            <view class='msg-none'>
+              <view class='pb'></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </navigator>
+    <navigator class='m-list' url='/pages/message/chat/chat' hover-class="none">
+      <view class='msg flexBox flexAlignCenter van-hairline--bottom'>
+        <view class='avatar-box'>
+          <image class='avatar' src='../../images/mc-commodity-bg1.jpg'></image>
+        </view>
+        <view class='msg-pro'>
+          <view class='msg-pro-top flexBox flexBetween flexAlignCenter'>
+            <view class='msg-tit text-hide'>马经理</view>
+            <view class='msg-time'>{{dateUtil.dateFormat(dataTime4,'yyyy-MM-dd hh:mm', nowDate,'msg')}}</view>
+          </view>
+          <view class='msg-pro-bottom flexBox flexBetween flexAlignCenter'>
+            <view class='msg-txt text-hide'>好的，那您给一下地址，立马发货</view>
+            <view class='msg-none'>
+              <view class='pb'>
+                <text class='pb-icon iconfont iconpingbi'></text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </navigator>
+    <navigator class='m-list' url='/pages/message/chat/chat' hover-class="none">
+      <view class='msg flexBox flexAlignCenter van-hairline--bottom'>
+        <view class='avatar-box'>
+          <image class='avatar' src='../../images/mc-commodity-bg1.jpg'></image>
+        </view>
+        <view class='msg-pro'>
+          <view class='msg-pro-top flexBox flexBetween flexAlignCenter'>
+            <view class='msg-tit text-hide'>马经理</view>
+            <view class='msg-time'>{{dateUtil.dateFormat(dataTime5,'yyyy-MM-dd hh:mm', nowDate,'msg')}}</view>
+          </view>
+          <view class='msg-pro-bottom flexBox flexBetween flexAlignCenter'>
+            <view class='msg-txt text-hide'>好的，那您给一下地址，立马发货</view>
+            <view class='msg-none'>
+              <view class='pb'></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </navigator>
+    <navigator class='m-list' url='/pages/message/chat/chat' hover-class="none">
+      <view class='msg flexBox flexAlignCenter van-hairline--bottom'>
+        <view class='avatar-box'>
+          <image class='avatar' src='../../images/mc-commodity-bg1.jpg'></image>
+        </view>
+        <view class='msg-pro'>
+          <view class='msg-pro-top flexBox flexBetween flexAlignCenter'>
+            <view class='msg-tit text-hide'>马经理</view>
+            <view class='msg-time'>{{dateUtil.dateFormat(dataTime6,'yyyy-MM-dd hh:mm', nowDate,'msg')}}</view>
+          </view>
+          <view class='msg-pro-bottom flexBox flexBetween flexAlignCenter'>
+            <view class='msg-txt text-hide'>好的，那您给一下地址，立马发货</view>
+            <view class='msg-none'>
+              <view class='pb'></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </navigator> -->
+  </view>
+
+  <!-- 无消息 -->
+  <view class='message-n' wx:if="{{hasmessage == 2}}">
+    <view class='none-box'>
+      <image class='img-none' src='../../images/msg/no-msg.png'></image>
+      <view class='text-none'>暂无相关消息~</view>
+    </view>
+  </view>
+
+  <!-- 未授权 -->
+  <view class="message-unlogin" wx:if="{{hasmessage == 3}}">
+    <image class="unlogin-img" src="../../images/second-edition/mc-uc-unlogin-img.png"></image>
+    <view class="unlogin-txt">授权登录后，可查看更多消息哦~</view>
+    <view class="gradient-blue-btn unlogin-btn" bindtap="userAuthorized">立即登录</view>
+  </view>
+
+</view>
+
+<!-- 授权弹窗 -->
+<ucInforAuthPopup uc-info-auth-show="{{ucInfoAuthShow}}" binducAuth="onGotUserInfo"></ucInforAuthPopup>

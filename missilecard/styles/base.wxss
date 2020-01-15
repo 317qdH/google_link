@@ -1,0 +1,134 @@
+/* page {
+  background: #f3f3f3;
+  line-height: 1.
+} */
+view {
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.section {
+  position: relative;
+  background: #ffffff;
+}
+
+.none {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.iblcok {
+  display: inline-block;
+}
+
+.visibshow {
+  visibility: visible;
+}
+
+.visibhide {
+  visibility: hidden;
+}
+
+.relative {
+  position: relative;
+}
+
+.tc {
+  text-align: center;
+}
+
+.tl {
+  text-align: left;
+}
+
+.tr {
+  text-align: right;
+}
+
+.text-hide {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-line2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.c333 {
+  color: #333;
+}
+
+.c666 {
+  color: #666;
+}
+
+.c999 {
+  color: #999;
+}
+
+.c000 {
+  color: #000;
+}
+
+.cfff {
+  color: #ffffff;
+}
+
+.fz24 {
+  font-size: 24rpx;
+}
+
+.fz26 {
+  font-size: 26rpx;
+}
+
+.fz28 {
+  font-size: 28rpx;
+}
+
+.fz30 {
+  font-size: 30rpx;
+}
+
+.fz32 {
+  font-size: 32rpx;
+}
+
+.mt20 {
+  margin-top: 20rpx;
+}
+
+.mr20 {
+  margin-right: 20rpx;
+}
+
+.pt20 {
+  padding-top: 20rpx;
+}
+
+.pr20 {
+  padding-right: 20rpx;
+}
+
+.v-middle{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.clear {
+  clear: both;
+}
+
+.clearfix:after {
+  clear: both;
+  content: " ";
+  display: block;
+  height: 0;
+}

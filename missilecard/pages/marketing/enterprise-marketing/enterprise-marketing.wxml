@@ -1,0 +1,2 @@
+<!--pages/marketing/enterprise-marketing/enterprise-marketing.wxml-->
+<web-view src="{{src}}"></web-view>

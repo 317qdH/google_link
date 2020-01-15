@@ -1,0 +1,99 @@
+/* pages/camera.wxss */
+.camera-player{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 80%;
+}
+.loadding-black{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 80%;
+  background: #000;
+}
+.cp-adjuvant{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 456rpx;
+  height: 812rpx;
+  text-align: center;
+  margin-top: -400rpx;
+  margin-left: -228rpx;
+}
+.cp-frame{
+  width: 450rpx;
+  height: 750rpx;
+  border: 3rpx solid #efc724;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+}
+.cp-text{
+  color: #efc724;
+  font-size: 28rpx;
+}
+.camera-take-area{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 20%;
+  padding: 0 50rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #000000;
+  box-sizing: border-box;
+}
+.cta-resize{
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #ffffff;
+  font-size: 32rpx;
+}
+.cta-take-photo{
+  width: 140rpx;
+  height: 140rpx;
+}
+.cta-album{
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #efc724;
+  font-size: 32rpx;
+}
+.cta-left{
+  display: flex;
+  flex-direction: column;
+  margin-left: 90rpx;
+  text-align: center;
+}
+.cta-right{
+  display: flex;
+  flex-direction: column;
+  margin-right: 90rpx;
+  text-align: center;
+}
+.cta-left image{
+  width: 110rpx;
+  height: 110rpx;
+  margin-bottom: 10rpx;
+}
+.cta-left text{
+  color: #fff;
+  font-size: 32rpx;
+}
+.cta-right text{
+  color: #efc724;
+  font-size: 32rpx;
+}
+.cta-right image{
+  width: 110rpx;
+  height: 110rpx;
+  margin-bottom: 10rpx;
+}

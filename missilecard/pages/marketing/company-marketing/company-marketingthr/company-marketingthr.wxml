@@ -1,0 +1,175 @@
+<wxs src="../../../../utils/wxs/tools.wxs" module="timeTranslate"></wxs>
+<top-nav inner-title="企业营销" sharePage="true"></top-nav>
+<!--pages/marketing/company-marketing/company-marketingthr/company-marketingthr.wxml-->
+<!-- <view class='edit' bindtap='checkoutedit' wx:if="{{cardStatus == 0}}">
+  <image src='/images/mc-marking-edit.png'></image>
+</view> -->
+<view class='company-header'>
+  <image class='header-image' src='/images/mc-thr-1.png'></image>
+  <image class='circle' src='{{thrinfo.avatarPath}}'></image>
+</view>
+<view class='company-info'>
+  <text wx:if="{{thrinfo.companyName}}">{{thrinfo.companyName}}</text>
+  <text wx:if="{{!thrinfo.companyName}}">公司信息未填写</text>
+  <view class='company-title'>
+    <image src='/images/mc-thr-2.png'></image>
+  </view>
+  <view>
+    <text class='name' wx:if="{{thrinfo.name}}">{{thrinfo.name}}</text>
+    <text class='name' wx:if="{{!thrinfo.name}}">姓名未填写</text>
+    <text class='position' wx:if="{{thrinfo.position}}">{{thrinfo.position}}</text>
+    <text class='position' wx:if="{{!thrinfo.position}}">职位信息未填写</text>
+  </view>
+  <view class='phone'>
+    <text wx:if="{{thrinfo.mobile}}">{{thrinfo.mobile}}</text>
+    <text wx:if="{{!thrinfo.mobile}}">手机号码未填写</text>
+    <text wx:if="{{thrinfo.mail}}">{{thrinfo.mail}}</text>
+    <text wx:if="{{!thrinfo.mail}}">邮箱号码未填写</text>
+  </view>
+</view>
+<view class='company-introduct'>
+  <view class='arrowl'>
+    <image src='/images/arrowy.png'></image>
+  </view>
+  <view class='arrowr'>
+    <image src='/images/arrowy.png'></image>
+  </view>
+  <view class='introcucts'>
+    <text>企业介绍</text>
+  </view>
+  <text class='introtext' wx:if="{{form.shortCut}}">{{form.shortCut}}</text>
+  <text class='introtext' wx:if="{{!form.shortCut}}">请填写贵公司的公司概况、主营产品、品牌、服务等内容。详细的介绍更易使买家产生信任感，建立企业形象，仔细地填写将达到事半功倍的效果哦～</text>
+</view>
+<view class='company-show'>
+  <view class='arrowl'>
+    <image src='/images/arrowy.png'></image>
+  </view>
+  <view class='arrowr'>
+    <image src='/images/arrowy.png'></image>
+  </view>
+  <view class='company-shows'>
+    <text>企业风采</text>
+  </view>
+  <view class='company-image'>
+    <view class='topleft'>
+      <image src='/images/mc-topbottom.png'></image>
+    </view>
+    <view class='topright'>
+      <image src='/images/mc-topbottom.png'></image>
+    </view>
+    <view class='buttomleft'>
+      <image src='/images/mc-topbottom.png'></image>
+    </view>
+    <view class='buttomright'>
+      <image src='/images/mc-topbottom.png'></image>
+    </view>
+    <view class='company-images'>
+      <swiper class='swipers' circular='circular' current='{{current}}' indicator-dots="indicator-dots" bindtap='previewIamge' data-id="{{current}}" bindchange="bannerchange">
+        <block wx:if="{{form.banner}}" wx:for="{{imageArrs}}">
+        <swiper-item>
+          <image mode='aspectFill' src="{{item}}"></image>
+        </swiper-item>
+      </block>
+       <block wx:if="{{!form.banner}}" wx:for="{{imageArr}}">
+        <swiper-item>
+          <image mode='aspectFill' src="{{item}}"></image>
+        </swiper-item>
+      </block>
+      </swiper>
+    </view>
+  </view>
+</view>
+<view class='company-aim'>
+  <view class='arrowl'>
+    <image src='/images/arrowy.png'></image>
+  </view>
+  <view class='arrowr'>
+    <image src='/images/arrowy.png'></image>
+  </view>
+  <view class='company-aimtext'>
+    <text>企业宗旨</text>
+  </view>
+  <view class='company-aimimage'>
+    <image src='/images/mc-thr.png'></image>
+  </view>
+</view>
+<view class='company-message'>
+  <view class='arrowl'>
+    <image src='/images/arrowy.png'></image>
+  </view>
+  <view class='arrowr'>
+    <image src='/images/arrowy.png'></image>
+  </view>
+  <view class='company-messagetext'>
+    <text>企业信息</text>
+  </view>
+</view>
+<view class='itemcontainer'>
+  <view class='itemtext'>
+    <text class='lefttext'>公司名称：</text>
+    <text class='righttext' wx:if="{{form.name}}">{{form.name}}</text>
+  </view>
+  <view class='itemtext'>
+    <text class='lefttext'>公司类型：</text>
+    <text class='righttext' wx:if="{{form.typeStr}}">{{form.typeStr}}</text>
+  </view>
+  <view class='itemtext'>
+    <text class='lefttext'>经营模式：</text>
+    <text class='righttext' wx:if="{{form.managemodel}}">{{form.managemodel}}</text>
+  </view>
+  <view class='itemtext'>
+    <text class='lefttext'>法定法人：</text>
+    <text class='righttext' wx:if="{{form.corporation}}">{{form.corporation}}</text>
+  </view>
+  <view class='itemtext'>
+    <text class='lefttext'>成立日期：</text>
+    <text class='righttext' wx:if="{{form.establishDate}}">{{timeTranslate.timestampToTime(form.establishDate)}}</text>
+  </view>
+  <view class='itemtext'>
+    <text class='lefttext'>公司网址：</text>
+    <text class='righttext' wx:if="{{form.companyWeb}}">{{form.companyWeb}}</text>
+  </view>
+  <view class='itemtext'>
+    <text class='lefttext'>经营地址：</text>
+    <text class='righttext' wx:if="{{form.addrDetail}}">{{form.addrDetail}}</text>
+  </view>
+  <view class='itemtext'>
+    <text class='lefttext'>主营行业：</text>
+    <text class='righttext' wx:if="{{form.majorIndustry}}">{{form.majorIndustry}}</text>
+  </view>
+  <view class='itemtext'>
+    <text class='lefttext'>主营产品：</text>
+    <text class='righttext' wx:if="{{form.majorProd}}">{{form.majorProd}}</text>
+  </view>
+</view>
+<view class='company-sharecontainer' wx:if="{{cardStatus == 0}}">
+  <view class='company-share'>
+    <button open-type='share'>
+      <text>发送给朋友</text>
+    </button>
+    <view bindtap='shareToFriend'>
+      <text>分享朋友圈</text>
+    </view>
+  </view>
+</view>
+<view class="create-card" wx:elif="{{cardStatus == 1}}" bindtap="createCard">
+  <view class="gradient-blue-btn">我也要制作</view>
+</view>
+<view class='company-sharecontainer' wx:elif="{{cardStatus == 2}}">
+  <view class='company-share'>
+    <view bindtap="toMyCard">
+      <text>我的名片</text>
+    </view>
+    <view bindtap='toMarketing'>
+      <text>我的营销</text>
+    </view>
+  </view>
+</view>
+
+<view class="canvas-hide">
+  <canvas class="poster-canvas" canvas-id="customCanvas"></canvas>
+</view>
+<!-- <canvas class="poster-canvas" canvas-id="customCanvas"></canvas> -->
+<!-- 授权弹窗 -->
+<authorizedPopup author-show-flag="{{authorShowFlag}}"></authorizedPopup>
+<ucInforAuthPopup uc-info-auth-show="{{ucInfoAuthShow}}" binducAuth="onGotUserInfo"></ucInforAuthPopup>

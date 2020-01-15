@@ -1,0 +1,15 @@
+<!--components/vip-ctt/vip-ctt.wxml-->
+
+<view class="ctt-vip-popup" wx:if="{{!unCttVipFlag}}">
+  <view class="cvp-bg"></view>
+  <view class="cvp-content">
+    <view class="cvp-close" bindtap="closeVipPopup">
+       <image src="/images/second-edition/mc-vip-ctt-close-icon.png" ></image>
+    </view>
+    <view class="cvp-tip">抱歉，暂不可用</view>
+    <view class="cvp-only-vip">该功能只有采通通会员才能使用</view>
+    <text class="cvp-text">开通采通通，无限次分享优质商品，</text>
+    <view class="cvp-text">在线询盘，一键成交，助力买家转化！</view>
+    <view class="cvp-btn" bindtap="toCttChannel">了解一下</view>
+  </view>
+</view>

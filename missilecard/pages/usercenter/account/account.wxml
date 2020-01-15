@@ -1,0 +1,61 @@
+<top-nav inner-title="账号关联"></top-nav>
+<form bindsubmit="formSubmit">
+  <view class='account-container'>
+    <view class='account-header'>
+      <text>请输入要登录的搜好货账号，登录成功后将企业名片关联并绑定您在搜好货平台的账号信息将自动同步到企业名片中！</text>
+    </view>
+    <view class='account-space'></view>
+    <view class='account-login'>
+      <view bindtap='changeTabbar' data-id="0" class="account-have {{index == 0 ? 'account-active' : ''}}">
+        <text>已有搜好货账号</text>
+        <text bindtap='changeTabbars' data-id="0" class="account-register {{index == 0 ? 'account-actives' : ''}}">登录并关联</text>
+      </view>
+      <view bindtap='changeTabbar' data-id="1" class="account-nohave {{index == 1 ? '_account-active' : ''}}">
+        <text>暂无搜好货账号</text>
+        <text bindtap='changeTabbars' data-id='1' class="account-register {{index == 1 ? '_account-actives' : ''}}">注册并关联</text>
+      </view>
+    </view>
+    <view class='account-space'></view>
+    <view class="account-form {{index == 0 ? 'show':'hidden'}}">
+      <!-- <view class='account-info'>
+      <text>登录信息</text>
+      <text class='account-textlogin'>请用搜好货账号登录</text>
+    </view> -->
+      <view class='account-info'>
+        <text class='account-text'>登录账号 :</text>
+        <input name="havelogin" bindinput="getusername"/>
+      </view>
+      <view class='account-info'>
+        <text class='account-text'>登录密码 :</text>
+        <input name="havepassword" type='password' bindinput="getcode"/>
+      </view>
+    </view>
+    <view>
+      <view class="account-form {{index == 1 ? 'show':'hidden'}}">
+        <view class='account-info'>
+          <text class='account-text'>公司名称 :</text>
+          <input name="companyName" />
+        </view>
+        <view class='account-info'>
+          <text class='account-text'>登录密码 :</text>
+          <input name="nohavepassword" type='password'/>
+        </view>
+        <view class='account-info'>
+          <text class='account-text'>手机号码 :</text>
+          <input name="iphone" type='number' bindinput="checkiphone" />
+        </view>
+        <view class='account-info'>
+          <text class='account-text'>短信验证 :</text>
+          <input name="message" type='number' />
+          <button class='account-code' disabled='{{show}}' bindtap='getVerificationCode'>{{codetext}}</button>
+        </view>
+      </view>
+    </view>
+    <button class='account-btn' bindtap='login'>
+      <text>登录并关联</text>
+    </button>
+    <button class="account-btn" form-type='submit' wx:if="{{index == 1}}">
+      <text>注册并关联</text>
+    </button>
+  </view>
+</form>

@@ -1,0 +1,241 @@
+<!--pages/marketing/commodity-detail.wxml-->
+<wxs src="../../utils/wxs/tools.wxs" module="timeTranslate"></wxs>
+<top-nav inner-title="产品详情" sharePage="true"></top-nav>
+<view class="{{productParamFlag?'indexFixed':''}}">
+<swiper
+  circular
+  indicator-dots
+  indicator-color="#858381"
+  indicator-active-color="#ffffff"
+  easing-function="easeInOutCubic"
+  class="commodity-detail-swiper"
+  >
+  <swiper-item wx:for="{{productDetailObj.product.imgs}}" wx:key="item.id">
+    <image src="{{item}}" class="slide-image"/>
+  </swiper-item>
+</swiper>
+<view class="commodity-detail">
+  <view class="cd-title">{{productDetailObj.product.productName}}</view>
+  <view class="cd-remark">{{productDetailObj.title}}</view>
+  <view class="cd-price-region">
+    <view class="cd-region-item" wx:if="{{priceWay == 1}}" wx:for="{{productDetailObj.product.priceRangeList}}" wx:for-item="rangeItem" wx:key="item.id">
+      <view class="cdr-price">￥<text>{{rangeItem.sPrice>0?rangeItem.sPrice:'面议'}}</text></view>
+      <view class="cdr-number">{{productDetailObj.product.minOrderNum || '1'}}{{productDetailObj.product.calCeil || '件'}}</view>
+    </view>
+    <view class="cd-region-item" wx:if="{{priceWay == 2}}">
+      <view class="cdr-price">￥{{productDetailObj.product.sminPrice}}~￥{{productDetailObj.product.smaxPrice}}<text></text></view>
+    </view>
+    <view class="cd-region-item" wx:if="{{priceWay == 3}}">
+      <view class="cdr-price">￥面议<text></text></view>
+    </view>
+    <view class="cd-region-item" wx:if="{{priceWay == 4}}">
+      <view class="cdr-price">￥{{productDetailObj.product.sminPrice}}<text></text></view>
+    </view>
+  </view>
+  <!-- <view class="cd-price">￥<text>7500</text>.00~￥<text>8100</text>.00</view> -->
+  <view class="cd-tip">
+    <view class="cd-tip-item">
+      <view>起订量</view>
+      <text>≥{{productDetailObj.product.minOrderNum}}个</text>
+    </view>
+    <view class="cd-tip-item">
+      <view>总供应</view>
+      <text>{{productDetailObj.product.supplyNum}}个</text>
+    </view>
+    <view class="cd-tip-item">
+      <view>所在地</view>
+      <text>{{productDetailObj.company.addrDetail}}</text>
+    </view>
+  </view>
+</view>
+<view class="model-number" data-idx="{{rangePriceFlag?3:2}}" bindtap="checkProduct">查看规格及数量</view>
+<image class="call-ihpone-img" wx:if="{{cardStatus != 0}}" bindtap="makePhoneCall" src='/images/mc-iphone-call.gif'></image>
+<view class="cd-company">
+  <view class="cd-company-bg">
+    <image src='{{userInfoObj.avatarPath}}'></image>
+    <!-- <image src='{{productDetailObj.avatarPath}}'></image> -->
+    <view class="cd-company-detail">
+      <text class="cd-company-name">{{productDetailObj.shop.shopName}}</text>
+      <view class="cd-company-infor">
+        <view class="cd-contact-name">{{userInfoObj.name}}</view>
+        <view class="cd-contact-iphone" bindtap="makePhoneCall">{{userInfoObj.mobile}}</view>
+      </view>
+    </view> 
+    <!-- <view class="cd-company-check" bindtap="toMyCard">查看</view> -->
+  </view>
+</view>
+<view class="cd-product">
+  <view class="cd-product-title">产品参数</view>
+  <view class="cd-more" data-idx="1" bindtap="checkProduct">更多</view>
+</view>
+<view class="cd-product-detail" >
+  <view class="cd-product-item" wx:for="{{lessAttrValueList}}" wx:key="id">
+    <text class="cdpd-left">{{item.attrName}}</text>
+    <text class="cdpd-right">{{item.attrShowValue}}</text>
+  </view>
+</view>
+<view class="cd-product">
+  <view class="cd-product-title">图文详情</view>
+</view>
+<view class="cdp-show">
+  <htmlParser parser-name="{{hotParseName}}" parser-content="{{hotParse}}"/>
+  <!-- <image src='/images/mc-marketing-eg-bg.jpg'></image> -->
+</view>
+<view class="commodity-detail" wx:for="{{productDetailObj.shopProd}}" wx:key="id">
+  <view class="cd-title">{{item.prodName}}</view>
+  <view class="cd-remark">{{item.title}}</view>
+  <!-- <view class="cd-price">￥<text>{{item.minPrice}}</text>.00~￥<text>8100</text>.00</view> -->
+  <view class="cd-tip recommond-cd-tip">
+    <view class="cd-tip-item">
+      <view>起订量</view>
+      <text>≥{{item.minOrderNum}}个</text>
+    </view>
+    <view>
+      <view>总供应</view>
+      <text>{{item.supplyNum}}个</text>
+    </view>
+    <view>
+      <view>所在地</view>
+      <text>{{item.compAddr}}</text>
+    </view>
+  </view>
+</view>
+<view class="mcs-btn-box" wx:if="{{cardStatus == 0}}">
+  <button class="gradient-blue-btn" open-type='share'>发送给朋友</button>
+  <view class="gradient-blue-btn" bindtap="sharePoster">分享朋友圈</view>
+</view>
+<view class="mcs-btn-box" wx:elif="{{cardStatus == 1}}">
+  <view class="gradient-blue-btn" data-idx="1" bindtap="createCard">我也要制作</view>
+  <view class="gradient-blue-btn" data-idx="2" bindtap="contactMerchant">联系商家</view>
+</view>
+</view>
+<!-- 画布 -->
+<view class="canvas-hide">
+  <canvas class="poster-canvas" canvas-id="customCanvas"></canvas>
+</view>
+<!-- 授权弹窗 -->
+<authorizedPopup author-show-flag="{{authorShowFlag}}"></authorizedPopup>
+<!-- 查看产品参数悬浮框 -->
+<view class="mask" wx:if="{{productParamFlag != 0}}" bindtap='closeMask'></view>
+<view class="Industry-picker {{productParamFlag ==1 ?'Industry-picker-show':''}}">
+  <view class="i-pick-title">产品参数<image src="/images/mc-close.png" bindtap='comfirmProduct'></image></view>
+  <view class="i-pick-main">
+    <view class="product-param-item" wx:for="{{attrValueList}}" wx:key="id" >
+      <view class="cdp-detail-left">{{item.attrName}}</view>
+      <view class="cdp-detail-right">{{item.attrShowValue}}</view>
+    </view>
+  </view>
+  <view class="i-pick-btn">
+    <view class="gradient-blue-btn" bindtap="comfirmProduct">确定</view>
+  </view>
+</view>
+<!-- <view>{{productDetailObj.product.productDetail}}</view> -->
+<!-- 查看规格及数量 -->
+<view class="cm-product-quantity {{productParamFlag ==2 ?'cm-product-quantity-show':''}}">
+  <view class="cmpq-top">
+    <view class="cmpq-top-img">
+      <image src='{{productDetailObj.product.imgs[0]}}'></image>
+    </view>
+    <view class="cmpq-top-title">
+      <view>{{productDetailObj.product.productName}}</view>
+      <text>￥{{productDetailObj.product.minPrice>0?productDetailObj.product.minPrice:'面议'}}</text>
+    </view>
+    <image src='/images/mc-close.png' bindtap="comfirmProduct"></image>
+  </view>
+  <view class="cmpq-title">
+    <text>规格</text>
+    <text>价格/数量</text>
+  </view>
+  <view class="cmpq-size noRange">
+    <view class="cmpq-size-item" wx:for="{{negotiableList}}" wx:key="item.id">
+      <text>{{item.specValue1}}</text>
+      <view>
+        <text>￥{{item.sPrice>0?item.sPrice:'面议'}}</text>
+        <view>{{item.totalCount}}可售</view>
+      </view>
+    </view>
+  </view>
+  <view class="cmpq-btn">
+    <view class="gradient-blue-btn" bindtap="comfirmProduct">确定</view>
+  </view>
+</view>
+
+<!-- 查看产品参数悬浮框  有区间-->
+<view class="cm-product-quantity {{productParamFlag ==3 ?'cm-product-quantity-show':''}}" catchtouchmove="ture">
+  <view class="cmpq-top">
+    <view class="cmpq-top-img">
+      <image src='{{productDetailObj.product.imgs[0]}}'></image>
+    </view>
+    <view class="cmpq-top-title">
+      <view>{{productDetailObj.product.productName}}</view>
+      <text>￥{{productDetailObj.product.sminPrice}}~￥{{productDetailObj.product.smaxPrice}}</text>
+    </view>
+    <image src='/images/mc-close.png' bindtap="comfirmProduct"></image>
+  </view>
+  <view class="cmpq-title-add">
+    <text>{{productDetailObj.spec1Name}}</text>
+    <text wx:if="{{productDetailObj.spec2Name != 'undefined' && productDetailObj.spec2Name}}">{{productDetailObj.spec2Name}}</text>
+    <text>价格/数量</text>
+  </view>
+  <view class="cmpq-color-box">
+    <scroll-view scroll-y class="cmpq-color" >
+      <view wx:for="{{productDetailObj.spec1List}}" wx:key="item.id" class="cmpq-color-item {{spec1Name == item?'cmpq-color-item-active':''}}" data-spec1Name="{{item}}" bindtap='selectSpecification'>{{item}}</view>
+    </scroll-view>
+    <view class="cmpq-size">
+      <view class="cmpq-size-item"  wx:for="{{productDetailObj.specTabMap[spec1Name]}}" wx:key="item.id">
+        <text>{{item.specValue2}}</text>
+        <view>
+          <text>￥{{item.sPrice}}</text>
+          <view>{{item.totalCount}}可售</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="cmpq-btn">
+    <view class="gradient-blue-btn" bindtap="comfirmProduct">确定</view>
+  </view>
+</view>
+
+<!-- 寻底价-->
+<view class="cm-enquiry {{productParamFlag ==4 ?'cm-enquiry-show':''}}" wx:if="{{productParamFlag ==4}}">
+  <view class="cme-title">询底价<image src="/images/mc-close.png" bindtap='comfirmProduct'></image></view>
+  <form class="cme-form" bindsubmit="sendPrice">
+    <view class="cme-form-title">99米防水 高粘性环保PVC电工 电气绝缘胶带 PVC哈哈哈哈啊哈</view>
+    <view class="cme-form-item">
+      <text>采购数量</text>
+      <view class="cmef-item-number">
+        <view class="{{purchaseNumber ==1 ?'cmef-add-unclick':''}}" bindtap="minusNumber">-</view>
+        <input name="buyNum" bindinput="inputNumber" value="{{purchaseNumber}}"></input>
+        <view bindtap="addNumber">+</view>
+      </view>
+    </view>
+    <view class="cme-form-item">
+      <text>联系信息</text>
+      <input maxlength='5' placeholder-class="input-default" class="csef-username" name="buyerName" placeholder="您的称呼"></input>
+      <input placeholder-class="input-default" type='number' maxlength='14' class="csef-useriphone" name="buyerMobile" placeholder="您的联系电话"></input>
+    </view>
+    <view class="cme-form-item">
+      <text>公司名称</text>
+      <input placeholder-class="input-default" maxlength='30' name="buyerComp" placeholder="您的公司名称"></input>
+    </view>
+    <view class="cme-form-item purchase-detault" hidden="{{sendPriceFlag}}">
+      <text>采购说明</text>
+      <textarea placeholder-class="input-default" maxlength='200' name="remark" placeholder="请输入采购说明"></textarea>
+    </view>
+    <view class="cme-form-item purchase-detault" hidden="{{!sendPriceFlag}}">
+      <text>采购说明</text>
+      <view class="hideTextare"></view>
+    </view>
+    <view class="cme-btn" wx:if='{{!sendPriceFlag}}'>
+      <button class="gradient-blue-btn" formType="submit">发送底价</button>
+    </view>
+    <view class="cme-btn" wx:else>
+      <view class="gradient-blue-btn" bindtap="comfirmProduct">确定</view>
+    </view>
+    <view class="sendPriceSuccess" hidden="{{!sendPriceFlag}}">
+       <icon type="success" size="60" />
+       <text>发送询价成功</text>
+    </view>
+  </form>
+</view>
+<ucInforAuthPopup uc-info-auth-show="{{ucInfoAuthShow}}" binducAuth="onGotUserInfo"></ucInforAuthPopup>

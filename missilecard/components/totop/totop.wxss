@@ -1,0 +1,13 @@
+/* components/totop/totop.wxss */
+.totop {
+  width: 121rpx;
+  height: 123rpx;
+  position: fixed;
+  right: 30rpx;
+  bottom: 10%;
+}
+
+.totop image {
+  width: 121rpx;
+  height: 123rpx;
+}

@@ -1,0 +1,149 @@
+<wxs src="../../../../utils/wxs/tools.wxs" module="timeTranslate"></wxs>
+<top-nav inner-title="企业营销" sharePage="true"></top-nav>
+<!-- <view class='edit' bindtap='checkoutedit'  wx:if="{{cardStatus == 0}}">
+  <image src='/images/mc-marking-edit.png'></image>
+</view> -->
+<view class="user-card-bg">
+  <view class="u-card-box {{cardClassName}}" animation="{{slide_card}}">
+    <image mode="aspectFill" class="uc-avatar" src="{{firstinfo.avatarPath}}"></image>
+    <!-- <view class="uc-avatar"><open-data type="userAvatarUrl"></open-data></view> -->
+    <view class="uc-title">
+      <view>{{firstinfo.name}}</view>
+      <text>{{firstinfo.position}}</text>
+    </view>
+    <image class="uc-bg" src='{{cardImageSrc}}'></image>
+    <view class="uc-infor">
+      <view class="us-company-name">{{firstinfo.companyName}}</view>
+      <view class="us-iphone">{{firstinfo.mobile}}</view>
+      <view class="us-email">{{firstinfo.mail}}</view>
+    </view>
+  </view>
+</view>
+<view class='company-profile'>
+  <view class='profile-title'>
+    <text class='title'>企业の简介</text>
+    <text class='letter'>BRIEF INTRODUTION</text>
+  </view>
+  <view class='brief' wx:if="{{form.shortCut}}">{{form.shortCut}}</view>
+  <view class='brief' wx:if="{{!form.shortCut}}">请填写贵公司的公司概况、主营产品、品牌、服务等内容。详细的介绍更易使买家产生信任感，建立企业形象，仔细地填写将达到事半功倍的效果哦～</view>
+</view>
+<view class='company-style position'>
+  <view class='iconleftC' bindtap='prevImg'></view>
+  <view class='iconleft' bindtap='prevImg'>
+    <image src='/images/mc-prevImg.png'></image>
+  </view>
+  <view class='iconrightC' bindtap='nextImg'></view>
+  <view class='iconright' bindtap='nextImg'>
+    <image src='/images/mc-nextImg.png'></image>
+  </view>
+  <view class='profile-title'>
+    <text>企业の风采</text>
+    <text class='letter'>ELEGANT DEMEANO</text>
+  </view>
+  <view class='imagecontainer'>
+    <swiper class='swipers' circular='circular' current='{{current}}' bindtap='previewIamge' data-id='{{current}}' bindchange="bannerchange">
+      <block wx:if="{{form.banner}}" wx:for="{{imageArrs}}">
+        <swiper-item>
+          <image mode='aspectFill' src="{{item}}"></image>
+        </swiper-item>
+      </block>
+       <block wx:if="{{!form.banner}}" wx:for="{{imageArr}}">
+        <swiper-item>
+          <image mode='aspectFill' src="{{item}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>
+<view class='company-Introduction'>
+  <view class='company-Introductionitem'>
+    <view class='imagecontainer images'>
+      <image src='/images/faith.png'></image>
+    </view>
+    <text>诚信经营</text>
+  </view>
+  <view class='company-Introductionitem'>
+    <view class='images imagestwo'>
+      <image src='/images/service.png'></image>
+    </view>
+    <text>用心服务</text>
+  </view>
+  <view class='company-Introductionitem'>
+    <view class='images imagesthe'>
+      <image src='/images/postshare.png'></image>
+    </view>
+    <text>实力售后</text>
+  </view>
+</view>
+<view class='profile-title profilecolor'>
+  <text class='profileinfo'>企业の信息</text>
+  <text class='letter footerinfo'>ELEGANT DEMEANO</text>
+</view>
+<view class='itemcontainer'>
+  <view class='itemtext'>
+    <text class='lefttext'>公司名称：</text>
+    <text class='righttext' wx:if="{{form.name}}">{{form.name}}</text>
+  </view>
+  <view class='itemtext'>
+    <text class='lefttext'>公司类型：</text>
+    <text class='righttext' wx:if="{{form.typeStr}}">{{form.typeStr}}</text>
+  </view>
+  <view class='itemtext'>
+    <text class='lefttext'>经营模式：</text>
+    <text class='righttext' wx:if="{{form.managemodel}}">{{form.managemodel}}</text>
+  </view>
+  <view class='itemtext'>
+    <text class='lefttext'>法定法人：</text>
+    <text class='righttext' wx:if="{{form.corporation}}">{{form.corporation}}</text>
+  </view>
+  <view class='itemtext'>
+    <text class='lefttext'>成立日期：</text>
+    <text class='righttext' wx:if="{{form.establishDate}}">{{timeTranslate.timestampToTime(form.establishDate)}}</text>
+  </view>
+  <view class='itemtext'>
+    <text class='lefttext'>公司网址：</text>
+    <text class='righttext' wx:if="{{form.companyWeb}}">{{form.companyWeb}}</text>
+  </view>
+  <view class='itemtext'>
+    <text class='lefttext'>经营地址：</text>
+    <text class='righttext' wx:if="{{form.addrDetail}}">{{form.addrDetail}}</text>
+  </view>
+  <view class='itemtext'>
+    <text class='lefttext'>主营行业：</text>
+    <text class='righttext' wx:if="{{form.majorIndustry}}">{{form.majorIndustry}}</text>
+  </view>
+  <view class='itemtext'>
+    <text class='lefttext'>主营产品：</text>
+    <text class='righttext' wx:if="{{form.majorProd}}">{{form.majorProd}}</text>
+  </view>
+</view>
+<view class='company-sharecontainer' wx:if="{{cardStatus == 0}}">
+  <view class='company-share'>
+    <button open-type='share'>
+      <text>发送给朋友</text>
+    </button>
+    <view bindtap='shareToFriend'>
+      <text>分享朋友圈</text>
+    </view>
+  </view>
+</view>
+<view class="create-card" wx:if="{{cardStatus == 1}}" bindtap="createCard">
+  <view class="gradient-blue-btn">我也要制作</view>
+</view>
+<view class='company-sharecontainer' wx:if="{{cardStatus == 2}}">
+  <view class='company-share'>
+    <view bindtap="toMyCard">
+      <text>我的名片</text>
+    </view>
+    <view bindtap='toMarketing'>
+      <text>我的营销</text>
+    </view>
+  </view>
+</view>
+<!-- 画布 -->
+<view class="canvas-hide">
+  <canvas class="poster-canvas" canvas-id="customCanvas"></canvas>
+</view>
+<!-- 授权弹窗 -->
+<authorizedPopup author-show-flag="{{authorShowFlag}}"></authorizedPopup>
+<ucInforAuthPopup uc-info-auth-show="{{ucInfoAuthShow}}" binducAuth="onGotUserInfo"></ucInforAuthPopup>

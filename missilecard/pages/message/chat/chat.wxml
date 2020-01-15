@@ -1,0 +1,210 @@
+<!--pages/message/chat/chat.wxml-->
+<wxs src="../../../utils/chooseTime.wxs" module="dateUtil" />
+<top-nav inner-title="{{mytitle}}"></top-nav>
+<view class='message'>
+  <view class='message-cover'>
+    <view class='top flexBox flexBetween'>
+      <view class='card-top shield vant-hairline--right' bindtap='shield'>
+        <text class='top-icon iconfont iconpingbi1'></text>
+        <text class='top-text'>{{isShield ? "取消屏蔽" : "屏蔽此人"}}</text>
+      </view>
+      <view class='card-top details' bindtap='toDetails'>
+        <text class='top-icon iconfont iconmingpianxiangqing'></text>
+        <text class='top-text'>查看详情</text>
+      </view>
+    </view>
+    <view class='msg-main'>
+      <scroll-view scroll-y="true" class="history" style="position:relative;bottom:{{inputHeight}}px">
+        <block wx:for="{{msgList}}" wx:key="{{index}}">
+          <view class='msg-time' wx-if="{{dateUtil.chooseTime(msgList[index].createTime,msgList[index-1].createTime)}}">{{dateUtil.dateFormat(item.createTime,'yyyy-MM-dd hh:mm', nowDate,'msg')}}</view>
+
+          <!-- 自己的消息 -->
+          <view id="bottom_{{index}}" class='chat-news' wx-if="{{launchUserId != item.launchUserId}}">
+            <view class='mine' style="text-align: right;padding-right: 30rpx;">
+              <!-- <text class="name">{{ item.nickName }}</text> -->
+              <image class='new_img' src="{{myavatar}}"></image>
+            </view>
+
+            <!-- <view class='my_right'>
+
+              <block wx:if="{{item.type=='text'}}">
+
+                <view class='new_txt'>{{item.content}}</view>
+
+              </block>
+
+              <block wx:if="{{item.type=='image'}}">
+
+                <image class="selectImg" src="{{item.images}}" data-src="{{item.images}}" lazy-load="true" bindtap="previewImg"></image>
+
+              </block>
+
+            </view> -->
+
+            <view class='my_right'>
+                   
+              <block wx:if="{{item.type==1}}">
+
+                <view class='new_txt new_txt_right'>{{item.content}}</view>
+
+              </block>
+
+              <block wx:if="{{item.type==2}}">
+                <view class='img_box'>
+                  
+                  <view class='rightImg_cover' wx-if="{{show && index == msgList.length-1}}" >
+                    <mp-loading ext-class="load" type="circle" tips="{{tips}}" show="{{show}}"></mp-loading>
+                  </view>
+                  <image id="image-{{index}}" mode="widthFix" style="background-color:transparent;" class="selectImg" src="{{item.content}}" data-src="{{item.content}}" lazy-load="true" bindtap="previewImg" binderror="erroeImage"></image>
+                </view>
+              </block>
+
+            </view>
+          </view>
+
+
+          <!-- 对方的消息 -->
+          <view id="bottom-{{index}}" class='chat-news' wx:else>
+            <view class='your' style="text-align: left;margin-left: 30rpx;" bindtap='toDetails'>
+              <image class='new_img' src='{{youravatar}}'></image>
+
+            </view>
+            <!-- <view class='you_left'>
+              <block wx:if="{{item.type=='text'}}">
+                <view class='new_txt'>{{item.content}}</view>
+              </block>
+              <block wx:if="{{item.type=='image'}}">
+                <image class="selectImg" src="{{item.images}}" data-src="{{item.images}}" lazy-load="true" bindtap="previewImg"></image>
+              </block>
+            </view> -->
+            <view class='you_left'>
+              <view class='name' bindtap='toDetails'>{{mytitle}}</view>
+              <block wx:if="{{item.type==1}}">
+                <view class='new_txt new_txt_left'>{{item.content}}</view>
+              </block>
+              <block wx:if="{{item.type==2}}">
+                <image id="image-{{index}}" mode="widthFix" style="background-color:transparent;" class="selectImg" src="{{item.content}}" data-src="{{item.content}}" lazy-load="true" bindtap="previewImg" binderror="erroeImage"></image>
+                <!-- <image mode="widthFix" style="background-color:transparent;" class="selectImg" src="{{isErrImg ? '../../../images/msg/err-img.png' : item.content}}" data-src="{{item.content}}" lazy-load="true" bindtap="previewImg" binderror="erroeImage"></image> -->
+              </block>
+            </view>
+          </view>
+
+
+        </block>
+        <view id="scroll-flag"></view>
+        <!-- <view style="width:100%;height:{{inputHeight}}px"></view> -->
+      </scroll-view>
+
+      <!--  -->
+
+      <!-- <view class='myi'>
+        <view wx:for="{{radomheight}}" style='height:{{item}}rpx;margin-top:-{{item/2}}rpx'></view>
+        <view style='clear:both;width:0;height:0;'></view>
+
+      </view> -->
+      
+    </view>
+    <view class='msg-cover' wx-if="{{video_vioce != 0}}"></view>
+    <view class='msg-cover cover' wx-if="{{add_cover}}" bindtap='outbtn'></view>
+  </view>
+
+  <view id="flag" style='margin-top:{{increase ? 230 : 0}}rpx;'></view>
+  
+
+
+  <view class='msg-bottom'>
+    <!-- <view class="sendMessage flexBox flexAlignCenter"> -->
+    <view class="sendMessage flexBox flexAlignCenter" style="padding-bottom:{{inputHeight}}px">
+      <view class='input-box'>
+        <input confirm-type="send" adjust-position="{{inputUp}}" class='msg-input' type="text" value="{{massage}}" bindfocus="onFoucs" bindblur="inputBlur" focus="{{focusFlag}}" bindconfirm="onSend" cursor-spacing="20" bindkeyboardheightchange="bindkeyboardheightchange"></input>
+      </view>
+      <view class='msg-video' bindtap='sendVideo' bindlongpress="handleLongPress" bindtouchend="touchEnd">
+        <view class='video-top' wx-if="{{video_tip}}">按住说话</view>
+        <view class='video-bg' wx-if="{{video_vioce == 1}}">
+          <view class='video-text'>
+            <text class='text-tishi'>语音聆听中...</text>
+            <view class='text-change'></view>
+          </view>
+          <view class='video-control'>
+            <view class='change-animation'>
+              <view class='myi'>
+                <view wx:for="{{radomheight}}" style='height:{{item}}rpx;margin-top:-{{item/2}}rpx' wx:key="{{item}}"></view>
+                <view style='clear:both;width:0;height:0;'></view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='video-bg' wx-if="{{video_vioce == 2}}">
+          <view class='video-text'>
+            <text class='text-tishi'>语音正在转换成文字</text>
+            <view class='text-change'>
+              <mp-loading ext-class="video-load" type="circle" tips="{{video_tips}}" show="{{video_show}}"></mp-loading>
+            </view>
+          </view>
+          <view class='video-btn-box'>
+            <view class='video-btn video-none' bindtap='closeVideo'>取消</view>
+          </view>
+        </view>
+        <view class='video-bg' wx-if="{{video_vioce == 3}}">
+          <view class='video-text'>
+            <text class='text-tishi'>语音转文字已完成</text>
+            <textarea bindinput="changeText" show-confirm-bar="false" fixed="true" cursor-spacing="60" class='text-change' value='{{content}}'>
+              <!-- {{content}} -->
+            </textarea>
+          </view>
+          <view class='video-btn-box'>
+            <view class='video-btn video-sub' bindtap='sendVideoText'>发送</view>
+            <view class='video-btn video-none' bindtap='closeVideo'>取消</view>
+          </view>
+        </view>
+        <image class='video' src='../../../images/msg/video.png'></image>
+      </view>
+      <view class='msg-add' bindtap='sendAdd'>
+        <image class='video' src='../../../images/msg/add.png'></image>
+      </view>
+    </view>
+    <!-- 相机 相册 -->
+    <view class='flexBox increased {{aniStyle?"slideup":"slidedown"}}' wx:if="{{increase}}">
+
+      <view class="image" bindtap='chooseImage'>
+        <view class='image-icon-box'>
+          <text class='image-icon iconfont iconxiangce1'></text>
+        </view>
+        <view class='image-text'>照片</view>
+      </view>
+
+      <view class="image" bindtap='chooseCamera'>
+        <view class='image-icon-box'>
+          <text class='image-icon iconfont iconpaishe'></text>
+        </view>
+        <text class='image-text'>拍摄</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- <view class="msg-bottom">
+
+    <form bindreset="cleanInput" class="sendMessage">
+
+      <input type="text" placeholder="请输入聊天内容.." value="{{massage}}" bindinput='bindChange'></input>
+
+      <view class='msg-video'>
+        <image class='video' src='../../../images/msg/video.png'></image>
+      </view>
+
+      <view class="add" bindtap='increase'>+</view>
+
+
+    </form>
+
+    <view class='increased {{aniStyle?"slideup":"slidedown"}}' wx:if="{{increase}}">
+
+      <view class="image" bindtap='chooseImage'>相册 </view>
+
+    </view>
+
+  </view> -->
+</view>
+
+<!-- 非会员点击详情弹出的弹窗 -->
+<vip-ctt class="vip-ctt" un-ctt-vip-flag="{{unCttVipFlag}}"></vip-ctt>

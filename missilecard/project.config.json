@@ -1,0 +1,398 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": true,
+		"checkInvalidKey": true,
+		"coverView": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"nodeModules": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.9.0",
+	"appid": "wx9ece7044b87d1490",
+	"projectname": "%E5%AF%BC%E5%BC%B9%E5%90%8D%E7%89%87master",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"scripts": {},
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 48,
+			"list": [
+				{
+					"id": -1,
+					"name": "edit-card",
+					"pathName": "pages/edit-card",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "share-card",
+					"pathName": "pages/share-card",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "marketing",
+					"pathName": "pages/marketing/marketing",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "marketing-category",
+					"pathName": "pages/marketing/marketing-category",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "commodity-detail",
+					"pathName": "pages/marketing/commodity-detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "card-qrcode",
+					"pathName": "pages/card-qrcode",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "marketingifrst",
+					"pathName": "pages/marketing/company-marketing/company-marketingfirst/company-marketingfirst",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "company-edit",
+					"pathName": "pages/marketing/company-marketing/company-edit/company-edit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "about",
+					"pathName": "pages/usercenter/about/about",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新增名片",
+					"pathName": "pages/editCard/pages/create-card/create-card",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "userCard",
+					"pathName": "pages/usercenter/userCard/userCard",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "suggestion",
+					"pathName": "pages/usercenter/suggestion/suggestion",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "marking",
+					"pathName": "pages/marketing/marketing",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "cus",
+					"pathName": "pages/customer/customer",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "cus",
+					"pathName": "pages/customer/customer",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "first",
+					"pathName": "pages/marketing/company-marketing/company-marketingfirst/company-marketingfirst",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "first",
+					"pathName": "pages/marketing/company-marketing/company-marketingfirst/company-marketingfirst",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "two",
+					"pathName": "pages/marketing/company-marketing/company-marketingtwo/company-marketingtwo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "four",
+					"pathName": "pages/marketing/company-marketing/company-marketingfour/company-marketingfour",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 19,
+					"name": "four",
+					"pathName": "pages/marketing/company-marketing/company-marketingfour/company-marketingfour",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "thr",
+					"pathName": "pages/marketing/company-marketing/company-marketingthr/company-marketingthr",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "customer-detail",
+					"pathName": "pages/customer/customer-detail/customer-detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "search",
+					"pathName": "pages/customer/customer-search/customer-search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "cusdetail",
+					"pathName": "pages/customer/customer-detail/customer-detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "suggestion",
+					"pathName": "pages/usercenter/suggestion/suggestion",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "cus",
+					"pathName": "pages/customer/customer",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "cusdetail",
+					"pathName": "pages/customer/customer-detail/customer-detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "search",
+					"pathName": "pages/customer/customer-search/customer-search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "search",
+					"pathName": "pages/customer/customer-search/customer-search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "F",
+					"pathName": "pages/marketing/company-marketing/company-marketingfirst/company-marketingfirst",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "crop",
+					"pathName": "pages/editCard/pages/crop/crop",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "userCard",
+					"pathName": "pages/usercenter/userCard/userCard",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "扫描二维码",
+					"pathName": "pages/index",
+					"query": "scene:'user=1'&page:'pages/index'",
+					"scene": 1011
+				},
+				{
+					"id": -1,
+					"name": "扫描二维码",
+					"pathName": "pages/marketing/company-marketing/company-marketingfirst/company-marketingfirst",
+					"query": "scene:'user=1'&page:'pages/index'",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "create-csutomer",
+					"pathName": "pages/editCard/pages/create-customer/create-customer",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 36,
+					"name": "change-customer",
+					"pathName": "pages/editCard/pages/change-customer/change-customer",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "enter-prise",
+					"pathName": "pages/marketing/enterprise-marketing/enterprise-marketing",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "camera",
+					"pathName": "pages/camera",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "radar",
+					"pathName": "pages/ai/radar",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "ai-analyze",
+					"pathName": "pages/ai/ai-analyze",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "customer-detail",
+					"pathName": "pages/ai/customer-detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 42,
+					"name": "chat",
+					"pathName": "pages/message/chat/chat",
+					"query": "launchUserId=1&acceptUserId=3",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "ctt",
+					"pathName": "pages/channel/ctt",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "customer-select",
+					"pathName": "pages/customer/customer-select/customer-select",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "create-card",
+					"pathName": "pages/editCard/pages/create-card/create-card",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "message-list",
+					"pathName": "pages/message/message-list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "usercenter",
+					"pathName": "pages/usercenter/usercenter",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "ctt-vip",
+					"pathName": "pages/usercenter/ctt-vip/ctt-vip",
+					"scene": null
+				}
+			]
+		}
+	}
+}

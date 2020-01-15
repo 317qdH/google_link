@@ -1,0 +1,488 @@
+<wxs src="../../utils/chooseTime.wxs" module="dateUtil" />
+<top-nav inner-title="AI分析" is-show-back="false"></top-nav>
+<!--pages/ai/ai-analyze.wxml-->
+<view wx:if="{{!isVip}}" bindtap="toChannelCtt" class="ai-ctt-vip">
+  <view class="acv-top">
+    <view class="acv-top-title">采通通会员尊享特权</view>
+    <view class="acv-top-btn">了解更多 ></view>
+  </view>
+  <view class="acv-top-text">会员专享雷达线索统计与分析，客户多维度画像呈现，实现基于客户行为的精准营销</view>
+</view>
+<view class="ai-nav">
+  <view class="ai-nav-item {{currentTab == 0?'ai-nav-item-act':''}}" data-idx="0" bindtap="switchTab">雷达</view>
+  <view class="ai-nav-item {{currentTab == 1?'ai-nav-item-act':''}}" data-idx="1" bindtap="switchTab">客脉</view>
+</view>
+<view wx:if="{{currentTab == 0}}">
+  <view class="ai-statistics">
+    <view class="ai-statis-tab">
+      <view bindtap="switchDataTime" data-idx="1" class="ai-tab-item {{dataTimeTab == 1?'ai-tab-item-act':''}}">累计</view>
+      <view bindtap="switchDataTime" data-idx="2" class="ai-tab-item {{dataTimeTab == 2?'ai-tab-item-act':''}}">昨日</view>
+      <view bindtap="switchDataTime" data-idx="3" class="ai-tab-item {{dataTimeTab == 3?'ai-tab-item-act':''}}">近7天</view>
+      <view bindtap="switchDataTime" data-idx="4" class="ai-tab-item {{dataTimeTab == 4?'ai-tab-item-act':''}}">近30天</view>
+    </view>
+    <view class="ai-statis-title">数据总览
+      <text class="ai-statis-tip">以下数据截止今天{{dateUtil.integerTime(dataUpdateDate)}}:00</text>
+    </view>
+    <!--会员数据展示 -->
+    <view wx:if="{{isVip}}">
+      <view class="ai-statis-list" wx:if="{{dataTimeTab == 1}}">
+        <view class="ai-statis-item">
+          <view class="ai-item-title">{{staticType}}线索(人)</view>
+          <view class="ai-item-number">{{grandTotalList[0] || 0}}</view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[0] != 0}}">日新增
+            <text class="ai-item-analyze-number">{{insertList[0]}}人</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+          <view class="ai-item-analyze" wx:else>持平--</view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">{{staticType}}客户(人)</view>
+          <view class="ai-item-number">{{grandTotalList[1]}}</view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[1] != 0}}">日新增
+            <text class="ai-item-analyze-number">{{insertList[1]}}人</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+          <view class="ai-item-analyze" wx:else>持平--</view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">{{staticType}}私信(人)</view>
+          <view class="ai-item-number">{{grandTotalList[2]}}</view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[2] != 0}}">日新增
+            <text class="ai-item-analyze-number">{{insertList[2]}}人</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+          <view class="ai-item-analyze" wx:else>持平--</view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">{{staticType}}被存客户(次)</view>
+          <view class="ai-item-number">{{grandTotalList[3]}}</view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[3] != 0}}">日新增
+            <text class="ai-item-analyze-number">{{insertList[3]}}次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+          <view class="ai-item-analyze" wx:else>持平--</view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">{{staticType}}被转发(次)</view>
+          <view class="ai-item-number">{{grandTotalList[4]}}</view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[4] != 0}}">日新增
+            <text class="ai-item-analyze-number">{{insertList[4]}}次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+          <view class="ai-item-analyze" wx:else>持平--</view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">{{staticType}}被点赞(次)</view>
+          <view class="ai-item-number">{{grandTotalList[5]}}</view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[5] != 0}}">日新增
+            <text class="ai-item-analyze-number">{{insertList[5]}}次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+          <view class="ai-item-analyze" wx:else>持平--</view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">企业{{staticType}}访问(次)</view>
+          <view class="ai-item-number">{{grandTotalList[6]}}</view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[6] != 0}}">日新增
+            <text class="ai-item-analyze-number">{{insertList[6]}}次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+          <view class="ai-item-analyze" wx:else>持平--</view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">商品{{staticType}}访问(次)</view>
+          <view class="ai-item-number">{{grandTotalList[7]}}</view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[7] != 0}}">日新增
+            <text class="ai-item-analyze-number">{{insertList[7]}}次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+          <view class="ai-item-analyze" wx:else>持平--</view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">场景{{staticType}}访问(次)</view>
+          <view class="ai-item-number">{{grandTotalList[8]}}</view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[8] != 0}}">日新增
+            <text class="ai-item-analyze-number">{{insertList[8]}}次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+          <view class="ai-item-analyze" wx:else>持平--</view>
+        </view>
+      </view>
+      <view class="ai-statis-list" wx:else>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">{{staticType}}线索(人)</view>
+          <view class="ai-item-number">{{insertList[0] || 0}}</view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[0] == 0}}">持平--</view>
+          <view class="ai-item-analyze" wx:elif="{{grandTotalList[0]>0}}">同比
+            <text class="ai-item-analyze-number">{{grandTotalList[0]}}人</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[0]<0}}">同比
+            <text class="ai-item-analyze-number">{{-grandTotalList[0]}}人</text>
+            <text class="iconxiajiang xj-icon iconfont indust-icon "></text>
+          </view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">{{staticType}}客户(人)</view>
+          <view class="ai-item-number">{{insertList[1]}}</view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[1] == 0}}">持平--</view>
+          <view class="ai-item-analyze" wx:elif="{{grandTotalList[1]>0}}">同比
+            <text class="ai-item-analyze-number">{{grandTotalList[1]}}人</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[1]<0}}">同比
+            <text class="ai-item-analyze-number">{{-grandTotalList[1]}}人</text>
+            <text class="iconxiajiang xj-icon iconfont indust-icon"></text>
+          </view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">{{staticType}}私信(人)</view>
+          <view class="ai-item-number">{{insertList[2]}}</view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[2] == 0}}">持平--</view>
+          <view class="ai-item-analyze" wx:elif="{{grandTotalList[2]>0}}">同比
+            <text class="ai-item-analyze-number">{{grandTotalList[2]}}人</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[2]<0}}">同比
+            <text class="ai-item-analyze-number">{{-grandTotalList[2]}}人</text>
+            <text class="iconxiajiang xj-icon iconfont indust-icon"></text>
+          </view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">{{staticType}}被存客户(次)</view>
+          <view class="ai-item-number">{{insertList[3]}}</view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[3] == 0}}">持平--</view>
+          <view class="ai-item-analyze" wx:elif="{{grandTotalList[3]>0}}">同比
+            <text class="ai-item-analyze-number">{{grandTotalList[3]}}次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[3]<0}}">同比
+            <text class="ai-item-analyze-number">{{-grandTotalList[3]}}次</text>
+            <text class="iconxiajiang xj-icon iconfont indust-icon"></text>
+          </view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">{{staticType}}被转发(次)</view>
+          <view class="ai-item-number">{{insertList[4]}}</view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[4] == 0}}">持平--</view>
+          <view class="ai-item-analyze" wx:elif="{{grandTotalList[4]>0}}">同比
+            <text class="ai-item-analyze-number">{{grandTotalList[4]}}次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[4]<0}}">同比
+            <text class="ai-item-analyze-number">{{-grandTotalList[4]}}次</text>
+            <text class="iconxiajiang xj-icon iconfont indust-icon"></text>
+          </view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">{{staticType}}被点赞(次)</view>
+          <view class="ai-item-number">{{insertList[5]}}</view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[5] == 0}}">持平--</view>
+          <view class="ai-item-analyze" wx:elif="{{grandTotalList[5]>0}}">同比
+            <text class="ai-item-analyze-number">{{grandTotalList[5]}}次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[5]<0}}">同比
+            <text class="ai-item-analyze-number">{{-grandTotalList[5]}}次</text>
+            <text class="iconxiajiang xj-icon iconfont indust-icon"></text>
+          </view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">企业{{staticType}}访问(次)</view>
+          <view class="ai-item-number">{{insertList[6]}}</view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[6] == 0}}">持平--</view>
+          <view class="ai-item-analyze" wx:elif="{{grandTotalList[6]>0}}">同比
+            <text class="ai-item-analyze-number">{{grandTotalList[6]}}次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[6]<0}}">同比
+            <text class="ai-item-analyze-number">{{-grandTotalList[6]}}次</text>
+            <text class="iconxiajiang xj-icon iconfont indust-icon"></text>
+          </view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">商品{{staticType}}访问(次)</view>
+          <view class="ai-item-number">{{insertList[7]}}</view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[7] == 0}}">持平--</view>
+          <view class="ai-item-analyze" wx:elif="{{grandTotalList[7]>0}}">同比
+            <text class="ai-item-analyze-number">{{grandTotalList[7]>0?grandTotalList[7]:-grandTotalList[7]}}次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[7]<0}}">同比
+            <text class="ai-item-analyze-number">{{-grandTotalList[7]}}次</text>
+            <text class="iconxiajiang xj-icon iconfont indust-icon"></text>
+          </view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">场景{{staticType}}访问(次)</view>
+          <view class="ai-item-number">{{insertList[8]}}</view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[8] == 0}}">持平--</view>
+          <view class="ai-item-analyze" wx:elif="{{grandTotalList[8]>0}}">同比
+            <text class="ai-item-analyze-number">{{grandTotalList[8]>0?grandTotalList[8]:-grandTotalList[8]}}次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+          <view class="ai-item-analyze" wx:if="{{grandTotalList[8]<0}}">同比
+            <text class="ai-item-analyze-number">{{-grandTotalList[8]}}次</text>
+            <text class="iconxiajiang xj-icon iconfont indust-icon"></text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="ai-statis-list" wx:else>
+      <view class="ai-statis-list" wx:if="{{dataTimeTab == 1}}">
+        <view class="ai-statis-item">
+          <view class="ai-item-title">累计线索(人)</view>
+          <view class="ai-item-number">***</view>
+          <view class="ai-item-analyze">日新增
+            <text class="ai-item-analyze-number">***次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">累计客户(人)</view>
+          <view class="ai-item-number">***</view>
+          <view class="ai-item-analyze">日新增
+            <text class="ai-item-analyze-number">***次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">累计私信(人)</view>
+          <view class="ai-item-number">***</view>
+          <view class="ai-item-analyze">日新增
+            <text class="ai-item-analyze-number">***次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">累计被存客户(次)</view>
+          <view class="ai-item-number">***</view>
+          <view class="ai-item-analyze">日新增
+            <text class="ai-item-analyze-number">***次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">累计被转发(次)</view>
+          <view class="ai-item-number">***</view>
+          <view class="ai-item-analyze">日新增
+            <text class="ai-item-analyze-number">***次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">累计被点赞(次)</view>
+          <view class="ai-item-number">***</view>
+          <view class="ai-item-analyze">日新增
+            <text class="ai-item-analyze-number">***次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">企业累计访问(次)</view>
+          <view class="ai-item-number">***</view>
+          <view class="ai-item-analyze">日新增
+            <text class="ai-item-analyze-number">***次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">商品累计访问(次)</view>
+          <view class="ai-item-number">***</view>
+          <view class="ai-item-analyze">日新增
+            <text class="ai-item-analyze-number">***次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">场景累计访问(次)</view>
+          <view class="ai-item-number">***</view>
+          <view class="ai-item-analyze">日新增
+            <text class="ai-item-analyze-number">***次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+        </view>
+      </view>
+      <view class="ai-statis-list" wx:else>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">新增线索(人)</view>
+          <view class="ai-item-number">***</view>
+          <view class="ai-item-analyze">同比
+            <text class="ai-item-analyze-number">***次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">新增客户(人)</view>
+          <view class="ai-item-number">***</view>
+          <view class="ai-item-analyze">同比
+            <text class="ai-item-analyze-number">***次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">新增私信(人)</view>
+          <view class="ai-item-number">***</view>
+          <view class="ai-item-analyze">同比
+            <text class="ai-item-analyze-number">***次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">新增被存客户(次)</view>
+          <view class="ai-item-number">***</view>
+          <view class="ai-item-analyze">同比
+            <text class="ai-item-analyze-number">***次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">新增被转发(次)</view>
+          <view class="ai-item-number">***</view>
+          <view class="ai-item-analyze">同比
+            <text class="ai-item-analyze-number">***次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">新增被点赞(次)</view>
+          <view class="ai-item-number">***</view>
+          <view class="ai-item-analyze">同比
+            <text class="ai-item-analyze-number">***次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">企业新增访问(次)</view>
+          <view class="ai-item-number">***</view>
+          <view class="ai-item-analyze">同比
+            <text class="ai-item-analyze-number">***次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">商品新增访问(次)</view>
+          <view class="ai-item-number">***</view>
+          <view class="ai-item-analyze">同比
+            <text class="ai-item-analyze-number">***次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+        </view>
+        <view class="ai-statis-item">
+          <view class="ai-item-title">场景新增访问(次)</view>
+          <view class="ai-item-number">***</view>
+          <view class="ai-item-analyze">同比
+            <text class="ai-item-analyze-number">***次</text>
+            <text class="iconzengchang iconfont indust-icon"></text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="ai-chart">
+    <view class="ai-chart-title">客户兴趣占比</view>
+    <view class="container">
+      <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}" bind:init="echartInit" data-record="{{recordData}}"></ec-canvas>
+      <!-- <ec-canvas wx:if="{{dataTimeTab == 2}}" id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}" bind:init="echartInit" data-record="{{recordData}}"></ec-canvas>
+      <ec-canvas wx:if="{{dataTimeTab == 3}}" id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}" bind:init="echartInit" data-record="{{recordData}}"></ec-canvas>
+      <ec-canvas wx:if="{{dataTimeTab == 4}}" id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}" bind:init="echartInit" data-record="{{recordData}}"></ec-canvas> -->
+    </view>
+  </view>
+</view>
+<view hidden="{{currentTab == 0}}">
+  <view class="visitor-echart">
+    <view class="visitor-echart-img">
+      <image class="vei-left" src="/images/second-edition/mc-analyze-echarts-img1.png"></image>
+      <view class="vei-right">
+        <view class="vei-label ">
+          <view class="vei-label-line"></view>
+          <text class="vei-label-text" wx:if="{{isVip}}">{{funnel.visitor || 0}}</text>
+          <text class="vei-label-text" wx:else>?</text>
+        </view>
+        <view class="vei-label">
+          <view class="vei-label-line"></view>
+          <text class="vei-label-text" wx:if="{{isVip}}">{{funnel.people || 0}}</text>
+          <text class="vei-label-text" wx:else>?</text>
+        </view>
+        <view class="vei-label">
+          <view class="vei-label-line"></view>
+          <text class="vei-label-text" wx:if="{{isVip}}">{{funnel.client || 0}}</text>
+          <text class="vei-label-text" wx:else>?</text>
+        </view>
+      </view>
+    </view>
+    <image class="echart-tip-icon" bindtap="closeAnalyzeTip" src="/images/second-edition/mc-analyze-tip-icon1.png"></image>
+    <view class="echart-tip-content {{analyzeEchartTip?'echart-tip-content-act':'echart-tip-content-hide'}}">
+      <view class="etc-text">访客：所有互动用户</view>
+      <view class="etc-text">人脉：有个人名片的互动用户</view>
+      <view class="etc-text">客户：已存为客户的互动用户</view>
+    </view>
+    <view class="echart-tip-dashed {{analyzeEchartTip?'echart-tip-content-act':'echart-tip-content-hide'}}">
+      <view class="echart-tip-line-one"></view>
+      <view class="echart-tip-line-two"></view>
+    </view>
+  </view>
+  <view class="visitor-avalyze">
+    <view data-idx="1" class="va-nav {{visitorTab == 1?'va-nav-act':''}}" bindtap="switchVisitor">访客</view>
+    <view data-idx="2" class="va-nav {{visitorTab == 2?'va-nav-act':''}}" bindtap="switchVisitor">人脉</view>
+    <view data-idx="3" class="va-nav {{visitorTab == 3?'va-nav-act':''}}" bindtap="switchVisitor">客户</view>
+  </view>
+  <view class="va-list-box">
+    <view class="val-title">
+      <view class="valt-left">{{isVip?customerMessList.length:'*'}}个{{['','访客','人脉','客户'][visitorTab]}}</view>
+      <view class="valt-right">
+        <view class="valt-select" bindtap="showInteractivePopup">{{interactiveText}}
+          <text class="iconxiala iconfont indust-icon"></text>
+        </view>
+        <view class="popup {{interactiveFlag?'popup-act':''}}">
+          <view class="newest-interactive {{interactiveIdx == 1?'newest-interactive-act':''}}" data-idx="1" bindtap="selectInteractiveType">最新互动</view>
+          <view class="most-interactive {{interactiveIdx == 2?'newest-interactive-act':''}}" data-idx="2" bindtap="selectInteractiveType">最多互动</view>
+          <text class="triangle-center"><text class="triangle-top"></text></text>
+        </view>
+      </view>
+    </view>
+    <view class="valb-list" wx:if="{{isVip}}">
+      <view class="valb-item" wx:for="{{customerMessList}}">
+        <image class="valb-item-img" src="{{item.avatarPath}}"></image>
+        <view class="valb-item-infor" bindtap="toCustomerDt" data-idx="{{item.launchUserId}}">
+          <view class="valb-ii-title">
+          {{item.name}}
+          <text class="ucmc-time">{{dateUtil.dateFormat(item.lastInteractionTime,'yyyy-MM-dd hh:mm', nowDate,'msg')}}</text>
+          </view>
+          <view class="valb-ii-companyName" wx:if="{{item.companyName}}">{{item.companyName}}</view>
+          <view class="valb-ii-message">
+            <text class="iconfont iconhudong hudong-icon"></text>{{item.total}}次互动</view>
+        </view>
+      </view>
+    </view>
+    <view class="valb-list" wx:else>
+      <view class="valb-item">
+        <image class="valb-item-img" src="/images/second-edition/mc-rar-message-default-img1.jpg"></image>
+        <view class="valb-item-infor">
+          <view class="valb-ii-title">搜好货</view>
+          <view class="valb-ii-companyName">杭州顺藤网络科技有限公司</view>
+          <view class="valb-ii-message">
+            <text class="iconfont iconhudong hudong-icon"></text>*次互动</view>
+        </view>
+      </view>
+      <view class="valb-item">
+        <image class="valb-item-img" src="/images/second-edition/mc-rar-message-default-img1.jpg"></image>
+        <view class="valb-item-infor">
+          <view class="valb-ii-title">搜好货</view>
+          <view class="valb-ii-companyName">杭州顺藤网络科技有限公司</view>
+          <view class="valb-ii-message">
+            <text class="iconfont iconhudong hudong-icon"></text>*次互动</view>
+        </view>
+      </view>
+      <view class="valb-item">
+        <image class="valb-item-img" src="/images/second-edition/mc-rar-message-default-img1.jpg"></image>
+        <view class="valb-item-infor">
+          <view class="valb-ii-title">搜好货</view>
+          <view class="valb-ii-companyName">杭州顺藤网络科技有限公司</view>
+          <view class="valb-ii-message">
+            <text class="iconfont iconhudong hudong-icon"></text>*次互动</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

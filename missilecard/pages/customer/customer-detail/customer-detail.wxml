@@ -1,0 +1,156 @@
+<top-nav inner-title="{{navigatorText}}" is-show-back="false"></top-nav>
+<!--pages/index.wxml-->
+<image class='chat-message-img'wx:if="{{hasUser}}" src='/images/second-edition/mc-user-chat-icon.png' bindtap="getChat"></image>
+<view class="{{proinfoWindow ? 'indexFixed' : ''}} outerbox">
+  <view class="user-card-bg">
+    <view class="u-card-box {{cardClassName}}" animation="{{slide_card}}">
+      <image class="uc-bg" src='{{cardImageSrc}}'></image>
+      <view class="uc-title">
+        <view>{{userInfo.name}}</view>
+        <text>{{userInfo.position}}</text>
+      </view>
+      <image class="uc-avatar" wx:if="{{userInfo.avatarPath}}" src="{{userInfo.avatarPath}}"></image>
+      <image class="uc-avatar" wx:if="{{!userInfo.avatarPath}}" src="{{avatar}}"></image>
+      <view class="uc-infor">
+        <view class="us-company-name">{{userInfo.companyName}}</view>
+        <view class="us-iphone" wx:if="{{userInfo.mobile}}">{{userInfo.mobile}}</view>
+        <view class="us-iphone" wx:if="{{!userInfo.mobile}}">手机号码未填写</view>
+        <view class="us-email" wx:if="{{userInfo.mail}}">{{userInfo.mail}}</view>
+        <view class="us-email" wx:if="{{!userInfo.mail}}">邮箱号未填写</view>
+      </view>
+    </view>
+  </view>
+  <view class='more'>
+    <text>更多信息</text>
+    <view class='setting' bindtap='changecustomer'hidden="{{hasUser}}">
+      <image src='/images/mc-setting.png'></image>
+      <text>编辑</text>
+    </view>
+  </view>
+  <view class='more-info'>
+    <view class='info-item'>
+      <view class='iphone'></view>
+      <text wx:if="{{userInfo.mobile}}">{{userInfo.mobile}}</text>
+      <view wx:if="{{userInfo.mobile}}" class="call-phone-icon" bindtap='call'>拨号</view>
+      <text wx:if="{{!userInfo.mobile}}">手机号码未填写</text>
+    </view>
+    <view class='info-item'>
+      <view class='wechat'></view>
+      <text wx:if="{{userInfo.weChat}}">{{userInfo.weChat}}</text>
+      <text wx:if="{{!userInfo.weChat}}">微信信息未填写</text>
+    </view>
+    <view class='info-item'>
+      <view class='ie'></view>
+      <text wx:if="{{userInfo.categoryName}}">{{userInfo.categoryName}}</text>
+      <text wx:if="{{!userInfo.categoryName}}">行业信息未填写</text>
+    </view>
+    <view class='info-item'>
+      <view class='addr'></view>
+      <text class='item' wx:if="{{userInfo.address}}">{{userInfo.address}}</text>
+      <text class='item' wx:if="{{!userInfo.address}}">地址信息未填写</text>
+    </view>
+  </view>
+  <view class='space'></view>
+  <view class='more'>
+    <text>标签备注</text>
+  </view>
+  <view class='icon' bindtap='requesttag'>
+    <view class='icon-item'>
+      <view class='icon-left'></view>
+      <view class='icon-container'>
+      <!-- 标签和自定义标签 -->
+        <text wx:if="{{userInfoMark}}">{{userInfoMark}}</text>
+      </view>
+    </view>
+    <view class='icon-right'>
+    </view>
+  </view>
+  <view class='icon' bindtap='showremark'>
+    <view class='icon-items'>
+      <view class='icon-left icon-lefts'></view>
+      <!-- 备注信息 -->
+      <view wx:if="{{userInforemark}}" class='diymark'>{{userInforemark}}</view>
+      <text wx:if="{{!userInforemark}}" class='noinfo'>暂无备注信息</text>
+      <!-- <text wx:if="{{!userInforemark}}" class='moreinfo'>控制最多显示一行</text> -->
+    </view>
+    <view class='icon-right'>
+    </view>
+  </view>
+  <view class='space'></view>
+  <view class='customercard' wx:if="{{userInfo.discernPath}}">
+    <view class='more'>名片照片</view>
+    <view class='cardcontainer'>
+      <image mode='aspectFill' src='{{userInfo.discernPath}}'></image>
+    </view>
+  </view>
+  <view class='space' wx:if="{{userInfo.discernPath}}"></view>
+  <view class='more'>
+    <text>更多设置</text>
+  </view>
+  <button class='tofriend recommand-toicon ' open-type='share'>
+    <view class='toicon'>
+      <view class='toicon-left'></view>
+      <text>推荐名片</text>
+    </view>
+    <view class='icon-right'>
+    </view>
+  </button>
+  <view class='tofriend' bindtap='saveiphone'>
+    <view class='toicon'>
+      <view class='toicon-left hold'></view>
+      <text>保存通讯录</text>
+    </view>
+    <view class='icon-right'>
+    </view>
+  </view>
+  <view class='tofriend' bindtap='delectfriend'>
+    <view class='toicon'>
+      <view class='toicon-left delect'></view>
+      <text>删除名片</text>
+    </view>
+    <view class='icon-right'>
+    </view>
+  </view>
+</view>
+<!-- 标签 -->
+<view class='bookmark' wx:if="{{showtag}}" catchtouchmove="true">
+  <view class='largeclose' bindtap='closetag'></view>
+  <view class='bookmark-title'>标签备注</view>
+  <view class='cancel' bindtap='closetag'></view>
+  <view class='bookmarkdefault'>
+    <text>常用标签</text>
+    <view class='bookmarkcontainer'>
+      <text class="{{id == item.id ? 'actives' : ''}}" bindtap='clickitem' data-id="{{item.id}}" data-idx="{{item.name}}" wx:for="{{tagarr}}">{{item.name}}</text>
+    </view>
+  </view>
+  <text class='bookmarkdiy'>自定义标签</text>
+  <view class='input-container'>
+    <input maxlength='8' placeholder='自定义标签最多可输入8个字' bindtap='adddiy' bindinput='adddiymarket'></input>
+  </view>
+  <view class='btn'>
+    <view class='addremark' bindtap='addremark'>
+      <text>确定</text>
+    </view>
+  </view>
+</view>
+<!-- 备注 -->
+<form bindsubmit="formSubmit">
+  <view class='bookmark' wx:if="{{showremark}}" catchtouchmove="true">
+    <view class='largeclose' bindtap='closeremark'></view>
+    <view class='bookmark-title'>名片备注</view>
+    <view class='cancel' bindtap='closeremark'></view>
+    <view class='bookmarkdefault'>
+      <textarea maxlength='50' name="diy" value='{{userInforemark}}' placeholder='请填写备注信息'></textarea>
+    </view>
+    <button class='btn' form-type="submit">
+      <view>
+        <text>确定</text>
+      </view>
+    </button>
+  </view>
+</form>
+
+<!--生成名片的画布-->
+<view class="canvas-hide">
+  <canvas class="poster-canvas" canvas-id="customCanvas"></canvas>
+</view>

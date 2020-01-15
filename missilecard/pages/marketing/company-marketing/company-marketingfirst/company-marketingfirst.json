@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#66a6ff",
+  "navigationBarTitleText": "企业营销",
+  "usingComponents": {
+    "cardBgSelection": "/components/cardBgSelection/cardBgSelection",
+    "authorizedPopup": "../../../../components/authorizedPopup/authorizedPopup"
+  }
+}

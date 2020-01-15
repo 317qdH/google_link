@@ -1,0 +1,2 @@
+/* components/cardBgSelection/cardBgSelection.wxss */
+@import '../../styles/card.wxss';

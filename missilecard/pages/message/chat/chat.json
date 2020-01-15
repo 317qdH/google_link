@@ -1,0 +1,10 @@
+{
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "消息",
+  "usingComponents": {
+    "mp-loading": "../../../components/loading/loading",
+    "vip-ctt":"../../../components/vip-ctt/no-ctt"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

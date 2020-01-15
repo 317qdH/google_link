@@ -1,0 +1,188 @@
+
+<wxs src="../utils/chooseTime.wxs" module="dateUtil" />
+<top-nav inner-title="我的名片" is-show-back="false"></top-nav>
+<!--pages/index.wxml-->
+<view class="user-card-bg" bindtap='toUserCard'>
+  <view class="u-card-box {{cardClassName}}" animation="{{slide_card}}">
+    <image lazy-load="true" mode="aspectFill" class="uc-avatar" src="{{userInfoObj.avatarPath || '/images/cie-avatar.jpg'}}"></image>
+    <view class="uc-title">
+      <view>{{userInfoObj.name}}</view>
+      <text>{{userInfoObj.position}}</text>
+    </view>
+    <image class="uc-bg" src='{{cardImageSrc}}'></image>
+    <view class="uc-infor">
+      <view class="us-company-name">{{userInfoObj.companyName}}</view>
+      <view class="us-iphone">{{userInfoObj.mobile}}</view>
+      <view class="us-email">{{userInfoObj.mail}}</view>
+    </view>
+  </view>
+</view>
+
+<!--授权但未创建名片-->
+<view wx:if="{{cardTab == 1}}" class="bg-select-box">
+  <view class="bg-select-title">模板选择</view>
+    <cardBgSelection id="cardSelect" can-tab="{{canTab}}" template-id="{{userInfoObj.templateId}}" bindselectBgEvent="getCardChange" bindinitBgEvent="initCardInfor"></cardBgSelection>
+  </view>
+  <view>
+  <view class="loginUncreate" wx:if="{{cardTab == 1}}">
+    <navigator url="/pages/editCard/pages/create-card/create-card?createtab=0" class="mb50 gradient-blue-btn">创建我的名片</navigator>
+    <view class="btn-photo-card" bindtap='photoCreate'>拍照创建名片</view>
+  </view>
+</view>
+<!--已有名片-->
+<view wx:if="{{cardTab == 2}}">
+  <view class="nav-send">   
+    <button class="nav-to-friend" open-type='share'>
+      <view></view>发给朋友</button>
+    <navigator hover-class='none' url='/pages/share-card' class="nav-to-timeline">
+      <view></view>分享朋友圈</navigator>
+    <navigator hover-class='none' url='/pages/card-qrcode' class="nav-card-qrcode">
+      <view></view>名片二维码</navigator>
+    <navigator hover-class='none' url='/pages/editCard/pages/create-card/create-card?indexFlag=1' class="nav-edit-card">
+      <view></view>编辑名片</navigator>
+  </view>
+  <view class="card-btn-send" wx:if="{{isvip && hasBindAccount == 1 && customerMessList.length<1 && !notReadAmount}}">
+    <button open-type='share' class="gradient-blue-btn mb50">递名片</button>
+    <view class="btn-photo-card" bindtap="photoAdded">存名片 </view>
+  </view> 
+  <view wx:if="{{notReadAmount != 0}}">
+    <view class="uc-message-await">待办事项<image class="mc-alert-icon" src="/images/second-edition/mc-message-alert-icon.png" ></image></view>
+    <view class="uc-message-tip">您有{{notReadAmount}}条<text class="" bindtap="messageLinkTo">私信消息</text>待回复</view>
+  </view>
+
+  <view class="uc-radar-nav" wx:if="{{(hasBindAccount == 1 && customerMessList.length>0) || (hasBindAccount == 1 && !isvip)}}">
+    <view class="uc-radar-left">
+      <image class="uc-radar-icon" src="/images/second-edition/mc-radar-icon.png"></image>雷达
+      <text class="ai-statis-tip">以下数据截止今天{{dateUtil.integerTime(dataUpdateDate)}}:00</text>
+    </view>
+    <text class="uc-radar-ai" bindtap="toAiAnalyze">AI分析 >></text>
+  </view>
+ 
+  <!-- 付费会员 -->
+  <view class="uc-message-box" wx:if="{{isvip && hasBindAccount == 1 && customerMessList.length>0 }}">
+    <view class="uc-message-item" wx:for="{{customerMessList}}" wx:key="item.id" data-idx="{{item.launchUserId}}" bindtap="toCustomerDet">
+        <image class="ucmi-img" lazy-load="true" src="{{item.avatarPath}}"></image>
+        <view class="ucm-content">
+          <view class="ucmc-text">
+            <text class="ucmc-title">{{item.name}}</text>
+            <text class="ucmc-time">{{dateUtil.dateFormat(item.lastInteractionTime,'yyyy-MM-dd hh:mm', nowDate,'msg')}}</text>
+          </view>
+          <view class="ucmc-tip" wx:if="{{item.type == 1}}">查看了您的名片{{item.total}}次</view>
+          <view class="ucmc-tip" wx:if="{{item.type == 2}}">向您发送了
+            <text class="ucmc-message" data-idx="{{item.launchUserId}}" catchtap="checkMessageDet">私信消息</text>
+          </view>
+          <view class="ucmc-tip" wx:if="{{item.type == 3}}">转发了您的名片{{item.total}}次</view>
+          <view class="ucmc-tip" wx:if="{{item.type == 4}}">将您存为了客户</view>
+          <view class="ucmc-tip" wx:if="{{item.type == 5}}">与您互换了名片</view>
+          <view class="ucmc-tip" wx:if="{{item.type == 6}}">觉得您的名片很赞</view>
+          <view class="ucmc-tip" wx:if="{{item.type == 7}}">查看了您的企业{{item.total}}次</view>
+          <view class="ucmc-tip" wx:if="{{item.type == 8}}">查看了您的商品{{item.total}}次</view>
+          <view class="ucmc-tip" wx:if="{{item.type == 9}}">正在浏览您的企业场景秀</view>
+        </view>
+      </view>
+    <navigator class="to-more-ucm" wx:if="{{pages>1}}" url="/pages/ai/radar" hover-class="none">查看全部 ></navigator>
+  </view>
+   <!-- 免费会员 -->
+  <view class="uc-message-box" wx:if="{{!isvip && hasBindAccount == 1 }}">
+    <view class="uc-message-item">
+      <image class="ucmi-img" src="/images/second-edition/mc-rar-message-default-img1.jpg"></image>
+      <view class="ucm-content">
+        <view class="ucmc-text"><text class="ucmc-title">搜好货</text><text class="ucmc-time">刚刚</text></view>
+        <view class="ucmc-tip">向您发送了<text class="ucmc-message">私信消息</text></view>
+      </view>
+    </view>
+    <view class="uc-message-item">
+      <image class="ucmi-img" src="/images/second-edition/mc-rar-message-default-img2.jpg"></image>
+      <view class="ucm-content">
+        <view class="ucmc-text"><text class="ucmc-title">搜好货</text><text class="ucmc-time">2个小时前</text></view>
+        <view class="ucmc-tip">查看了您的名片3次</view>
+      </view>
+    </view>
+    <view class="uc-message-item">
+      <image class="ucmi-img" src="/images/second-edition/mc-rar-message-default-img3.jpg"></image>
+      <view class="ucm-content">
+        <view class="ucmc-text"><text class="ucmc-title">搜好货</text><text class="ucmc-time">6个小时前</text></view>
+        <view class="ucmc-tip">查看了您的企业</view>
+      </view>
+    </view>
+  </view>
+  <!-- 已有名片未绑定搜好货账号 -->
+  
+  <view class="bind-sohh-area"  wx:if="{{hasBindAccount == 0}}" bindtap="shhAccountAssitant">
+    <view class="bsa-title">绑定搜好货企业账号，解锁雷达功能</view>
+    <view class="bsa-text">实时查看对你感兴趣的人</view>
+    <view class="bsa-bottom">
+      <view class="bsa-btn">立即绑定</view>
+      <view class="bsa-tip">免费会员也有30天体验权益哦~</view>
+    </view>
+  </view>
+  <!-- 已有名片绑定搜好货账号 但不是会员  -->
+  <view class="bind-sohh-area bind-sohh-area-ctt" wx:if="{{hasBindAccount == 1 && !isvip}}" bindtap="toCttChannel">
+    <view class="bsa-title">采通通会员权益已到期</view>
+    <view class="bsa-text">更多权益尽在采通通会员，快去开通吧！</view>
+    <view class="bsa-btn">了解更多></view>
+  </view>
+</view>
+<!--未授权 -->
+<view class="uc-unlogin" wx:if="{{cardTab == 3}}">
+  <image class="ucu-img" src="/images/second-edition/mc-uc-unlogin-img.png"></image>
+  <view class="ucu-tip">授权登录后，可进行更多操作哦~</view>
+  <view class="lg-btn gradient-blue-btn ucu-btn" bindtap="authorPopupShow">立即登录</view>
+</view>
+<!--生成名片的画布-->
+<view class="canvas-hide">
+  <canvas class="poster-canvas" canvas-id="customCanvas"></canvas>
+</view>
+
+<!-- <button bindtap='deleteUser'>用户注销</button> -->
+
+<!-- 一期 登录授权页面 -->
+<!-- <view class="login-outer" wx:if="{{!authoriFlag}}">
+   <image class="login-guide-img" src='/images/mc-login-guide-bg1.jpg'></image>
+  <view class="login-guide">
+    <view class="lg-title">欢迎来到导弹名片</view>
+    <view class="lg-line"></view>
+    <view class="lg-con">这是一款集智能名片、客户管理与企业营销
+  于一体的免费工具</view>
+    <view class="lg-tip">初次使用前，需要获取您的昵称和头像</view>
+    <button class="lg-btn gradient-blue-btn" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">授权登录</button>
+  </view>
+</view> -->
+
+<!-- loading -->
+<view class="loading-before" wx:if="{{cardTab == 99}}">
+  <image class="lb-img" src="https://img0.912688.com/mc-index-loading-bg.gif"></image>
+  <view class="lb-text">正在加载中...</view>
+</view>
+
+<view class="index-mask" wx:if="{{whiteMask}}"></view>
+<!-- 账号关联成功弹窗 -->
+<view class='toast' wx:if="{{shhBindTab}}">
+  <view>{{shhBindObj.content}}</view>
+  <view class="{{shhBindObj.tipStyle == 1?'tipColor':''}}">{{shhBindObj.tip}}</view>
+  <view bindtap='shhBindLeftClick'>{{shhBindObj.leftContent}}</view>
+  <view bindtap='shhBindRightClick'>{{shhBindObj.rightContent}}</view>
+</view>
+<view class='mask' wx:if="{{shhBindTab}}" bindtap='cancelmask'>
+</view>
+
+<!-- 搜好货ctt体验版弹窗 -->
+<view class="ctt-auth-popup" wx:if="{{enjoyCttFlag}}">
+  <view class="cap-bg"></view>
+  <view class="cap-content">
+    <view class="cap-con-close-box" bindtap="cttEnjoyOverClick">
+      <image class="cap-con-close" src="/images/second-edition/mc-vip-ctt-close-icon.png"></image>
+    </view>
+    <view class="cap-title">亲爱的搜好货会员：</view>
+    <view class="cap-text">体验版还有<text>{{probationLastDays}}</text>天即将到期，届时您将不能再使用一下权益：</view>
+    <view class="cap-features-list">
+      <view class="cap-fl-item cap-fl-radar">雷达线索</view>
+      <view class="cap-fl-item cap-fl-ai">AI分析</view>
+      <view class="cap-fl-item cap-fl-commodity">商品营销</view>
+      <view class="cap-fl-item cap-fl-marketing">场景营销</view>
+    </view>
+    <view class="cap-btn" bindtap="cttEnjoyOverClick">我知道了</view>
+  </view>
+</view>
+
+<ucInforAuthPopup uc-info-auth-show="{{ucInfoAuthShow}}" binducAuth="onGotUserInfo"></ucInforAuthPopup>

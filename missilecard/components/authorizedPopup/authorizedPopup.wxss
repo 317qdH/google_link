@@ -1,0 +1,74 @@
+/* components/authorizedPopup/authorizedPopup.wxss */
+/*授权弹窗样式*/
+.author-popup{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.mask-bg{
+  width: 100%;
+	height: 100%;
+	background: black;
+	position: fixed;
+	z-index: 1004;
+	top: 0;
+	left: 0;
+	opacity: 0.4;
+}
+.author-con{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-top: -250rpx;
+  margin-left: -250rpx;
+  width: 500rpx;
+  height: 250rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  z-index: 9999;
+}
+.author-tip{
+  height: 150rpx;
+  line-height: 150rpx;
+  text-align: center;
+  color: #111111;
+  font-size: 30rpx;
+  border-bottom: 2rpx solid #f1f1f1;
+}
+.author-btn-box{
+  display: flex;
+  height: 100rpx;
+  overflow: hidden;
+  position: relative;
+}
+.author-cancel{
+  width: 250rpx;
+  text-align: center;
+  line-height: 100rpx;
+  color: #999999;
+  font-size: 32rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.author-comfirm{
+  width: 250rpx;
+  height: 96rpx;
+  text-align: center;
+  line-height: 100rpx;
+  color: #66a6ff;
+  font-size: 32rpx;
+  border: none;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+.author-comfirm::after{
+  border: none;
+}
+.author-center-line{
+  width: 2rpx;
+  height: 98rpx;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  background-color: #f1f1f1;
+}

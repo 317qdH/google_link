@@ -1,0 +1,49 @@
+<!--pages/share-card.wxml-->
+<top-nav inner-title="分享朋友圈" navigator-bg-color="#000" navigator-color="#fff"></top-nav>
+<view class="share-moments-box {{currentTab != 0?'cst-active':''}}">
+  <swiper
+    circular
+    easing-function="easeInOutCubic"
+    bindchange="watchCurrent"
+    class="share-moments-swiper"
+    >
+    <swiper-item wx:for="{{imgUrls}}" wx:key="index">
+      <image src="{{item}}" class="slide-image"/>
+      <view class="user-card-bg">
+        <view class="u-card-box {{cardClassName}}" animation="{{slide_card}}">
+        <image mode="aspectFill" class="uc-avatar" src="{{userInfoObj.avatarPath}}"></image>
+          <!-- <view class="uc-avatar"><open-data type="userAvatarUrl"></open-data></view> -->
+          <view class="uc-title">
+            <view>{{userInfoObj.name}}</view>
+            <text>{{userInfoObj.position}}</text>
+          </view>
+          <image class="uc-bg" src='{{cardImageSrc}}'></image>
+          <view class="uc-infor">
+            <view class="us-company-name">{{userInfoObj.companyName}}</view>
+            <view class="us-iphone">{{userInfoObj.mobile}}</view>
+            <view class="us-email">{{userInfoObj.mail}}</view>
+          </view>
+        </view>
+      </view>
+      <image class="cst-qrcode" src='{{qrcodeUrl}}'></image>
+      <text class="cst-text1">长按识别小程序码</text>
+      <text class="cst-text2">名片存入通讯录，快速查看，永不丢失</text>
+      <view class="swiper-index {{currentTab!=0?'swiper-index-white':''}}">{{currentTab+1}}/{{imgUrls.length}}</view>
+    </swiper-item>
+  </swiper>
+<view class="gradient-blue-btn" bindtap='saveToImage'>保存后分享</view>
+</view>
+<view class="canvas-hide">
+  <canvas class="poster-canvas" canvas-id="customCanvas"></canvas>
+</view>
+<authorizedPopup author-show-flag="{{authorShowFlag}}"></authorizedPopup>
+<!-- <view class="save-success" wx:if="{{saveSuccessFlag}}">
+  <view class="save-success-box">
+    <view class="save-success-tip">
+      <text>已保存图片到相册</text>
+      <view>由于小程序分享限制，请到微信朋友圈上传图片进行分享</view>
+    </view>
+    <view class="sava-share-btn" bindtap="shareToMoments">继续分享</view>
+    <image src='/images/save-card-success-icon.png'></image>
+  </view>
+</view> -->

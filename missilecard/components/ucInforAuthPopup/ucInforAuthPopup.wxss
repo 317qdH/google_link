@@ -1,0 +1,69 @@
+/* components/ucInforAuthPopup/ucInforAuthPopup.wxss */
+
+.login-auth-popup {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+}
+
+.lap-bg {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.3;
+  cursor: pointer;
+}
+.lap-content{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -270rpx;
+  margin-left: -275rpx;
+  width: 550rpx;
+  height: 540rpx;
+  text-align: center;
+  border-radius: 20rpx;
+  background: #fff;
+}
+.lap-content-text{
+  color: #66a6ff;
+  font-size: 34rpx;
+  margin-top: 52rpx;
+  margin-bottom: 12rpx;
+}
+.lap-content-tip{
+  color: #333333;
+  font-size: 30rpx;
+  margin-bottom: 34rpx;
+}
+.lap-auth-img{
+  width: 170rpx;
+  height: 188rpx;
+  margin-bottom: 42rpx;
+}
+.lap-btn-box{
+  padding: 0 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.lap-btn-unlogin{
+  color: #66a6ff;
+  border: 1rpx solid #66a6ff;
+  background: #fff;
+}
+.lap-btn-login{
+  color: #fff;
+  background: linear-gradient(to right, #74c7f8, #66a6ff 10%);
+}
+.gradient-blue-btn{
+  width: 230rpx;
+  height: 70rpx;
+  line-height: 70rpx; 
+  text-align: center;
+  font-size: 32rpx;
+  border-radius: 35rpx;
+}

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "joinus-popup": "../../components/joinus-popup/joinus-popup"
+  },
+  "navigationBarTextStyle": "white"
+}

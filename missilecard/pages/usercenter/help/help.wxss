@@ -1,0 +1,24 @@
+page {
+   background: #f0f0f0;
+}
+.help-container {
+  padding: 0 30rpx;
+  background: #fff;
+}
+
+.help-item {
+  padding: 35rpx 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  border-bottom: 1px solid #eee;
+  font-size: 30rpx;
+  color: #378cfe;
+}
+
+.help-text {
+  font-size: 26rpx;
+  margin-top: 20rpx;
+  color: #949494;
+}

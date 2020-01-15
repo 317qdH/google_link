@@ -1,0 +1,6 @@
+/* pages/login.wxss */
+/*未授权，遮住*/
+page{
+  background-color: #fff;
+}
+

@@ -1,0 +1,227 @@
+/* pages/usercenter/userCard/userCard.wxss */
+@import '../../../styles/card.wxss';
+page{
+  background-color: #eef3f9;
+}
+.user-card-bg{
+  position: relative;
+  width: 100%;
+  height: 490rpx;
+  padding-top: 40rpx;
+  align-items: flex-start;
+  background-color: linear-gradient(to bottom, #66a6ff, #80e2f3);
+}
+.ui-bg1{
+  width: 750rpx;
+  height: 374rpx;
+  position: absolute;
+  top: 342rpx;
+  left: 0;
+}
+.user-information{
+  background-color: #f1f9fe;
+  padding-bottom: 108rpx;
+}
+.user-information-unlogin{
+  padding-bottom: 120rpx;
+}
+.unloginMsk{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+.ui-purpose{
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 30rpx;
+  margin-bottom: 90rpx;
+}
+.ui-purpose-item{
+  width: 116rpx;
+  text-align: center;
+  padding-top: 110rpx;
+  color: #777777;
+  font-size: 26rpx;
+  background: url('http://img0.912688.com/mc-card-information-nav-icons.png') no-repeat;
+  background-size: 1014rpx 117rpx;
+}
+.ui-deatil{
+  margin: 40rpx 30rpx 50rpx 30rpx;
+  padding: 98rpx 0 2rpx 0;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 20rpx;
+  background: #fff url('http://img0.912688.com/mc-uc-card-infromation-bg.png') no-repeat center 0;
+  background-size: 690rpx auto;
+}
+.ui-detail-title{
+  width: 180rpx;
+  height: 54rpx;
+  line-height: 54rpx;
+  margin: 0 auto 50rpx auto;
+  color: #fff;
+  font-size: 30rpx;
+  text-align: center;
+  background: #66a6ff;
+  border-radius: 26rpx 6rpx 26rpx 6rpx;
+}
+.ui-detail-item{
+  display: flex;
+  width: 560rpx;
+  margin-left: 30rpx;
+  padding-left: 64rpx;
+  margin-bottom: 40rpx;
+}
+.ui-detail-left{
+  color: #777777;
+  font-size: 30rpx;
+  margin-right: 30rpx;
+}
+.ui-detail-right{
+  width: 470rpx;
+  color: #333333;
+  font-size: 30rpx;
+}
+.company-detail-item{
+  display: flex;
+  margin: 0 20rpx 0 30rpx;
+  margin-bottom: 40rpx;
+}
+.company-detail-left{
+  flex-shrink: 0;
+  color: #777777;
+  font-size: 30rpx;
+  margin-right: 40rpx
+}
+.company-detail-right{
+  flex-shrink: 1;
+  color: #333333;
+  font-size: 30rpx;
+}
+.ui-edit-btn{
+  margin: 10rpx auto;
+}
+.unlogin-ui-edit{
+  width: 180rpx;
+  height: 60rpx;
+  color: #ffffff;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  text-align: center;
+  border-radius: 30rpx;
+}
+.ui-card-half{
+  width: 300rpx;
+  margin: 0;
+  padding: 0;
+}
+/*http://img0.912688.com/mc-share-moments-bg1.jpg*/
+.ui-purpose1{
+  background-position: 0 -12rpx;
+}
+.ui-purpose2{
+  background-position: -296rpx -12rpx;
+}
+.ui-purpose3{
+  background-position: -590rpx -12rpx;
+}
+.ui-purpose4{
+  position: relative;
+  background-position: -886rpx -12rpx;
+}
+.like-click-animation{
+  position: absolute;
+  right: 10rpx;
+  top: 0rpx;
+  width: 96rpx;
+  height: 96rpx;
+}
+
+.ui-detail-icon1{
+  background: url('http://img0.912688.com/mc-user-edit-infor-icons.png') no-repeat;
+  background-size: 103rpx 864rpx;
+  background-position: -24rpx -507rpx;
+}
+.ui-detail-icon2{
+  background: url('http://img0.912688.com/mc-user-edit-infor-icons.png') no-repeat;
+  background-size: 103rpx 864rpx;
+  background-position: -24rpx -600rpx;
+}
+.ui-detail-icon3{
+  background: url('http://img0.912688.com/mc-user-edit-infor-icons.png') no-repeat;
+  background-size: 103rpx 864rpx;
+  background-position: -24rpx -692rpx;
+}
+.ui-detail-icon4{
+  background: url('http://img0.912688.com/mc-user-edit-infor-icons.png') no-repeat;
+  background-size: 103rpx 864rpx;
+  background-position: -24rpx -790rpx;
+}
+.ui-btn-bottom{
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+}
+.unlogin-ui-btn{
+  height: 119rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  background: #e9f2ff;
+  border-top: 1rpx solid #e5e5e5;
+}
+.ui-btn-share{
+  width: 750rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10rpx 50rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+/*画布*/
+.poster-canvas{
+  width: 750rpx;
+  height: 594rpx;
+}
+.canvas-hide{
+  position: absolute;
+  top: 20000rpx;
+  left: 0;
+  width:0px;
+  height:0px;
+  overflow:hidden;
+}
+
+.default-icon{
+  color: #66a6ff;
+  font-size: 30rpx;
+  margin: 0 10rpx 0 30rpx;
+}
+.ul-detail-copy{
+  color: #66a6ff;
+  font-size: 30rpx;
+}
+.ubb-auth-tip{
+  text-align: center;
+  color: #333333;
+  font-size: 30rpx;
+  margin: 22rpx 12rpx;
+}
+.unlogin-ubb-tip{
+  color: #66a6ff;
+  font-size: 30rpx;
+}

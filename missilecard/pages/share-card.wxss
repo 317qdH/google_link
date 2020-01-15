@@ -1,0 +1,144 @@
+@import '../styles/card.wxss';
+/* pages/share-card.wxss */
+page{
+  background:#000;
+}
+
+.share-moments-box{
+  width: 600rpx;
+  height: 1016rpx;
+  position: relative;
+  margin: 26rpx auto;
+  margin-bottom: 0;
+  padding-top: 20rpx;
+  background: #fff;
+}
+.share-moments-swiper{
+  width: 560rpx;
+  height: 996rpx;
+  margin: 0 auto;
+  background-color: #fff;
+}
+.slide-image{
+  width: 560rpx;
+  height: 996rpx;
+}
+
+.share-moments-box .u-card-box{
+  position: absolute;
+  left: -74rpx;
+  top: 0;
+  transform: scale(0.7,0.7);
+}
+.cst-qrcode{
+  width: 248rpx;
+  height: 249rpx;
+  position: absolute;
+  left: 156rpx;
+  top: 488rpx;
+  border-radius: 50%;
+}
+.share-moments-box .cst-text1{
+  color: #333333;
+  font-size: 26rpx;
+  position: absolute;
+  left: 176rpx;
+  top: 814rpx;
+}
+.share-moments-box .cst-text2{
+  color: #333333;
+  font-size: 26rpx;
+  position: absolute;
+  left: 59rpx;
+  top: 874rpx;
+}
+.cst-active .cst-text1{
+  color: #fff;
+}
+.cst-active .cst-text2{
+  color: #fff;
+}
+.share-moments-box .gradient-blue-btn{
+  margin-top: 60rpx;
+}
+
+/*保存到相册弹窗*/
+.save-success{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, .5);
+}
+.save-success-box{
+  width: 490rpx;
+  position: relative;
+  background-color: #ecedf6;
+  border-radius: 9rpx;
+}
+.save-success-tip{
+  padding: 148rpx 50rpx 40rpx 50rpx;
+}
+.save-success-tip>text{
+  color: #333333;
+  font-size: 26rpx;
+}
+.save-success-tip>view{
+  margin-top: 15rpx;
+  color: #333333;
+  font-size: 26rpx;
+  line-height: 40rpx;
+}
+.sava-share-btn{
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #111111;
+  background-color: #d9dbea;
+  border-bottom-left-radius: 9rpx;
+  border-bottom-right-radius: 9rpx;
+}
+
+
+.save-success-box>image{
+  width: 251rpx;
+  height: 176rpx;
+  position: absolute;
+  left: 130rpx;
+  top: -60rpx;
+}
+
+/*画布*/
+.poster-canvas{
+  width: 600rpx;
+  height: 1036rpx;
+}
+.canvas-hide{
+  position: absolute;
+  top: 20000rpx;
+  left: 0;
+  width:0px;
+  height:0px;
+  overflow:hidden;
+}
+.swiper-index{
+  width: 560rpx;
+  height: 50rpx;
+  text-align: center;
+  position: absolute;
+  left: 0rpx;
+  top: 930rpx;
+  color: #666666;
+  font-size: 26rpx;
+  z-index: 100;
+}
+.swiper-index-white{
+  color: #f1f1f1;
+}
+

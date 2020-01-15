@@ -1,0 +1,41 @@
+<top-nav inner-title="意见反馈"></top-nav>
+<form>
+  <view class='object-container'>
+    <view class='object-phone'>
+      <text>若您的问题急需解决，您可以致电0571-26235666</text>
+    </view>
+    <view class='object-typebox'>
+      <text class='object-type'>问题类型</text>
+    </view>
+    <radio-group bindchange="checkboxChange">
+      <view class='object-checkout'>
+        <view wx:if="{{type == '1'}}"><image class='gou' src='/images/gou.png'></image></view>
+        <view><image class='gouf' src='/images/gouf.png'></image></view>
+        <label class="radio">
+          <radio color='#fff' value="1" checked='{{checked}}' />
+        </label>
+        <text>找程序员茬</text>
+        <text class='object-detail'> ( 小程序bug/浏览速度/操作问题等 )</text>
+      </view>
+      <view class='object-checkout'>
+        <view wx:if="{{type == '2'}}"><image class='gou' src='/images/gou.png'></image></view>
+        <view><image class='gouf' src='/images/gouf.png'></image></view>
+        <label class="radio">
+          <radio color='#fff' value="2" />
+        </label>
+        <text>找设计师茬</text>
+        <text class='object-detail'> ( 页面不好看/颜色不喜欢/功能缺失等 )</text>
+      </view>
+    </radio-group>
+    <view class='object-describe'>
+      <text>问题描述</text>
+      <text class='currentWordNumber'></text>
+    </view>
+    <view class='object-textarea'>
+      <textarea maxlength="100" placeholder="请协助填写问题，将有助于我们更快地发现和解决问题。" bindinput='bindEquipmentId'></textarea>
+    </view>
+    <button class='object-back' bindtap='suggestion'>
+      <text>提交反馈</text>
+    </button>
+  </view>
+</form>

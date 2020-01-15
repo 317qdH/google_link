@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#66a6ff",
+    "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "商品营销",
+  "usingComponents": {
+    "authorizedPopup": "../../components/authorizedPopup/authorizedPopup"
+  }
+}

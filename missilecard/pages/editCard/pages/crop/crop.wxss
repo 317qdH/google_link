@@ -1,0 +1,22 @@
+/* pages/editCard/pages/crop/crop.wxss */
+.crop-btn{
+  width: 240rpx;
+  height: 88rpx;
+  z-index: 100;
+  line-height: 88rpx; 
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 44rpx;
+  background: linear-gradient(to right, #74c7f8, #66a6ff 10%);
+}
+.crop-btn-sure{
+  position: absolute;
+  right: 10%;
+  bottom: 10%;
+}
+.crop-btn-choose{
+  position: absolute;
+  left: 10%;
+  bottom: 10%;
+}

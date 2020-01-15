@@ -1,0 +1,50 @@
+/* components/top-nav/top-nav.wxss */
+@import '../../styles/icon.wxss';
+.ico-back{
+  width: 36rpx;
+  height: 36rpx;
+  background-size: 20rpx 34rpx;
+  background-repeat: no-repeat;
+  background-position: 30rpx center;
+}
+.hh-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  /* background-color: #ff911b; */
+  z-index: 99;
+}
+.hh-title{
+  font-size: 36rpx;
+  text-align: center;
+  color: #000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hh-nav-right{
+  width: 56px;
+}
+.hh-nav-back{
+  width: 56px;
+  display: flex;
+  align-items: center;
+}
+
+.white-arrow{
+  background-image: url('http://img0.912688.com/x2-toback-icon2.png');
+}
+.black-arrow{
+  background-image:url('http://img0.912688.com/x2-toback-icon.png');
+}
+.indust-font{
+  color: #fff;
+  font-size: 44rpx;
+  padding-left: 30rpx;
+  box-sizing: border-box;
+}

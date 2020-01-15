@@ -1,0 +1,117 @@
+<wxs src="../../utils/wxs/tools.wxs" module="timeTranslate"></wxs>
+<top-nav inner-title="我的客户" is-show-back="false"></top-nav>
+<!-- //邀请好友，拍照添加页面,没有好友时候的页面 -->
+<view class='nocontainer' wx:if="{{!customer}}">
+  <view class='search-container' bindtap='changesearch'>
+    <view class='search'>
+      <view class='searchicon'></view>
+      <text class='company'>输入公司/联系人搜索</text>
+    </view>
+  </view>
+  <view class='nocustomer'>
+    <view class='nocustomer-card'></view>
+    <view class='nocustomer-break'>
+      <text class='nocustomer-breakleft'>名片夹里还没有任何人</text>
+      <text class='nocustomer-breakright'>您可以邀请微信好友进行名片互换哦~</text>
+    </view>
+    <button class='btn btn-blue' open-type="share">
+      <text>邀请好友</text>
+    </button>
+    <button class='btn btn-transparent' bindtap='photoAdded'>
+      <text>拍照添加</text>
+    </button>
+  </view>
+</view>
+<!-- 有好友的情况 -->
+<view class='container' wx:if="{{customer}}">
+  <view class='search-container' bindtap='changesearch'>
+    <view class='search'>
+      <view class='searchicon'></view>
+      <text class='company'>输入公司/联系人搜索</text>
+    </view>
+  </view>
+  <view class='invite-container'>
+    <view class='invite'>
+      <button class='invite-friend border-bt' bindtap='onShareAppMessage' open-type="share">
+        <view class='invite-friendleft'>
+          <view></view>
+          <text>邀请好友</text>
+        </view>
+        <view class='invite-friendright'>
+          <text>您可以邀请微信好友进行名片互换</text>
+          <image src='/images/mc-arrow.png'></image>
+        </view>
+      </button>
+      <button class='invite-friend border-bt' bindtap='photoAdded'>
+        <view class='invite-friendleft'>
+          <view class='iphone'></view>
+          <text>拍照添加</text>
+        </view>
+        <view class='invite-friendright'>
+          <text>您可以直接拍照名片存储到名片夹</text>
+          <image src='/images/mc-arrow.png'></image>
+        </view>
+      </button>
+      <view class='invite-friend' bindtap='toAiAnalyze'>
+        <view class='invite-friendleft'>
+          <view class='ai-analyze'></view>
+          <text>AI分析</text>
+        </view>
+        <view class='invite-friendright'>
+          <text>客户数据追踪、统计、分析</text>
+          <image src='/images/mc-arrow.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='space'></view>
+  <view class='select'>
+    <view class='select-auto'>
+      <text bindtap='changeactive' data-id='0' class="{{index == 0 ? 'active' : ''}}">默认</text>
+      <view data-id='1' data-index="{{dataindex}}" bindtap='changeactives' class="select-flex {{index == 1 ? 'active' : ''}}">
+        <text class='mine-time'>时间</text>
+        <image src='{{chooseOne}}' class='time'></image>
+      </view>
+      <view class="select-flex select-border {{index == 2 ? 'active' : ''}}" bindtap='changeselect' data-id='2'>
+        <text class='seletext'>行业筛选</text>
+        <image class='selecticon' src='{{industry}}'></image>
+      </view>
+    </view>
+  </view>
+  <view class='select-person'>
+    <view class='select-personauto' wx:if="{{customerarr}}">
+      <!-- 好友列表 -->
+      <block wx:for="{{customerarr}}" wx:key="{{index}}">
+        <view class='select-item' data-id="{{item.id}}" data-index="{{item.clientId}}" bindtap='selectcustomer' data-name="{{item.name}}">
+          <view class='select-itemleft'>
+            <view class='item-image'>
+              <image wx:if="{{item.avatarPath}}" src='{{item.avatarPath}}'></image>
+              <image wx:if="{{!item.avatarPath}}" src='{{avatar}}'></image>
+            </view>
+            <view>
+              <view>
+                <text class='item-name'>{{item.name}}</text>
+                <text>{{item.position}}</text>
+              </view>
+              <view class='item-company'>{{item.companyName}}</view>
+            </view>
+          </view>
+          <view class='select-itemright'>
+            <text>{{timeTranslate.timestampToTime(item.createTime)}}</text>
+            <text class='selectfriend' wx:if="{{item.labelCustomize}}">{{item.labelCustomize}}</text>
+            <text class='selectfriends' wx:if="{{!item.labelCustomize}}">{{item.labelCustomize}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view wx:if="{{customerarr == ''}}" class='nosearchs'>
+    <view class='nocustomericon'>
+      <image src='/images/mc-nocusIcon.png'></image>
+    </view>
+    <view>抱歉，没有找到相关名片~</view>
+    <view bindtap='allcustomer'>查看全部名片</view>
+  </view>
+</view>
+<!--登录弹窗-->
+<ucInforAuthPopup uc-info-auth-show="{{ucInfoAuthShow}}" binducAuth="onGotUserInfo"></ucInforAuthPopup>

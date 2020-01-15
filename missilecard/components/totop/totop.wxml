@@ -1,0 +1,5 @@
+<!--components/totop/totop.wxml-->
+<view class="totop" bindtap="totop" wx:if="{{status}}">
+    <image src="/images/second-edition/mc-totop-bg.png" class="totop-image" mode="aspectFit"></image>
+</view>
+

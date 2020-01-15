@@ -1,0 +1,373 @@
+@import '../../../../styles/card.wxss';
+
+.card-infor-edit {
+  display: block;
+  position: relative;
+}
+
+.padding-30 {
+  padding: 0 30rpx;
+}
+
+.space {
+  width: 100%;
+  height: 30rpx;
+  background: #f0f0f0;
+}
+
+.cardImage {
+  width: 690rpx;
+  height: 90rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+  margin: 0 auto;
+  font-size: 30rpx;
+  color: #666;
+  line-height: 90rpx;
+}
+
+.imageCon {
+  width: 690rpx;
+  height: 518rpx;
+  background: #f0f0f0;
+  margin: 30rpx auto;
+}
+
+.imageCon image {
+  width: 100%;
+  height: 100%;
+}
+
+.magin-30 {
+  margin: 30rpx auto;
+}
+
+.card-infor-edit .bordernone {
+  border-bottom: none;
+}
+
+.cie-title {
+  height: 90rpx;
+  display: flex;
+  margin-top: 16rpx;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 30rpx;
+}
+
+.cie-title>view {
+  color: #666;
+}
+
+.cie-title>text {
+  color: #c5c5c5;
+}
+
+.cie-item {
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  padding-left: 50rpx;
+  font-size: 32rpx;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.cie-item>text {
+  color: #999;
+}
+
+.must-fill-icon {
+  position: relative;
+}
+
+.must-fill-icon::before {
+  content: '*';
+  color: red;
+  position: absolute;
+  left: -30rpx;
+  top: 8rpx;
+}
+
+.cie-item>input {
+  padding-left: 40rpx;
+  color: #333;
+}
+
+.picker-item {
+  justify-content: space-between;
+}
+
+.picker-item .input-text {
+  position: absolute;
+  left: 185rpx;
+  width: 440rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 32rpx;
+  color: #333;
+}
+
+.selected-picker {
+  position: absolute;
+  left: 185rpx;
+  width: 440rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 32rpx;
+  color: #333;
+}
+
+.pickersmall {
+  display: flex;
+  align-items: center;
+}
+
+.cie-item .picker {
+  position: relative;
+  margin-right: 26rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.cie-item .picker::after {
+  content: '';
+  width: 13rpx;
+  height: 13rpx;
+  border-right: 2rpx solid #999;
+  border-bottom: 2rpx solid #999;
+  transform: rotate(-45deg);
+  position: absolute;
+  left: 60rpx;
+  top: 13rpx;
+}
+
+/*选择头像*/
+
+.choose-avatar {
+  padding: 0 30rpx;
+  position: absolute;
+  right: 0;
+  top: 70rpx;
+  background-color: #fff;
+}
+
+.choose-avatar>image {
+  width: 201rpx;
+  height: 201rpx;
+}
+
+.cie-mask {
+  position: absolute;
+  right: 30rpx;
+  top: 0;
+  width: 203rpx;
+  height: 203rpx;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.cie-mask>image {
+  width: 50rpx;
+  height: 42rpx;
+  margin: 140rpx 0 0 78rpx;
+}
+
+/*行业选择器*/
+
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 15;
+}
+
+.Industry-picker {
+  position: fixed;
+  left: 0;
+  bottom: -1100rpx;
+  opacity: 0;
+  width: 100%;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  background: #fff;
+  z-index: 20;
+  -webkit-transition: all 1s linear;
+  transition: all 0.3s linear;
+}
+
+.Industry-picker-show {
+  opacity: 1;
+  bottom: 0;
+}
+
+.Industry-picker .i-pick-title {
+  width: 100%;
+  height: 100rpx;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #66a6ff;
+  font-size: 16px;
+}
+
+.Industry-picker .i-pick-title image {
+  width: 22rpx;
+  height: 22rpx;
+  position: absolute;
+  right: 30rpx;
+  top: 38rpx;
+}
+
+.i-pick-btn {
+  height: 148rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.i-pick-main {
+  display: flex;
+  border-top: 1rpx solid #e5e5e5;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+
+.i-pick-left {
+  width: 350rpx;
+  height: 850rpx;
+  padding-bottom: 50rpx;
+}
+
+.i-pick-left view {
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  border-bottom: 1rpx solid #e5e5e5;
+  color: #555;
+  font-size: 28rpx;
+  background-color: #f9f9f9;
+}
+
+.i-pick-left-active:hover {
+  color: #66a6ff;
+  background-color: #eef5ff;
+}
+
+.i-pick-right {
+  width: 400rpx;
+  height: 850rpx;
+}
+
+.i-pick-right view {
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  border-bottom: 1rpx solid #e5e5e5;
+  color: #555;
+  font-size: 28rpx;
+  background-color: #fff;
+}
+
+.i-pick-right-active:hover {
+  color: #66a6ff;
+}
+
+.i-pick-left .leftitem.active {
+  /*背景色变成白色*/
+  background: #fff;
+}
+
+/*地区选择样式*/
+
+.region {
+  position: fixed;
+  left: 0;
+  bottom: -1080rpx;
+  opacity: 1;
+  width: 100%;
+  height: 950rpx;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  background: #fff;
+  z-index: 20;
+  -webkit-transition: all 1s linear;
+  transition: all 0.3s linear;
+}
+
+.region-active {
+  opacity: 1;
+  bottom: 0;
+}
+
+.region-title {
+  padding: 30rpx 0;
+  text-align: center;
+  color: #999;
+  font-size: 32rpx;
+}
+
+.region-selected {
+  width: 100%;
+  padding: 0 30rpx;
+  color: #333;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+
+.region-selected>text {
+  display: inline-block;
+  margin: 20rpx 42rpx 0 0;
+  padding-bottom: 20rpx;
+}
+
+.region-item-selected {
+  color: #378bff;
+  border-bottom: 1rpx solid #378bff;
+}
+
+.region-list {
+  height: 680rpx;
+  padding: 40rpx 0 50rpx 30rpx;
+}
+
+.region-list-item {
+  margin-bottom: 45rpx;
+  color: #666;
+  font-size: 28rpx;
+}
+
+.region-list-item-active {
+  color: #378bff;
+}
+
+.i-pick-left .active {
+  color: #66a6ff;
+  background: #eef5ff;
+}
+
+.i-pick-right .addactive {
+  color: #66a6ff;
+}
+
+input {
+  width: 300rpx;
+  text-overflow: ellipsis;
+}
+
+.cie-item .names {
+  width: 240rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.cie-item .companys {
+  width: 480rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

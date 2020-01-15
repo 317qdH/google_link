@@ -1,0 +1,31 @@
+var timeTranslate = {
+  //时间戳转换
+   timestampToTime: function(timestamp) {
+    var date = getDate(timestamp); //时间戳为10位需*1000
+    var Y = date.getFullYear() + '-';
+    var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+    var D = date.getDate() + ' ';
+    return Y + M + D
+  }
+}
+var facePrice = function (str) {
+  if (str == '面议' || str == '0' || str == 'undefined' || str == 'null' || !str || str == '0.00') {
+    return '面议'
+  } else {
+    return str
+  }
+}
+var timestampToTime2 = function(timestamp) {
+  var date = getDate(timestamp); //时间戳为10位需*1000
+  var Y = date.getFullYear() + '/';
+  var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '/';
+  var D = date.getDate() + ' ';
+  return Y + M + D
+}
+
+module.exports = {
+  timestampToTime: timeTranslate.timestampToTime,
+  timestampToTime2: timestampToTime2,
+  checkNull: timeTranslate.checkNull,
+  facePrice: facePrice
+}

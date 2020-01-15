@@ -1,0 +1,107 @@
+<!--pages/marketing/marketing-category.wxml-->
+<top-nav inner-title="商品营销" sharePage="true"></top-nav>
+<!--企业营销-->
+<view wx:if="{{marketingTab == 1}}">
+  <view class="user-card-bg">
+    <view class="u-card-box {{cardClassName}}">
+      <image class="uc-bg" src='{{cardImageSrc}}'></image>
+      <view class="scene-marketing-tip">
+        <view class="smt-title">温馨提示：</view>
+        <view class="smt-text">1、选择模板后可根据自己的需求进行自定义内容</view>
+        <view class="smt-text">2、绑定搜好货账号，自动获取账户信息 生成模板</view>
+        <view class="smt-text">3、暂时只支持企业信息的编辑，更多模板敬请期待</view>
+        <view class="smt-text"></view>
+      </view>
+    </view>
+  </view>
+  <view class="marketing-template-show">
+    <view class="marketing-template-item" bindtap='checkoutcompanyfirst'  wx:for="{{enterpriseImgUrl}}" wx:key="item.id">
+      <image data-idx="{{index}}" src='{{item}}'></image>
+    </view>
+  </view>
+  <view class="mts-bottom-tip">更多模板敬请期待~</view>
+</view>
+
+<!--场景营销-->
+<view wx:elif="{{marketingTab == 2}}">
+  <view class="user-card-bg">
+    <view class="u-card-box {{cardClassName}}">
+      <image class="uc-bg" src='{{cardImageSrc}}'></image>
+      <view class="scene-marketing-tip">
+        <view class="smt-title">温馨提示：</view>
+        <view class="smt-text">1、场景中信息将自动获取您得账号信息</view>
+        <view class="smt-text">2、进入场景后可直接通过转发按钮进行相关分享</view>
+        <view class="smt-text">3、绑定后可生成自己的专属场景秀</view>
+        <view class="smt-text">4、保存最后一页的二维码，返回微信里扫一扫，即可</view>
+        <view class="smt-text">分享到朋友圈、QQ好友等</view>
+      </view>
+    </view>
+  </view>
+  <view class="marketing-template-show">
+    <view class="marketing-template-item" data-idx="{{index}}" bindtap="checkMarketing" wx:for="{{sceneImgUrl}}" wx:key="item.id">
+      <image src='{{item}}'></image>
+    </view>
+  </view>
+  <view class="mts-bottom-tip">更多模板敬请期待~</view>
+</view>
+
+<!--商品营销-->
+<view class="marketing-commodity-box" wx:else="{{marketingTab == 3}}">
+  <view class="user-card-bg">
+  <view class="u-card-box {{cardClassName}}" animation="{{slide_card}}">
+  <image mode="aspectFill" class="uc-avatar" src="{{userInfoObj.avatarPath}}"></image>
+    <!-- <view class="uc-avatar"><open-data type="userAvatarUrl"></open-data></view> -->
+    <view class="uc-title">
+      <view>{{userInfoObj.name}}</view>
+      <text>{{userInfoObj.position}}</text>
+    </view>
+    <image class="uc-bg" src='{{cardImageSrc}}'></image>
+    <view class="uc-infor">
+      <view class="us-company-name">{{userInfoObj.companyName}}</view>
+      <view class="us-iphone">{{userInfoObj.mobile}}</view>
+      <view class="us-email">{{userInfoObj.mail}}</view>
+    </view>
+  </view>
+</view>
+  <view class="marketing-commodity-show" wx:if="{{haveListTab == 1}}">
+    <view class="marketing-commodity-title">优质产品展示</view>
+    <view bindtap='toProductDetail' data-prodId = "{{item.id}}" class="mcs-item" wx:for="{{commodityList}}" wx:key="item.id">
+      <image lazy-load src='{{item.prodPic}}'></image>
+      <view class="mcs-commodity-detail">
+        <view class="commodity-detail-title">{{item.prodName}}</view>
+      <view class="commodity-detail-companyName">{{item.compName}}</view>
+      <view class="commodity-detail-a-p">
+        <view>{{address}}<image src='/images/mc-commodity-address.png'></image></view>
+        <text>￥{{item.minPrice>0?item.minPrice:'面议'}}</text>
+      </view>
+      </view>
+    </view>
+    <view class="mcs-btn-box" wx:if="{{cardStatus == 0}}">
+      <button class="gradient-blue-btn" open-type="share">发送给朋友</button>
+      <view class="gradient-blue-btn" bindtap="savePoster">分享朋友圈</view>
+    </view>
+    <view class="create-card" wx:if="{{cardStatus == 1}}" bindtap="createCard">
+      <view class="gradient-blue-btn">我也要制作</view>
+    </view>
+    <view class='company-sharecontainer' wx:if="{{cardStatus == 2}}">
+      <view class='company-share'>
+        <view bindtap="toMyCard">
+          <text>我的名片</text>
+        </view>
+        <view bindtap='toMarketing'>
+          <text>我的营销</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="marketing-no-commodity" wx:elif="{{haveListTab == 0}}">
+    <image src='/images/mc-nocusIcon.png'></image>
+    <view>抱歉，没有找到任何商品~</view>
+    <text>您在搜好货还未发布商品，请到搜好货网进行发布\n发布后会自动获取您的商品</text>
+  </view>
+</view>
+<view class="canvas-hide">
+  <canvas class="poster-canvas" canvas-id="customCanvas"></canvas>
+</view>
+<authorizedPopup author-show-flag="{{authorShowFlag}}"></authorizedPopup>
+<ucInforAuthPopup uc-info-auth-show="{{ucInfoAuthShow}}" binducAuth="onGotUserInfo"></ucInforAuthPopup>

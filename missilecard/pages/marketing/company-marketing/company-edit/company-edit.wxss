@@ -1,0 +1,159 @@
+.header-info {
+  width: 690rpx;
+  height: 100rpx;
+  margin: 0 auto;
+}
+
+.header-info text {
+  line-height: 100rpx;
+  font-size: 28rpx;
+  color: #111;
+}
+
+.table {
+  display: flex;
+  align-items: center;
+  width: 690rpx;
+  height: 100rpx;
+  border-top: 1rpx solid #f0f0f0;
+  margin: 0 auto;
+}
+
+.space {
+  width: 100%;
+  height: 30rpx;
+  background: #f0f0f0;
+}
+
+.borderbottom {
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+textarea {
+  padding: 30rpx 0;
+  width: 690rpx;
+  margin: 0 auto;
+  word-break: break-all;
+  word-wrap: break-word;
+  line-height: 1.5;
+  box-sizing: border-box;
+  color: #999;
+  font-size: 28rpx;
+  min-height: 200rpx;
+  max-height: 1000rpx;
+}
+
+.textareacontainer {
+  height: auto;
+}
+
+.borderbottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-info .nums {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.imagecontainer {
+  width: 690rpx;
+  margin: 0 auto;
+}
+
+.infocontainer {
+  display: flex;
+  width: 690rpx;
+  line-height: 100rpx;
+  font-size: 32rpx;
+  color: #999;
+  margin: 0 auto;
+  border-top: 1rpx solid #f0f0f0;
+  word-wrap:break-word; 
+  word-break:normal;
+}
+
+.infoleft {
+  padding: 28rpx 0;
+  line-height: 1.6;
+  width: 150rpx;
+}
+
+.inforight {
+  padding: 28rpx 0;
+  line-height: 1.6;
+  flex: 1;
+  color: #333;
+  margin-left: 25rpx;
+  word-wrap:break-word; 
+  word-break:normal;
+}
+
+.buttoncontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 150rpx;
+  background: #fff;
+}
+
+.buttoncontainer button {
+  width: 602rpx;
+  height: 87rpx;
+  line-height: 87rpx;
+  background: #66a6ff;
+  color: #fff;
+  border-radius: 50rpx;
+  font-size: 32rpx;
+}
+
+
+/* 图片部分 */
+
+.publish_imgs_area {
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  border-radius: 15rpx;
+  padding-top: 8rpx;
+  padding-bottom: 8rpx;
+  /* height: 450rpx; */
+}
+
+.iamge_item {
+  width: 210rpx;
+  height: 160rpx;
+  padding: 4rpx 0;
+  margin-right: 21rpx;
+}
+
+.iamge_content {
+  width: 210rpx;
+  height: 160rpx;
+  border: 1px solid #f1efef;
+}
+
+.iamge_cancel {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  position: relative;
+  top: -195rpx;
+  right: -195rpx;
+  z-index: 800;
+}
+
+.iamge_item .image_mg {
+  margin-right: 5rpx;
+}
+
+.containor {
+  width: 690rpx;
+  margin: 0 auto;
+}
+

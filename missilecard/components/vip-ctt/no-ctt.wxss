@@ -1,0 +1,69 @@
+/* components/vip-ctt/vip-ctt.wxss */
+/*是否采通通会员*/
+.ctt-vip-popup {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+}
+
+.cvp-bg {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.3;
+}
+.cvp-content{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -315rpx;
+  margin-left: -280rpx;
+  width: 560rpx;
+  height: 630rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  background: #fff url('https://img0.912688.com/mc-alert-ctt-vip-bg.png');
+  background-size: 560rpx auto;
+}
+.cvp-close{
+  position: absolute;
+  top: 14rpx;
+  right: 14rpx;
+  width: 52rpx;
+  height: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cvp-close image{
+  width: 26rpx;
+  height: 26rpx;
+}
+.cvp-tip{
+  color: #333333;
+  font-size: 30rpx;
+  margin: 250rpx 0 6rpx 0; 
+}
+.cvp-only-vip{
+  color: #999999;
+  font-size: 28rpx;
+  margin-bottom: 48rpx;
+}
+.cvp-text{
+  color: #ff9900;
+  font-size: 28rpx;
+}
+.cvp-btn{
+  width: 300rpx;
+  height: 80rpx;
+  margin: 34rpx auto 0 auto;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 10rpx;
+  background: #ff9900;
+}

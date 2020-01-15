@@ -1,0 +1,128 @@
+<top-nav inner-title="创建客户"></top-nav>
+<view class="{{maskShowFlag?'indexFixed':''}}">
+<view class="user-card-bg">
+  <view class="u-card-box {{cardClassName}}" animation="{{slide_card}}">
+    <image class="uc-avatar" wx:if="{{!avatarimages}}" src="{{avatar}}"></image>
+    <image class='uc-avatar' wx:if="{{avatarimages}}" src='{{avatarimages}}'></image>
+    <!-- <view class="uc-avatar"><open-data type="userAvatarUrl"></open-data></view> -->
+    <view class="uc-title">
+      <view wx:if="{{name}}">{{name}}</view>
+      <view wx:if="{{!name}}">名字未填写</view>
+      <text wx:if="{{position}}">{{position}}</text>
+      <text wx:if="{{!position}}">职位信息未填写</text>
+    </view>
+    <image class="uc-bg" src='{{cardImageSrc}}'></image>
+    <view class="uc-infor">
+      <view class="us-company-name" wx:if="{{companyName}}">{{companyName}}</view>
+      <view class="us-company-name" wx:if="{{!companyName}}">公司信息未填写</view>
+      <view class="us-iphone" wx:if="{{mobile}}">{{mobile}}</view>
+      <view class="us-iphone" wx:if="{{!mobile}}">手机信息未填写</view>
+      <view class="us-email" wx:if="{{mail}}">{{mail}}</view>
+      <view class="us-email" wx:if="{{!mail}}">邮箱信息未填写</view>
+    </view>
+  </view>
+</view>
+<form class="card-infor-edit" bindsubmit="formSubmit">
+  <view class='padding-30'>
+    <view class="cie-title">
+      <view>信息编辑</view>
+    </view>
+    <view class="cie-item">
+      <text class="must-fill-icon">姓名</text>
+      <input name='username' maxlength='8' class='names' bindblur='changename' value='{{userinfo.name}}'></input>
+    </view>
+    <view class="cie-item">
+      <text class="must-fill-icon">电话</text>
+      <input type='number' class='mobiles' bindblur='changemobile' maxlength='13' name='telephone' value='{{userinfo.mobile}}'></input>
+    </view>
+    <view class="cie-item">
+      <text class="must-fill-icon">公司</text>
+      <input name='company' class='companys' maxlength='50' bindblur='changecompany' value='{{userinfo.companyName}}'></input>
+    </view>
+    <view class="cie-item picker-item">
+      <text class='must-fill-icon'>行业</text>
+      <text class="input-text">{{industry}}</text>
+      <view class="picker" bindtap='openIndustryPicker'>
+        选择
+      </view>
+    </view>
+    <view class="cie-item">
+      <text class="must-fill-icon">职位</text>
+      <input name='object' class='position' maxlength="10" bindblur='changeposition' value='{{userinfo.position}}'></input>
+    </view>
+    <view class="cie-item">
+      <text>邮箱</text>
+      <input name='email' class='mail' bindblur='changemail' value='{{userinfo.mail}}'></input>
+    </view>
+    <view class="cie-item">
+      <text>微信</text>
+      <input name='wechat' class='wechat' value='{{userinfo.weChat}}'></input>
+    </view>
+    
+    <view class="cie-item picker-item">
+      <text>地区</text>
+      <view bindtap="chooseRegion" class='pickersmall'>
+        <view class="selected-picker">
+          {{regionStr}}
+        </view>
+        <view class="picker">
+          选择
+        </view>
+      </view>
+    </view>
+    <view class="cie-item bordernone">
+      <text>地址</text>
+      <input name='addr' value='{{userinfo.address}}'></input>
+    </view>
+    <view class="choose-avatar" bindtap='chooseAvatar'>
+      <image wx:if="{{avatarimages}}" src='{{avatarimages}}'></image>
+      <image wx:if="{{!avatarimages}}" src='{{avatar}}'></image>
+      <view wx:if="{{mask}}" class="cie-mask">
+        <!-- 小相机 -->
+        <image wx:if="{{mask}}" src="/images/cie-camera.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class='space'></view>
+  <view class='cardImage'>
+    <text>名片照片</text>
+  </view>
+  <view class='imageCon'>
+    <image mode="aspectFill" src='{{userinfo.discernPath}}'></image>
+  </view>
+  <view class='space'></view>
+  <button class="gradient-blue-btn magin-30" form-type="submit">保存</button>
+</form>
+</view>
+<view class="mask" wx:if="{{maskShowFlag}}"></view>
+<!-- 主盒子 -->
+<view class="Industry-picker {{industryShowFlag?'Industry-picker-show':''}}">
+  <view class="i-pick-title">所属行业
+  </view>
+  <view class="i-pick-main">
+    <!-- 左侧盒 -->
+    <scroll-view class="i-pick-left" scroll-y>
+      <block wx:for="{{cateItems}}" wx:key="index">
+        <view class="leftitem {{indexss == item.id ? 'active': ''}}" data-name="{{item.featureName}}" data-id="{{item.id}}" bindtap='switchRightTab'>{{item.featureName}}</view>
+      </block>
+    </scroll-view>
+    <!-- 右侧栏 -->
+    <scroll-view class="i-pick-right" scroll-y>
+      <block wx:for="{{cateItemtab}}" wx:key="index">
+        <view data-id='{{item.id}}' data-name="{{item.featureName}}" bindtap='select' class="{{idxs == item.id ? 'addactive' : ''}}">{{item.name}}</view>
+      </block>
+    </scroll-view>
+  </view>
+</view>
+<view class="region {{regionShowFlag?'region-active':''}}">
+  <view class="region-title">选择地区</view>
+  <view class="region-selected">
+    <text data-idx="{{index}}"  wx:if="{{item.name}}" class="{{regionTab == index?'region-item-selected':''}}" bindtap="resetRegionClick" wx:for="{{regionSelectList}}">{{item.name}}</text>
+  </view>
+  <scroll-view class="region-list" scroll-y>
+    <block>
+      <view class="region-list-item" data-obj="{{item}}" wx:for="{{regionShowList}}" wx:key="index" bindtap="selectRegion">{{item.name}}</view>
+    </block>
+  </scroll-view>
+</view>
+<!-- region-list-item-active  -->

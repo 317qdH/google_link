@@ -1,0 +1,6 @@
+<!--pages/editCard/pages/crop/crop.wxml-->
+<top-nav inner-title="裁剪图片"></top-nav>
+<image-cropper id="image-cropper" limit_move="{{true}}" disable_rotate="{{true}}" width="{{width}}" height="{{height}}" imgSrc="{{src}}" disable_width="{{false}}" disable_height="{{false}}" disable_ratio="{{true}}" bindload="cropperload" bindimageload="loadimage" bindtapcut="clickcut"></image-cropper>
+
+<view class="crop-btn crop-btn-sure" bindtap="confirmImg">确定</view>
+<view class="crop-btn crop-btn-choose" bindtap="chooseImg">重新选择</view>

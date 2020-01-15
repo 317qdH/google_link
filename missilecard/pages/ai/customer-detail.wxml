@@ -1,0 +1,85 @@
+<top-nav inner-title="客户详情" is-show-back="false"></top-nav>
+<wxs src="../../utils/chooseTime.wxs" module="dateUtil" />
+<!--pages/ai/customer-detail.wxml-->
+<view class="customer-detail">
+  <view class="cd-userInfor">
+    <view class="cdu-left">
+      <image class="cdu-avatar" src="{{carteUserObj.avatarPath || userInfoObj.avatarPath}}"></image>
+      <view class="cdu-userName">{{carteUserObj.name || userInfoObj.weChatNickname}}</view>
+      <view class="cdu-post" wx:if="{{carteUserObj.position}}">{{carteUserObj.position}}</view>
+    </view>
+    <view class="cdu-examine" bindtap="examineCard">查看名片</view>
+    <view class="cdu-visitor-type">{{['','访客','人脉','客户'][visitorTab]}}</view>
+  </view>
+  <view class="cd-contact">
+    <view class="cdc-item">
+      <text class="iconfont icondianhua indust-icon"></text>
+      <view class="cdc-item-phone">电话：{{carteUserObj.mobile || '电话号码未填写'}}</view>
+      <view class="cdc-item-call" bindtap="callPhont" wx:if="{{carteUserObj.mobile}}">拨号</view>
+    </view>
+    <view class="cdc-item">
+      <text class="iconfont icongongsi indust-icon"></text>
+      <view class="cdc-item-company">公司：{{carteUserObj.companyName || '公司信息未填写'}}</view>
+    </view>
+  </view>
+  <view class="cd-tab">
+    <view bindtap="switchTab" data-idx="0" class="cd-tab-item {{currentTab == 0?'cd-tab-item-act':''}}">互动记录</view>
+    <view bindtap="switchTab" data-idx="1" class="cd-tab-item {{currentTab == 1?'cd-tab-item-act':''}}">AI分析</view>
+  </view>
+  <!--雷达消息列表-->
+  <view wx:if="{{currentTab == 0}}">
+    <view class="uc-message-box" wx:if="{{messageTab == 1}}">
+      <view class="uc-message-item" wx:for="{{interacRecord}}" wx:key="item.id" data-idx="{{item.launchUserId}}">
+        <image class="ucmi-img" src="{{item.avatarPath}}"></image>
+        <view class="ucm-content">
+          <view class="ucmc-text">
+            <text class="ucmc-title">{{item.name}}</text>
+            <text class="ucmc-time">{{dateUtil.dateFormat(item.lastInteractionTime,'yyyy-MM-dd hh:mm', nowDate,'msg')}}</text>
+          </view>
+          <view class="ucmc-tip" wx:if="{{item.type == 1}}">查看了您的名片{{item.total}}次</view>
+          <view class="ucmc-tip" wx:if="{{item.type == 2}}">向您发送了
+            <text class="ucmc-message" catchtap="checkMessageDet" data-idx="{{item.launchUserId}}">私信消息</text>
+          </view>
+          <view class="ucmc-tip" wx:if="{{item.type == 3}}">转发了您的名片{{item.total}}次</view>
+          <view class="ucmc-tip" wx:if="{{item.type == 4}}">将您存为了客户</view>
+          <view class="ucmc-tip" wx:if="{{item.type == 5}}">与您互换了名片</view>
+          <view class="ucmc-tip" wx:if="{{item.type == 6}}">觉得您的名片很赞</view>
+          <view class="ucmc-tip" wx:if="{{item.type == 7}}">查看了您的企业{{item.total}}次</view>
+          <view class="ucmc-tip" wx:if="{{item.type == 8}}">查看了您的商品{{item.total}}次</view>
+          <view class="ucmc-tip" wx:if="{{item.type == 9}}">正在浏览您的企业场景秀</view>
+        </view>
+      </view>
+    </view>
+    <view class="uc-empty-message" wx:if="{{messageTab == 0}}">
+      <image class="uc-em-img" src="/images/second-edition/mc-customer-detail-empty-message.png"></image>
+      <view class="uc-em-tip">暂无任何互动，主动出击才能收获胜利哦~</view>
+    </view>
+  </view>
+  <view wx:else>
+    <view class="ai-chart">
+      <view class="ai-chart-title">客户兴趣</view>
+      <view class="container">
+        <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}" bind:init="echartInit" data-record="{{recordData}}"></ec-canvas>
+      </view>
+      <view wx:if="{{!noExchangePerf}}">
+        <view class="ai-chart-title">客户互动</view>
+        <view class="customer-interactive" wx:for="{{aiAnalyzeList}}" wx:key="item.id" hidden="{{item == 0}}">
+          <view class="customer-interactive-title">{{['查看名片','私信消息','转发名片','存为客户','互换名片','点赞名片','查看企业','查看商品','查看场景'][index]}}</view>
+          <view class="customer-progress" style="width:{{175*(item/maxRecord)}}px"></view>
+          <view class="customer-interactive-times">{{item}}次</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<cover-view class="popup" wx:if="{{!createCardFlag}}">
+  <cover-view class="popup-bg"></cover-view>
+  <cover-view class="popup-content">
+    <cover-view class="pc-title">提示</cover-view>
+    <cover-image class="pc-img" src="/images/second-edition/mc-customer-detail-uncreate-card.png"></cover-image>
+    <cover-view class="pc-tip">Ta还没有创建名片</cover-view>
+    <cover-view class="pc-close" bindtap="closePopup">
+      <cover-image class="pc-close-icon" src="/images/second-edition/mc-user-card-close.png"></cover-image>
+    </cover-view>
+  </cover-view>
+</cover-view>

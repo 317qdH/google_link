@@ -1,0 +1,10 @@
+{
+  "navigationBarBackgroundColor":"#66a6ff",
+  "navigationBarTextStyle":"white",
+  "navigationBarTitleText":"我的名片",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "cardBgSelection": "../components/cardBgSelection/cardBgSelection"
+  }
+}

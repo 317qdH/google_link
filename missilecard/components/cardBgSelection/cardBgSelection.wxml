@@ -1,0 +1,13 @@
+<!--components/cardBgSelection/cardBgSelection.wxml-->
+  <scroll-view class="card-bg-scroll" scroll-x="true" scroll-left scroll-with-animation scroll-into-view="{{viewCode}}">
+    <view id="{{item.viewCode}}" data-idx="{{index}}" bindtap="selectCardBg" wx:for="{{cardTemplateList}}" wx:key="index" 
+    class="card-bg-item {{item.viewCode==viewCode?'bg-selected':''}}">
+      <image mode='scaleToFill' src='{{item.smallPicPath}}'></image>
+    </view>
+  </scroll-view>
+  <!-- <scroll-view class="card-bg-scroll" scroll-x="true" scroll-left scroll-with-animation scroll-into-view="{{toViewId}}">
+    <view id="{{item.toViewId}}" data-idx="{{index}}" bindtap="selectCardBg" wx:for="{{cardSmallBgList}}" wx:key="index" 
+    class="card-bg-item {{item.toViewId==toViewId?'bg-selected':''}}">
+      <image mode='scaleToFill' src='{{item.src}}'></image>
+    </view>
+  </scroll-view> -->

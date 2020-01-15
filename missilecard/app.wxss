@@ -1,0 +1,50 @@
+/**app.wxss**/
+@import './styles/icon.wxss';
+/*公用样式*/
+.gradient-blue-btn{
+  width: 600rpx;
+  height: 88rpx;
+  line-height: 88rpx; 
+  text-align: center;
+  font-size: 34rpx;
+  color: #fff;
+  border-radius: 44rpx;
+  background: linear-gradient(to right, #74c7f8, #66a6ff 10%);
+}
+.mt60{
+  margin-top: 60rpx;
+}
+.mb50{
+  margin-bottom: 50rpx;
+}
+.mb120{
+  margin-bottom: 120rpx;
+}
+.mt120{
+  margin-top: 120rpx;
+}
+.call-ihpone-img{
+  width: 120rpx;
+  height: 120rpx;
+  position: fixed;
+  right: 30rpx;
+  bottom: 20%;
+}
+.indexFixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@keyframes show 
+{
+0% {opacity:0;}
+100% {opacity:1;}
+}
+@keyframes hide 
+{
+0% {opacity:1;}
+100% {opacity:0;}
+}

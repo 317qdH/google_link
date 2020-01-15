@@ -1,0 +1,122 @@
+<!--pages/usercenter/userCard/userCard.wxml-->
+<wxs src="../../../utils/chooseTime.wxs" module="dateUtil" />
+<top-nav inner-title="{{navigatorText}}" sharePage="true"></top-nav>
+<view class="user-card-bg user-card-active">
+  <view class="u-card-box {{cardClassName}}" animation="{{slide_card}}">
+  <image mode="aspectFill" class="uc-avatar" src="{{userInfoObj.avatarPath}}"></image>
+    <!-- <view class="uc-avatar"><open-data type="userAvatarUrl"></open-data></view> -->
+    <view class="uc-title">
+      <view>{{userInfoObj.name}}</view>
+      <text>{{userInfoObj.position}}</text>
+    </view>
+    <image class="uc-bg" src='{{cardImageSrc}}'></image>
+    <view class="uc-infor">
+      <view class="us-company-name">{{userInfoObj.companyName}}</view>
+      <view class="us-iphone" wx:if="{{cardStatus !=4}}">{{userInfoObj.mobile}}</view>
+      <view class="us-iphone" wx:if="{{cardStatus ==4}}">{{dateUtil.hideTel(userInfoObj.mobile)}}</view>
+      <view class="us-email" wx:if="{{cardStatus !=4}}">{{userInfoObj.mail}}</view>
+      <view class="us-email" wx:if="{{cardStatus ==4}}">{{dateUtil.hideEmail(userInfoObj.mail)}}</view>
+    </view>
+  </view>
+<image class="ui-bg1" src='/images/second-edition/mc-card-infor-bg1.png'></image>
+</view>
+<view class="user-information {{cardStatus == 4?'user-information-unlogin':''}}">
+  <view class="ui-purpose">
+    <view class="unloginMsk" wx:if="{{cardStatus == 4}}" bindtap="userAuthLogin"></view>
+    <view class="ui-purpose-item ui-purpose1" bindtap="callPhone">
+      <text>电话</text>
+    </view>
+    <view class="ui-purpose-item ui-purpose2" bindtap="saveCustomer">
+      <text>存为客户</text>
+    </view>
+    <view class="ui-purpose-item ui-purpose3" bindtap="toMessageChat">
+      <text>私信</text>
+    </view>
+    <view class="ui-purpose-item ui-purpose4" bindtap="likeClick">
+      <image wx:if="{{likeClickFlag}}" class="like-click-animation" src="https://img0.912688.com/mc-like-click-animation.gif"></image>
+      <text>点赞</text>
+    </view>
+  </view>
+  <view class="ui-deatil" wx:if="{{userInfoObj.weChat||categoryName||address}}">
+    <view class="ui-detail-title">更多信息</view>
+    <view class="ui-detail-item ui-detail-icon2" wx:if="{{userInfoObj.weChat}}">
+      <view class="ui-detail-left">微信</view>
+      <view class="ui-detail-right" bindtap="copyWeChat" wx:if="{{cardStatus ==4}}">{{dateUtil.hideWeChat(userInfoObj.weChat)}}
+        <text class="iconfuzhi iconfont default-icon" ></text><text class="ul-detail-copy" >复制</text>
+      </view>
+      <view class="ui-detail-right" bindtap="copyWeChat" wx:if="{{cardStatus !=4}}">{{userInfoObj.weChat}}
+        <text class="iconfuzhi iconfont default-icon" ></text><text class="ul-detail-copy" >复制</text>
+      </view>
+    </view>
+    <view class="ui-detail-item ui-detail-icon3" wx:if="{{categoryName}}">
+      <view class="ui-detail-left">行业</view>
+      <view class="ui-detail-right">{{categoryName}}</view>
+    </view>
+    <view class="ui-detail-item ui-detail-icon4" wx:if="{{address}}">
+      <view class="ui-detail-left">地址</view>
+      <view class="ui-detail-right">{{address}}</view>
+    </view>
+  </view>
+  <view class="ui-deatil" wx:if="{{companyInforList}}">
+    <view class="ui-detail-title">企业信息</view>
+    <view class="company-detail-item" wx:if="{{companyInforList.name}}">
+      <text class="company-detail-left">公司名称</text>
+      <text class="company-detail-right">{{companyInforList.name}}</text>
+    </view>
+    <view class="company-detail-item" wx:if="{{companyInforList.typeStr}}">
+      <text class="company-detail-left">公司类型</text>
+      <text class="company-detail-right" >{{companyInforList.typeStr}}</text>
+    </view>
+    <view class="company-detail-item" wx:if="{{companyInforList.managemodel}}">
+      <text class="company-detail-left">经营模式</text>
+      <text class="company-detail-right">{{companyInforList.managemodel}}</text>
+    </view>
+    <view class="company-detail-item" wx:if="{{companyInforList.corporation}}">
+      <text class="company-detail-left">法定法人</text>
+      <text class="company-detail-right">{{companyInforList.corporation}}</text>
+    </view>
+    <view class="company-detail-item" wx:if="{{companyInforList.establishDate}}">
+      <text class="company-detail-left">成立日期</text>
+      <text class="company-detail-right">{{companyInforList.establishDate}}</text>
+    </view>
+    <view class="company-detail-item" wx:if="{{companyInforList.companyWeb}}">
+      <text class="company-detail-left">公司网址</text>
+      <text class="company-detail-right">{{companyInforList.companyWeb}}</text>
+    </view>
+    <view class="company-detail-item" wx:if="{{companyInforList.addrDetail}}">
+      <text class="company-detail-left">经营地址</text>
+      <text class="company-detail-right">{{companyInforList.addrDetail}}</text>
+    </view>
+    <view class="company-detail-item" wx:if="{{companyInforList.majorIndustry}}">
+      <text class="company-detail-left">主营行业</text>
+      <text class="company-detail-right">{{companyInforList.majorIndustry}}</text>
+    </view>
+    <view class="company-detail-item" wx:if="{{companyInforList.majorProd}}">
+      <text class="company-detail-left">主营产品</text>
+      <text class="company-detail-right">{{companyInforList.majorProd}}</text>
+    </view>
+  </view>
+  <view class="ui-btn-bottom" wx:if="{{cardStatus == 0}}">
+    <navigator url='/pages/editCard/pages/create-card/create-card' class="gradient-blue-btn ui-edit-btn">编辑名片</navigator>
+  </view>
+  <view class="ui-btn-bottom unlogin-ui-btn" wx:elif="{{cardStatus == 4}}">
+    <view class="ubb-auth-tip unlogin-ubb-tip">授权登录后，可查看完整信息哦~</view>
+    <view bindtap='userAuthLogin' class="gradient-blue-btn unlogin-ui-edit">立即登录</view>
+  </view>
+  <view class="ui-btn-bottom" wx:elif="{{cardStatus == 1}}">
+    <view bindtap='toMyCard' class="gradient-blue-btn ui-edit-btn">10秒创建名片</view>
+  </view>
+  <view class="ui-btn-share" wx:elif="{{cardStatus == 2}}">
+    <view bindtap='toMyCard' class="gradient-blue-btn ui-card-half">我的名片</view>
+    <button open-type='share' class="gradient-blue-btn ui-card-half">分享名片</button>
+  </view>
+  <view class="ui-btn-share" wx:elif="{{cardStatus == 3}}">
+    <button open-type='share' class="gradient-blue-btn ui-card-half">转发名片</button>
+    <view  class="gradient-blue-btn ui-card-half" bindtap="mutualSaveCard">互换名片</view>
+  </view>
+</view>
+<!--生成名片的画布-->
+<view class="canvas-hide">
+  <canvas class="poster-canvas" canvas-id="customCanvas"></canvas>
+</view>
+<ucInforAuthPopup uc-info-auth-show="{{ucInfoAuthShow}}" binducAuth="onGotUserInfo"></ucInforAuthPopup>

@@ -1,0 +1,37 @@
+<!--pages/usercenter/ctt-vip/ctt-vip.wxml-->
+<wxs src="../../../utils/wxs/tools.wxs" module="timeTranslate"></wxs>
+<view style="padding-top:{{someData.statusBarHeight+someData.titleBarHeight}}px">
+  <view class="hh-header">
+    <view class="status-bar" style="height:{{someData.statusBarHeight}}px;background-color:transparent;"></view>
+    <view class="title-bar" style="height:{{someData.titleBarHeight}}px;background-color:transparent;">
+      <view style="height:{{someData.titleBarHeight}}px" class="hh-nav-back ico-back {{arrowColor=='white'?'white-arrow':'black-arrow'}}" bindtap='goback'></view>
+      <view class="hh-title" style="color:#fff">我的会员</view>
+      <view class="hh-nav-right"></view>
+    </view>
+  </view>
+</view>
+<image class="uc-ctt-bg" src="https://img0.912688.com/mc-uc-ctt-nav-bg.jpg"></image>
+<view class="uc-ctt-header" >
+  <image class="uc-ctt-avatar" src="{{userInfoObj.avatarPath || '/images/cie-avatar.jpg'}}"></image>
+  <view class="uc-ctt-infor" wx:if="{{userCardObj || havelogin == 0}}">
+    <view class="uci-username">{{userInfoObj.name}}
+      <image class="uci-unvip" wx:if="{{havelogin == 1 && payFlag == 1}}" src="/images/second-edition/mc-uc-ctt-vip-icon.png"></image>
+    </view>
+    <view class="uci-date" wx:if="{{havelogin == 1 && payFlag == 1}}">{{timeTranslate.timestampToTime2(userCardObj.payServiceEndTime)}} 到期</view>
+    <view class="uci-date" wx:if="{{havelogin == 1 && probationFlag == 1}}">{{userCardObj.probationLastDays}}天后即将到期</view>
+    <view class="uci-date" wx:if="{{havelogin == 1 && !isVip &&probationFlag == 0}}">已到期</view>
+  </view>
+</view>
+<view class="uc-ctt-itmeList">
+  <view class="ctt-enjoy-tip" wx:if="{{havelogin == 1 && payFlag == 0}}">
+    <image class="ctt-enjoy-tip-notice" src="/images/second-edition/mc-uc-ctt-notice.png"></image>
+    更多权益尽在采通通会员，快去开通吧！
+  </view>
+  <view class="ctt-enjoy-tip" wx:if="{{havelogin == 0}}" bindtap="toShhRegister">
+    <image class="ctt-enjoy-tip-notice" src="/images/second-edition/mc-uc-ctt-notice.png"></image>
+    免费会员限时体验30天采通通会员，快来注册吧~
+  </view>
+  <text class="uci-title">会员权益对比</text>
+  <image class="uci-img" src="https://img0.912688.com/mc-ctt-vip-itemList-img.png"></image>
+  <view class="uci-vip-button" bindtap="toCttChannel">了解更多采通通会员特权</view>
+</view>

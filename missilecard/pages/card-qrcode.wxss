@@ -1,0 +1,76 @@
+/* pages/card-qrcode.wxss */
+page{
+  background: #f0f0f0;
+}
+.card-qrcode-box{
+  width: 710rpx;
+  height: 788rpx;
+  padding-top: 60rpx;
+  margin: 20rpx auto;
+  text-align: center;
+  background: #fff;
+}
+.card-qrcode-box .cq-text1{
+  margin-bottom: 60rpx;
+  font-size: 40rpx;
+  color: #111111;
+}
+.card-qrcode-box>image{
+  width: 367rpx;
+  height: 368rpx;
+  margin-bottom: 52rpx;
+}
+.card-qrcode-box .cq-text2{
+  margin-bottom: 32rpx;
+  font-size: 26rpx;
+  color: #333333;
+}
+.card-qrcode-box .cq-text3{
+  margin-bottom: 32rpx;
+  font-size: 26rpx;
+  color: #66a6ff;
+}
+.card-qrcode-box .cq-text4{
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.paper-card-title{
+  margin: 0 20rpx;
+  display: flex;
+  justify-content: space-between;
+  padding: 28rpx 20rpx;
+  background-color: #fff;
+  color: #333333;
+  font-size: 26rpx;
+}
+.pagination{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiper-pagination-bullet{
+  width: 15rpx;
+  height: 15rpx;
+  margin-left: 20rpx;
+  background-color: #cccccc;
+  border-radius: 50%;
+}
+.swiper-pagination-bullet-active{
+  background-color: #000;
+}
+.paper-card-swiper{
+  width: 710rpx;
+  height: 473rpx;
+  margin-left: 20rpx;
+}
+.paper-card-swiper .slide-image{
+  width: 710rpx;
+  height: 473rpx;
+}
+.save-code-box{
+  padding-bottom: 30rpx;
+}
+.save-code{
+  margin: 63rpx auto 0 auto;
+}

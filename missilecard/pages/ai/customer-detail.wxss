@@ -1,0 +1,278 @@
+/* pages/ai/customer-detail.wxss */
+page{
+  background: #f7f7f7;
+}
+.cd-userInfor{
+  position: relative;
+  height: 178rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #eaf2ff;
+}
+.cdu-left{
+  display: flex;
+  align-items: center;
+  margin-left: 30rpx;
+}
+.cdu-avatar{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 22rpx;
+}
+.cdu-userName{
+  color: #333333;
+  font-size: 34rpx;
+  margin-right: 14rpx;
+}
+.cdu-post{
+  color: #999999;
+  font-size: 26rpx;
+}
+.cdu-examine{
+  width: 130rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  padding-left: 30rpx;
+  color: #ffffff;
+  font-size: 26rpx;
+  background: linear-gradient(to right,#68a7ff,#c9dfff);
+  border-top-left-radius: 25rpx;
+  border-bottom-left-radius: 25rpx;
+}
+.cdu-visitor-type{
+  position: absolute;
+  right: 180rpx;
+  top: 0;
+  width: 70rpx;
+  height: 49rpx;
+  padding-top: 4rpx;
+  color: #fff;
+  font-size: 26rpx;
+  text-align: center;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAAA1CAYAAAD8mJ3rAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjM2NDBBMzE3RUEzOTExRTk4QjIyRTE3MzczNENDM0Y1IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjM2NDBBMzE4RUEzOTExRTk4QjIyRTE3MzczNENDM0Y1Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MzY0MEEzMTVFQTM5MTFFOThCMjJFMTczNzM0Q0MzRjUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MzY0MEEzMTZFQTM5MTFFOThCMjJFMTczNzM0Q0MzRjUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6Rsz3RAAABQklEQVR42uzbX0vCYBiG8VYhSBAIfotACKSDSt1Hq2/m+rODCIKgUz9BIAQRSLnuF+7F0FkGG2N4PXCdKNPx43nFk0XpLMv2mLXZhwAYYIABBhhggAEGGGCAYYABBhhggAEGGGCAAQYYBhhggAEGGGCAAQYYYIBhgAEGGGCAAQYYYFo+h+paxepMdXfc40M9qGmAufKLHePE7nwHoAJEGiBcQFmEN6J0tvEZixxq7C7VUcsh3tWdunE/EKvzG0zZsRsWNqoNUDlEvhGP6nObC/8DUwZ1qiaGGqnjhiHe1K0REvW0LUSVMKtzYKjYWBeqVzPEXN0bYWqIryo+uEqYsr8Cg8LRG1cANfdvQ340ntWyjpuvE2YT1MgbFer/cc2rtyHxEakNokmYte9WJ4WNmvj1pLARL6qRG4wyHoksnW8BBgCi+0x7fBlObgAAAABJRU5ErkJggg==') center;
+  background-size: 70rpx 53rpx;
+}
+.cd-contact{
+  height: 116rpx;
+  padding: 24rpx 30rpx 0 30rpx;
+  background: #fff;
+  margin-bottom: 30rpx;
+}
+.cdc-item{
+  display: flex;
+  align-items: center;
+  margin-bottom: 13rpx;
+}
+.cdc-item:last-child{
+  margin-bottom: 0;
+}
+.indust-icon{
+  color: #66a6ff;
+  font-size: 28rpx;
+}
+.cdc-item-phone,.cdc-item-company{
+  color: #555555;
+  font-size: 28rpx;
+  margin-left: 12rpx;
+}
+.cdc-item-call{
+  width: 100rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  margin-left: 50rpx;
+  color: #66a6ff;
+  font-size: 28rpx;
+  border-radius: 20rpx;
+  border: 1rpx solid #66a6ff;
+  text-align: center;
+}
+.cd-tab{
+  height: 90rpx;
+  padding: 0 156rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff; 
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.cd-tab-item{
+  color: #999999;
+  font-size: 32rpx;
+}
+.cd-tab-item-act{
+  position: relative;
+  color: #333333;
+}
+.cd-tab-item-act::after{
+  content: '';
+  width: 100rpx;
+  height: 4rpx;
+  position: absolute;
+  left: 50%;
+  top: 63rpx;
+  margin-left: -50rpx;
+  background:#66a6ff;
+}
+/*雷达消息列表*/
+.uc-message-box{
+  padding: 0 0 0 30rpx;
+  background: #fff;
+}
+.uc-message-item{
+  height: 140rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #eeeeee;
+}
+.ucmi-img{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.ucm-content{
+  flex: 1;
+}
+.ucmc-text{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 30rpx;
+}
+.ucmc-title{
+  margin: -4rpx 0 6rpx 0;
+  color: #333333;
+  font-size: 30rpx;
+}
+.ucmc-time{
+  color: #999999;
+  font-size: 24rpx;
+}
+.ucmc-tip{
+  color: #999999;
+  font-size: 26rpx;
+}
+.ucmc-message{
+  color: #66a6ff;
+}
+/*没有互动记录*/
+.uc-empty-message{
+  height: 404rpx;
+  text-align: center;
+  background: #fff;
+}
+.uc-em-img{
+ width: 200rpx;
+ height: 166rpx; 
+ margin: 80rpx 0 22rpx 0;
+}
+.uc-em-tip{
+  color: #999999;
+  font-size: 30rpx;
+}
+/*没有名片弹窗*/
+.popup{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+}
+.popup-bg{
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.3;
+}
+.popup-content{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width:550rpx;
+  height: 430rpx;
+  margin-left: -275rpx;
+  margin-top: -215rpx;
+  text-align: center;
+  border-radius: 20rpx;
+  background: #fff;
+}
+.pc-title{
+  color: #66a6ff;
+  font-size: 34rpx;
+  height: 102rpx;
+  line-height: 102rpx;
+  border-bottom: 2rpx solid #f3f3f3;
+}
+.pc-img{
+  width: 162rpx;
+  height: 140rpx;
+  margin: 52rpx auto 24rpx auto;
+}
+.pc-tip{
+  color: #333333;
+  font-size: 30rpx;
+}
+.pc-close{
+  width: 50rpx;
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 20rpx;
+  right: 30rpx;
+}
+.pc-close-icon{
+  width: 28rpx;
+  height: 28rpx;
+}
+.close-icon{
+  color: #d7dae2;
+  font-size: 30rpx;
+}
+/*统计图表*/
+.ai-chart{
+  background: #fff;
+  padding: 42rpx 30rpx 52rpx 30rpx;
+}
+.ai-chart-title{
+  color: #333333;
+  font-size: 34rpx;
+}
+ec-canvas {
+  width: 100%;
+  height: 100%;
+}
+.container {
+  height: 330rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+} 
+/*客户互动*/
+.customer-interactive{
+  display: flex;
+  align-items: center;
+  margin: 35rpx 20rpx 28rpx 0;
+}
+.customer-progress{
+  width: 350rpx;
+  height: 12rpx;
+  background: #66a6ff;
+  border-radius: 6rpx;
+  margin: 0 20rpx 0 0;
+}
+.customer-interactive-title{
+  color: #999999;
+  font-size: 28rpx;
+  margin-right: 30rpx;
+}
+.customer-interactive-times{
+  color: #333333;
+  font-size: 28rpx;
+}

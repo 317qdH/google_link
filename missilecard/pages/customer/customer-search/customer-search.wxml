@@ -1,0 +1,52 @@
+<wxs src="../../../utils/wxs/tools.wxs" module="timeTranslate"></wxs>
+<top-nav inner-title="搜索" is-show-back="false"></top-nav>
+
+<view class="search-box flexBox">
+  <view class="search-input-box">
+    <input placeholder-class="place-holder" type="text" class="search-input" placeholder="搜索" value="{{searchCon}}" bindinput="searchinput" bindconfirm="search" focus="true" confirm-type="search" />
+  </view>
+  <view class="search-btn flex1" bindtap="cancel">取消</view>
+  <image wx:if="{{searchCon.length > 0}}" class='clean' src='/images/cancel.png' bindtap='cleans'></image>
+  <view wx:if="{{searchCon.length > 0}}" class='cleancontainer' bindtap='cleans'></view>
+</view>
+<view class='historycontainer' wx:if="{{!searchCon.length > 0 }}">
+  <view class='tag'>
+    <view class='tag-header'>
+      <text>客户标签</text>
+    </view>
+    <view class='tag-items'>
+      <text wx:for="{{tagarray}}" data-id="{{item.id}}" bindtap='markchoose' data-name="{{item.name}}">{{item.name}}</text>
+    </view>
+  </view>
+</view>
+<view class='select-person' wx:if="{{havecustomer}}">
+  <view class='customernum' wx:if="{{havecustomer.length}}">搜索关键词（{{havecustomer.length}}）</view>
+  <view class='select-personauto'>
+    <!-- 循环好友 -->
+    <block wx:for="{{havecustomer}}">
+      <view class='select-item' data-id="{{item.id}}" data-index="{{item.clientId}}" bindtap='choice'>
+        <view class='select-itemleft'>
+          <view class='item-image'>
+            <image src='{{item.avatarPath}}'></image>
+          </view>
+          <view>
+            <view>
+              <text class='item-name'>{{item.name}}</text>
+              <text>{{item.position}}</text>
+            </view>
+            <view class='item-company'>{{item.companyName}}</view>
+          </view>
+        </view>
+        <view class='select-itemright'>
+          <text>{{timeTranslate.timestampToTime(item.createTime)}}</text>
+          <text class='selectfriend' wx:if="{{item.labelCustomize}}">{{item.labelCustomize}}</text>
+          <text class='selectfriends' wx:if="{{!item.labelCustomize}}">{{item.labelCustomize}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+<view wx:if="{{havecustomer == '' &&  searchCon.length!==0}}" class='nosearch'>
+  <image src='/images/mc-nocusIcon.png'></image>
+  <view>抱歉，没有找到相关名片~</view>
+</view>

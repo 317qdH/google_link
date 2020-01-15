@@ -1,0 +1,82 @@
+<wxs src="../../../../utils/wxs/tools.wxs" module="timeTranslate"></wxs>
+<top-nav inner-title="企业营销编辑"></top-nav>
+<form bindsubmit='formSubmit'>
+  <view class='header-info borderbottom'>
+    <text>企业介绍（简单，明了，易读）</text>
+    <!-- <text class='nums'>{{currentWordNumber|0}}/200</text> -->
+    <text class='nums'>{{currentWordNumber|0}}/1200</text>
+  </view>
+  <view class='textareacontainer'>
+    <textarea maxlength="1200" minlength="50" bindinput="numbers" wx:if="{{short}}" name="introduction" value="{{short}}" contenteditable="true">
+    </textarea>
+    <textarea maxlength="1200" minlength="50" bindinput="numbers" wx:if="{{!short}}" name="introduction" value="{{'请填写贵公司的公司概况、主营产品、品牌、服务等内容。详细的介绍更易使买家产生信任感，建立企业形象，仔细地填写将达到事半功倍的效果哦～'}}" contenteditable="true">
+    </textarea>
+  </view>
+  <view class='space'></view>
+  <view class='header-info borderbottom'>
+    <text>企业风采（建议上传清晰图片）</text>
+    <text class='nums'>{{images.length|0}}/6</text>
+  </view>
+  <!-- 图片 -->
+  <view class="containor">
+    <view class="publish_imgs_area">
+      <!-- 图片 -->
+      <view class="imgs_area" wx:for="{{images}}" wx:key="*this">
+        <view class="iamge_item">
+          <image class="iamge_content image_mg" src="{{item}}" data-id="{{index}}" mode="aspectFill" bindtap="previewIamge" />
+          <image class="iamge_cancel" src="/images/cancel.png" mode="aspectFill" data-id="{{index}}" bindtap="deleteImage" />
+        </view>
+      </view>
+      <!-- 图片上传图片按钮 -->
+      <view class="imgs_area" bindtap="chooseImage" wx:if="{{images.length < 6}}">
+        <view class="iamge_item">
+          <image class="iamge_content" src='/images/mc-add.png' mode="aspectFill" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='space'></view>
+  <!-- <view class='header-info'>
+    <text>名片信息（该信息仅在企业营销模板展示）</text>
+  </view>
+  <view class='infocontainer'>
+    <text class='infoleft'>公司名称</text>
+    <text class='inforight' wx:if="{{companyName}}">{{companyName}}</text>
+  </view>
+  <view class='infocontainer'>
+    <text class='infoleft'>公司类型</text>
+    <text class='inforight' wx:if="{{offerclass}}">{{offerclass}}</text>
+  </view>
+  <view class='infocontainer'>
+    <text class='infoleft'>经营模式</text>
+    <text class='inforight' wx:if="{{mode}}">{{mode}}</text>
+  </view>
+  <view class='infocontainer'>
+    <text class='infoleft'>法定法人</text>
+    <text class='inforight' wx:if="{{bussness}}">{{bussness}}</text>
+  </view>
+  <view class='infocontainer'>
+    <text class='infoleft'>成立日期</text>
+    <text class='inforight' wx:if="{{time}}">{{timeTranslate.timestampToTime(time)}}</text>
+  </view>
+  <view class='infocontainer'>
+    <text class='infoleft'>公司网址</text>
+    <text class='inforight' wx:if="{{web}}">{{web}}</text>
+  </view>
+  <view class='infocontainer'>
+    <text class='infoleft'>经营地址</text>
+    <text class='inforight' wx:if="{{addr}}">{{addr}}</text>
+  </view>
+  <view class='infocontainer'>
+    <text class='infoleft'>主营行业</text>
+    <text class='inforight' wx:if="{{trade}}">{{trade}}</text>
+  </view>
+  <view class='infocontainer'>
+    <text class='infoleft'>主营产品</text>
+    <text class='inforight' wx:if="{{product}}">{{product}}</text>
+  </view> -->
+  <!-- <view class='space'></view> -->
+  <view class='buttoncontainer'>
+    <button form-type="submit">保存</button>
+  </view>
+</form>

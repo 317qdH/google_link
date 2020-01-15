@@ -1,0 +1,12 @@
+<!--components/authorizedPopup/authorizedPopup.wxml-->
+<view class="author-popup" catchtouchmove='noTouch' wx:if="{{authorShowFlag}}">
+  <view class="mask-bg"></view>
+  <view class="author-con">
+    <view class="author-tip">请点击确定，允许访问相册</view>
+    <view class="author-btn-box">
+      <view class="author-cancel" bindtap='cancelClick'>取消</view>
+      <button open-type='openSetting' bindopensetting="" class="author-comfirm" bindtap='toAhthorClick'>确定</button>
+      <view class="author-center-line"></view>
+    </view>
+  </view>
+</view>

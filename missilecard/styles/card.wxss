@@ -1,0 +1,805 @@
+/*名片显示模板样式*/
+.u-card-box{
+  width: 712rpx;
+  height: 436rpx;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 10;
+}
+.u-card-box .uc-bg{
+  width: 712rpx;
+  height: 436rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.u-card-box>.uc-avatar{
+  overflow: hidden;
+}
+.u-card-box .uc-title>view{
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.u-card-box .uc-title>text{
+  font-size: 24rpx;
+}
+.u-card-box .uc-infor .us-company-name{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: url(http://img0.912688.com/mc-card-bg-icons.png) no-repeat;
+  background-size: 30rpx 1626rpx;  
+}
+.u-card-box .uc-infor .us-iphone{
+  background: url(http://img0.912688.com/mc-card-bg-icons.png) no-repeat;
+  background-size: 30rpx 1626rpx; 
+}
+.u-card-box .uc-infor .us-email{
+  background: url(http://img0.912688.com/mc-card-bg-icons.png) no-repeat;
+  background-size: 30rpx 1626rpx; 
+}
+
+/*1*/
+.user-card-template1 .uc-avatar{
+  width: 120rpx;
+  height: 120rpx;
+  position: absolute;
+  right: 70rpx;
+  top: 80rpx;
+  border-radius: 50%;
+  z-index: 10;
+  overflow: hidden;
+}
+.user-card-template1 .uc-title{
+  margin: 100rpx 210rpx 0 0;
+  text-align: right;
+  z-index: 10;
+}
+.user-card-template1 .uc-title>view{
+  padding-left: 100rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #333333;
+}
+.user-card-template1 .uc-title>text{
+  color: #666666;
+}
+.user-card-template1 .uc-infor{
+  margin: 30rpx 0 0 70rpx;
+  color: #666666;
+  font-size: 24rpx;
+  line-height: 46rpx;
+  z-index: 10;
+}
+.user-card-template1 .uc-infor>view{
+  padding-left: 40rpx;
+}
+.user-card-template1 .uc-infor .us-company-name{
+  padding-right: 300rpx;
+  background-position: 0rpx 10rpx;
+}
+.user-card-template1 .uc-infor .us-iphone{
+  background-position: 0rpx -46.5rpx;
+}
+.user-card-template1 .uc-infor .us-email{
+  background-position: 0rpx -100rpx;
+}
+/*2*/
+.user-card-template2 .uc-avatar{
+  width: 140rpx;
+  height: 140rpx;
+  position: absolute;
+  left: 50rpx;
+  top: 50rpx;
+  border-radius: 50%;
+  z-index: 10;
+}
+.user-card-template2 .uc-title{
+  text-align: right;
+  margin: 75rpx 50rpx 0 0;
+  z-index: 10;
+}
+.user-card-template2 .uc-title>view{
+  position: relative;
+  margin-bottom: -4rpx;
+  color: #333333;
+}
+.user-card-template2 .uc-title>view::after{
+  content: "";
+  width: 280rpx;
+  height: 2rpx;
+  position: absolute;
+  left: 384rpx;
+  top: 104rpx;
+  background-color: #cccccc;
+}
+.user-card-template2 .uc-title>text{
+  width: 280rpx;
+  color: #666666;
+}
+.user-card-template2 .uc-infor{
+  margin: 40rpx 50rpx 0 0;
+  text-align: right;
+  color: #666666;
+  font-size: 24rpx;
+  line-height: 56rpx;
+  z-index: 10;
+}
+.user-card-template2 .uc-infor>view{
+  padding-right: 40rpx;
+}
+.user-card-template2 .uc-infor .us-company-name{
+  padding-left: 300rpx;
+  background-position: 634rpx -151rpx;
+
+}
+.user-card-template2 .uc-infor .us-iphone{
+  background-position: 634rpx -203.5rpx;
+
+}
+.user-card-template2 .uc-infor .us-email{
+  background-position: 634rpx -256rpx;
+}
+/*3*/
+.user-card-template3 .uc-avatar{
+  width: 140rpx;
+  height: 140rpx;
+  position: absolute;
+  left: 118rpx;
+  top: 255rpx;
+  border-radius: 10rpx;
+  z-index: 10;
+}
+.user-card-template3 .uc-title{
+  margin: 130rpx 0 0 336rpx;
+  text-align: left;
+  z-index: 10;
+}
+.user-card-template3 .uc-title>view{
+  margin-bottom: -4rpx;
+  color: #333333;
+}
+.user-card-template3 .uc-title>text{
+  color: #666666;
+}
+.user-card-template3 .uc-infor{
+  margin: 20rpx 0 0 336rpx;
+  text-align: left;
+  color: #666666;
+  font-size: 24rpx;
+  line-height: 56rpx;
+  z-index: 10;
+}
+.user-card-template3 .uc-infor>view{
+  padding-left: 36rpx;
+}
+.user-card-template3 .uc-infor .us-company-name{
+  padding-right: 50rpx;
+  background-position: 0 -314rpx;
+}
+.user-card-template3 .uc-infor .us-iphone{
+  background-position: 0rpx -366rpx;
+}
+.user-card-template3 .uc-infor .us-email{
+  background-position: 0rpx -419rpx;
+}
+/*4*/
+.user-card-template4 .uc-avatar{
+  width: 136rpx;
+  height: 136rpx;
+  position: absolute;
+  left: 104rpx;
+  top: 160rpx;
+  border-radius: 50%;
+  z-index: 10;
+}
+.user-card-template4 .uc-title{
+  margin: 80rpx 80rpx 0 0;
+  text-align: right;
+  z-index: 10;
+}
+.user-card-template4 .uc-title>view{
+  margin-bottom: -4rpx;
+  color: #333333;
+}
+.user-card-template4 .uc-title>text{
+  color: #666666;
+}
+.user-card-template4 .uc-infor{
+  margin: 36rpx 80rpx 0 0;
+  text-align: right;
+  color: #666666;
+  font-size: 24rpx;
+  line-height: 54rpx;
+  z-index: 10;
+}
+.user-card-template4 .uc-infor>view{
+  padding-right: 40rpx;
+}
+.user-card-template4 .uc-infor .us-company-name{
+  padding-left: 300rpx;
+  background-position: 604rpx -480rpx;
+}
+.user-card-template4 .uc-infor .us-iphone{
+  background-position: 604rpx -532rpx;
+}
+.user-card-template4 .uc-infor .us-email{
+  background-position: 604rpx -586rpx;
+}
+/*5*/
+/* .user-card-template5 .uc-avatar{
+  width: 287rpx;
+  height: 414rpx;
+  border-top-left-radius: 20rpx;
+  border-bottom-left-radius: 20rpx;
+  position: absolute;
+  left: 11rpx;
+  top: 12rpx;
+} */
+.user-card-template5 .uc-avatar{
+  width: 436rpx;
+  height: 414rpx;
+  border-top-left-radius: 20rpx;
+  border-bottom-left-radius: 20rpx;
+  position: absolute;
+  left: 11rpx;
+  top: 50%;
+  margin-top: -208rpx;
+}
+.user-card-template5 .uc-title{
+  margin: 76rpx 60rpx 0 0;
+  text-align: right;
+  z-index: 10;
+}
+.user-card-template5 .uc-title>view{
+  margin-bottom: -4rpx;
+  color: #2dbdb7;
+}
+.user-card-template5 .uc-title>text{
+  color: #fff;
+}
+.user-card-template5 .uc-infor{
+  margin: 50rpx 60rpx 0 0;
+  text-align: right;
+  color: #fff;
+  font-size: 24rpx;
+  line-height: 54rpx;
+  z-index: 10;
+}
+.user-card-template5 .uc-infor>view{
+  padding-right: 40rpx;
+}
+.user-card-template5 .uc-infor .us-company-name{
+  padding-left: 340rpx;
+  background-position: 624rpx -644rpx;
+}
+.user-card-template5 .uc-infor .us-iphone{
+  background-position: 624rpx -696.5rpx;
+}
+.user-card-template5 .uc-infor .us-email{
+  background-position: 624rpx -749rpx;
+}
+/*6*/
+.user-card-template6 .uc-avatar{
+  width: 92rpx;
+  height: 92rpx;
+  position: absolute;
+  right: 80rpx;
+  top: 50rpx;
+  border-radius: 4rpx;
+  z-index: 10;
+}
+.user-card-template6 .uc-title{
+  margin: 158rpx 80rpx 0 0;
+  text-align: right;
+  z-index: 10;
+}
+.user-card-template6 .uc-title>view{
+  margin-bottom: -12rpx;
+  color: #fff;
+}
+.user-card-template6 .uc-title>text{
+  color: #fff;
+}
+.user-card-template6 .uc-infor{
+  margin: 14rpx 80rpx 0 0;
+  text-align: right;
+  color: #fff;
+  font-size: 24rpx;
+  line-height: 50rpx;
+  z-index: 10;
+}
+.user-card-template6 .uc-infor>view{
+  padding-right: 40rpx;
+}
+.user-card-template6 .uc-infor .us-company-name{
+  padding-left: 300rpx;
+  background-position: 604rpx -810rpx;
+}
+.user-card-template6 .uc-infor .us-iphone{
+  background-position: 604rpx -862.5rpx;
+}
+.user-card-template6 .uc-infor .us-email{
+  background-position: 604rpx -916rpx;
+}
+
+/*7*/
+.user-card-template7 .uc-avatar{
+  width: 140rpx;
+  height: 140rpx;
+  position: absolute;
+  right: 70rpx;
+  bottom: 76rpx;
+  border-radius: 10rpx;
+  z-index: 10;
+}
+.user-card-template7 .uc-title{
+  margin: 66rpx 70rpx 0 0;
+  text-align: right;
+  z-index: 10;
+}
+.user-card-template7 .uc-title>view{
+  margin-bottom: -4rpx;
+  color: #fff;
+}
+.user-card-template7 .uc-title>text{
+  color: #fff;
+}
+.user-card-template7 .uc-infor{
+  margin: 54rpx 0 0 70rpx;
+  text-align: left;
+  color: #666666;
+  font-size: 24rpx;
+  line-height: 56rpx;
+  z-index: 10;
+}
+.user-card-template7 .uc-infor>view{
+  padding-left: 36rpx;
+}
+.user-card-template7 .uc-infor .us-company-name{
+  padding-right: 300rpx;
+  background-position: 0 -313rpx;
+}
+.user-card-template7 .uc-infor .us-iphone{
+  background-position: 0rpx -366rpx;
+}
+.user-card-template7 .uc-infor .us-email{
+  background-position: 0rpx -419rpx;
+}
+
+/*8*/
+.user-card-template8 .uc-avatar{
+  width: 140rpx;
+  height: 140rpx;
+  position: absolute;
+  left: 66rpx;
+  top: 136rpx;
+  border-radius: 8rpx;
+  z-index: 10;
+}
+.user-card-template8 .uc-title{
+  margin: 60rpx 60rpx 0 0;
+  text-align: right;
+  z-index: 10;
+}
+.user-card-template8 .uc-title>view{
+  margin-bottom: -4rpx;
+  color: #c63939;
+}
+.user-card-template8 .uc-title>text{
+  color: #c63939;
+}
+.user-card-template8 .uc-infor{
+  margin: 100rpx 60rpx 0 0;
+  text-align: right;
+  color: #c63939;
+  font-size: 24rpx;
+  line-height: 50rpx;
+  z-index: 10;
+}
+.user-card-template8 .uc-infor>view{
+  padding-right: 40rpx;
+}
+.user-card-template8 .uc-infor .us-company-name{
+  padding-left: 300rpx;
+  background-position: 624rpx -974rpx;
+}
+.user-card-template8 .uc-infor .us-iphone{
+  background-position: 624rpx -1028rpx;
+}
+.user-card-template8 .uc-infor .us-email{
+  background-position: 624rpx -1080rpx;
+}
+
+/*9*/
+.user-card-template9 .uc-avatar{
+  width: 150rpx;
+  height: 150rpx;
+  position: absolute;
+  right: 66rpx;
+  top: 80rpx;
+  border-radius: 50%;
+  z-index: 10;
+}
+.user-card-template9 .uc-title{
+  margin: 70rpx 0 0 90rpx;
+  text-align: left;
+  z-index: 10;
+}
+.user-card-template9 .uc-title>view{
+  margin-bottom: -8rpx;
+  color: #030304;
+}
+.user-card-template9 .uc-title>text{
+  color: #030304;
+}
+.user-card-template9 .uc-infor{
+  margin: 40rpx 0 0 90rpx;
+  text-align: left;
+  color: #323845;
+  font-size: 24rpx;
+  line-height: 50rpx;
+  z-index: 10;
+}
+.user-card-template9 .uc-infor>view{
+  padding-left: 40rpx;
+}
+.user-card-template9 .uc-infor .us-company-name{
+  padding-right: 300rpx;
+  background-position: 0 -1138rpx;
+}
+.user-card-template9 .uc-infor .us-iphone{
+  background-position: 0 -1192rpx;
+}
+.user-card-template9 .uc-infor .us-email{
+  background-position: 0 -1244rpx;
+}
+
+/*10*/
+.user-card-template10 .uc-avatar{
+  width: 120rpx;
+  height: 120rpx;
+  position: absolute;
+  left: 300rpx;
+  top: 16rpx;
+  border-radius: 50%;
+  z-index: 10;
+}
+.user-card-template10 .uc-title{
+  margin: 178rpx 0 0 70rpx;
+  text-align: left;
+  z-index: 10;
+}
+.user-card-template10 .uc-title>view{
+  margin-bottom: -8rpx;
+  color: #6a7991;
+}
+.user-card-template10 .uc-title>text{
+  color: #6a7991;
+}
+.user-card-template10 .uc-infor{
+  margin: 0rpx 70rpx 0 0;
+  text-align: right;
+  color: #6a7991;
+  font-size: 24rpx;
+  line-height: 44rpx;
+  z-index: 10;
+}
+.user-card-template10 .uc-infor>view{
+  padding-right: 46rpx;
+}
+.user-card-template10 .uc-infor .us-company-name{
+  padding-left: 300rpx;
+  background-position: 612rpx -1140rpx;
+}
+.user-card-template10 .uc-infor .us-iphone{
+  background-position: 612rpx -1194rpx;
+}
+.user-card-template10 .uc-infor .us-email{
+  background-position: 612rpx -1244.5rpx;
+}
+
+/*11*/
+.user-card-template11 .uc-avatar{
+  width: 84rpx;
+  height: 84rpx;
+  position: absolute;
+  left: 100rpx;
+  top: 72rpx;
+  border-radius: 4rpx;
+  z-index: 10;
+}
+.user-card-template11 .uc-title{
+  margin: 110rpx 282rpx 0 0;
+  text-align: right;
+  z-index: 10;
+}
+.user-card-template11 .uc-title>view{
+  margin-bottom: -8rpx;
+  color: #c7000b;
+}
+.user-card-template11 .uc-title>text{
+  color: #c7000b;
+}
+.user-card-template11 .uc-infor{
+  margin: 30rpx 0 74rpx 100rpx;
+  text-align: left;
+  color: #c7000b;
+  font-size: 24rpx;
+  line-height: 50rpx;
+  z-index: 10;
+}
+.user-card-template11 .uc-infor>view{
+  padding-left: 40rpx;
+}
+.user-card-template11 .uc-infor .us-company-name{
+  padding-right: 300rpx;
+  background-position: 0 -974rpx;
+}
+.user-card-template11 .uc-infor .us-iphone{
+  background-position: 0 -1027rpx;
+}
+.user-card-template11 .uc-infor .us-email{
+  background-position: 0 -1080rpx;
+}
+
+/*12*/
+.user-card-template12 .uc-avatar{
+  width: 100rpx;
+  height: 100rpx;
+  position: absolute;
+  left: 93rpx;
+  top: 81rpx;
+  border-radius: 4rpx;
+  z-index: 10;
+}
+.user-card-template12 .uc-title{
+  margin: 92rpx 92rpx 0 0;
+  text-align: right;
+  z-index: 10;
+}
+.user-card-template12 .uc-title>view{
+  margin-bottom: -4rpx;
+  color: #000000;
+}
+.user-card-template12 .uc-title>text{
+  color: #000000;
+}
+.user-card-template12 .uc-infor{
+  margin: 40rpx 92rpx 0 0;
+  text-align: right;
+  color: #000000;
+  font-size: 24rpx;
+  line-height: 50rpx;
+  z-index: 10;
+}
+.user-card-template12 .uc-infor .us-company-name{
+  padding-left: 300rpx;
+  background-position: 624rpx -974rpx;
+}
+.user-card-template12 .uc-infor .us-iphone{
+  background-position: 624rpx -1028rpx;
+}
+.user-card-template12 .uc-infor .us-email{
+  background-position: 624rpx -1080rpx;
+}
+
+/*13*/
+.user-card-template13 .uc-avatar{
+  width: 140rpx;
+  height: 140rpx;
+  position: absolute;
+  left: 90rpx;
+  bottom: 74rpx;
+  border-radius: 8rpx;
+  z-index: 10;
+}
+.user-card-template13 .uc-title{
+  margin: 90rpx 70rpx 0 0;
+  text-align: right;
+  z-index: 10;
+}
+.user-card-template13 .uc-title>view{
+  margin-bottom: -4rpx;
+  color: #030304;
+}
+.user-card-template13 .uc-title>text{
+  color: #030304;
+}
+.user-card-template13 .uc-infor{
+  margin: 38rpx 70rpx 0 0;
+  text-align: right;
+  color: #323845;
+  font-size: 24rpx;
+  line-height: 52rpx;
+  z-index: 10;
+}
+.user-card-template13 .uc-infor>view{
+  padding-right: 40rpx;
+}
+.user-card-template13 .uc-infor .us-company-name{
+  padding-left: 300rpx;
+  background-position: 614rpx -646rpx;
+}
+.user-card-template13 .uc-infor .us-iphone{
+  background-position: 614rpx -698rpx;
+}
+.user-card-template13 .uc-infor .us-email{
+  background-position: 614rpx -750rpx;
+}
+
+/*14*/
+.user-card-template14 .uc-avatar{
+  width: 132rpx;
+  height: 132rpx;
+  position: absolute;
+  right: 50rpx;
+  bottom: 34rpx;
+  border-radius: 8rpx;
+  z-index: 10;
+}
+.user-card-template14 .uc-title{
+  margin: 84rpx 0 0 58rpx;
+  text-align: left;
+  z-index: 10;
+}
+.user-card-template14 .uc-title>view{
+  margin-bottom: -8rpx;
+  color: #fff;
+}
+.user-card-template14 .uc-title>text{
+  color: #fff;
+}
+.user-card-template14 .uc-infor{
+  margin: 40rpx 0 0 58rpx;
+  text-align: left;
+  color: #fff;
+  font-size: 24rpx;
+  line-height: 50rpx;
+  z-index: 10;
+}
+.user-card-template14 .uc-infor>view{
+  padding-left: 40rpx;
+}
+.user-card-template14 .uc-infor .us-company-name{
+  padding-right: 300rpx;
+  background-position: 0 -1302rpx;
+}
+.user-card-template14 .uc-infor .us-iphone{
+  background-position: 0 -1355.5rpx;
+}
+.user-card-template14 .uc-infor .us-email{
+  background-position: 0 -1407.5rpx;
+}
+/*15*/
+.user-card-template15 .uc-avatar{
+  width: 120rpx;
+  height: 120rpx;
+  position: absolute;
+  right: 60rpx;
+  top: 70rpx;
+  border-radius: 8rpx;
+  z-index: 10;
+}
+.user-card-template15 .uc-title{
+  margin: 90rpx 0 0 60rpx;
+  text-align: left;
+  z-index: 10;
+}
+.user-card-template15 .uc-title>view{
+  margin-bottom: -8rpx;
+  color: #44988b;
+}
+.user-card-template15 .uc-title>text{
+  color: #999999;
+}
+.user-card-template15 .uc-infor{
+  margin: 60rpx 0 0 60rpx;
+  text-align: left;
+  color: #fff;
+  font-size: 24rpx;
+  line-height: 50rpx;
+  z-index: 10;
+}
+.user-card-template15 .uc-infor>view{
+  padding-left: 50rpx;
+}
+.user-card-template15 .uc-infor .us-company-name{
+  padding-right: 300rpx;
+  background-position: 0 -1466rpx;
+}
+.user-card-template15 .uc-infor .us-iphone{
+  margin-top: 26rpx;
+  background-position: 0 -1526rpx;
+}
+.user-card-template15 .uc-infor .us-email{
+  background-position: 0 -1586rpx;
+}
+
+/*16*/
+.user-card-template16 .uc-avatar{
+  width: 144rpx;
+  height: 144rpx;
+  position: absolute;
+  right: 60rpx;
+  top: 58rpx;
+  border-radius: 8rpx;
+  z-index: 10;
+}
+.user-card-template16 .uc-title{
+  margin: 114rpx 0 0 80rpx;
+  text-align: left;
+  z-index: 10;
+}
+.user-card-template16 .uc-title>view{
+  margin-bottom: -8rpx;
+  color: #fff;
+}
+.user-card-template16 .uc-title>text{
+  color: #fff;
+}
+.user-card-template16 .uc-infor{
+  margin: 40rpx 0 0 80rpx;
+  text-align: left;
+  color: #fff;
+  font-size: 24rpx;
+  line-height: 54rpx;
+  z-index: 10;
+}
+.user-card-template16 .uc-infor>view{
+  padding-left: 40rpx;
+}
+.user-card-template16 .uc-infor .us-company-name{
+  padding-right: 300rpx;
+  background-position: 0 -808rpx;
+}
+.user-card-template16 .uc-infor .us-iphone{
+  background-position: 0 -860rpx;
+}
+.user-card-template16 .uc-infor .us-email{
+  background-position: 0 -914rpx;
+}
+.user-card-bg{
+  width: 100%;
+  height: 514rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #66a6ff, #80e2f3);
+}
+/*scroll-view选择模板样式*/
+.bg-select-title{
+  padding: 20rpx;
+  font-size: 28rpx;
+  color:#666666;
+  background: #fff;
+}
+.card-bg-scroll{
+  width: 690rpx;
+  padding: 30rpx 0;
+  white-space: nowrap;
+  margin: 0 auto;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+.card-bg-item{
+  width: 152rpx;
+  height: 84rpx;
+  margin-right: 30rpx;
+  display: inline-block;
+  border-radius: 6px;
+  border: 4rpx solid #fff;
+}
+.card-bg-item>image{
+  width: 152rpx;
+  height: 84rpx;
+  box-shadow: 0 0 3rpx 5rpx #e5e5e5;
+}
+.bg-selected{
+  border-color:#66a6ff;
+}
+.bg-selected>image{
+  box-shadow: none;
+}

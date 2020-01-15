@@ -1,0 +1,58 @@
+<!--components/joinus-popup/joinus-popup.wxml-->
+<!-- 公共表单弹窗 -->
+<view class="zttip">
+  <view wx:if="{{popupShow}}" class="dirlog_bg dirlog_bg-opacity" bindtap="closePopup"></view>
+  <view class="dirlog {{popupShow?'dirlog-act':''}}">
+    <!-- <view class="zt-popup-close" @click="close"></view> -->
+    <view class="zt-popup-top">
+      <!-- <view class="zt-popup-t">{{csbTitle}}</view> -->
+      <view class="zt-popup-t"></view>
+      <view class="zt-popup-d">请留下您的联系方式，客服人员会尽快与您联系</view>
+    </view>
+    <form bindsubmit="formSubmit">
+      <view class="zt-form" wx:if="{{!sendSuccess}}">
+        <view class="zt-form-con">
+          <view class="zt-form-item">
+            <picker name="questionType" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="picker">
+                <text class="picker-text text-hide">{{pickerText}}</text>
+                <!-- <image class="down-arrow" src="/images/x2-uc-fb-picker.png"></image> -->
+              </view>
+            </picker>
+          </view>
+          <text class="select-icon"></text>
+          <view class="zt-form-item">
+            <input type="tel" class="zt-input zt-tel" placeholder="请输入您的联系电话" name="tel" maxlength="13" minlength="11" />
+            <!-- <p class="zt-error" v-if="isMobile">*请输入正确的手机号码</p> -->
+          </view>
+          <view class="zt-form-item">
+            <input type="text" class="zt-input zt-name" placeholder="请填写您的称呼或公司名称" name="companyName" maxlength="46" />
+            <!-- <p class="zt-error" v-if="isCompany">*请输入姓名或称呼</p> -->
+          </view>
+          <view class="zt-form-item zt-flex" >
+            <input type="text" class="zt-input zt-input-imgcode" value="{{yamValue}}" placeholder="请输入验证码" name="code" maxlength="4" />
+            <image class="zt-form-imgyzm" bindtap="toggleCode" src="https://xcx.912688.com/image_check_code?flag={{flag}}&t={{time}}"></image>
+            <!-- <image class="zt-form-imgyzm" bindtap="toggleCode" src="http://10.10.7.159:8083/image_check_code?flag={{flag}}&t={{time}}"></image> -->
+            <!-- <p class="zt-error" v-if="isImagecode">*请输入正确的验证码</p> -->
+          </view>
+        </view>
+
+      </view>
+
+      <!--提交成功-->
+      <view class="zt-suc" wx:else>
+        <view class="zt-sub-img"></view>
+        <view class="zt-suc-text">恭喜，信息提交成功</view>
+        <view class="zt-suc-zhw"></view>
+      </view>
+      <button class="zt-form-btn" form-type="submit" wx:if="{{!sendSuccess}}">提交申请</button>
+      <view class="zt-form-btn" bindtap="closePopup" wx:else>我知道了</view>
+    </form>
+  </view>
+  <!-- 叹号提示s -->
+  <view class="th-tip">
+    <view></view>
+    <view></view>
+  </view>
+  <!-- 叹号提示e -->
+</view>

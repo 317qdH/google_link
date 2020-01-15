@@ -1,0 +1,223 @@
+@import '../../styles/card.wxss';
+/* pages/marketing/marketing-category.wxss */
+
+.scene-marketing-tip{
+  padding: 70rpx 70rpx;
+  z-index: 10;
+  color: #666666;
+  font-size: 24rpx;
+}
+.smt-title{
+  color: #333333;
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+}
+.smt-text{
+  display: flex;
+  margin-bottom: 15rpx;
+}
+.smt-text:last-child{
+  padding-left: 38rpx;
+}
+.smt-text view{
+  text-decoration: underline;
+  color: #66a6ff;
+}
+
+.marketing-template-show{
+  padding: 65rpx 75rpx 0 75rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.marketing-template-item{
+  margin-bottom: 70rpx;
+}
+.marketing-template-item:nth-last-child(1){
+  margin-bottom: 0;
+}
+.marketing-template-item:nth-last-child(2){
+  margin-bottom: 0;
+}
+.marketing-template-item>image{
+  width: 260rpx;
+  height: 460rpx;
+  box-shadow: 0 0 10rpx 5rpx #cccccc;
+}
+.mts-bottom-tip{
+  font-size: 28rpx;
+  color: #999999;
+  text-align: center;
+  margin: 60rpx 0 70rpx 0;
+}
+.marketing-commodity-title{
+  margin: 0 30rpx;
+  height: 82rpx;
+  line-height: 82rpx;
+  text-align: center;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.marketing-commodity-show{
+  padding-bottom: 120rpx;
+}
+.marketing-commodity-show .mcs-item{
+  padding: 30rpx 30rpx;
+  display: flex;
+  border-bottom: 20rpx solid #f0f0f0;
+  justify-content: space-between;
+  align-items: center;
+}
+.marketing-commodity-show>view{
+  color: #333333;
+  font-size: 32rpx;
+}
+.mcs-item>image{
+  width: 200rpx;
+  height: 200rpx;
+}
+.mcs-item .mcs-commodity-detail{
+  width: 470rpx;
+  display: flex;
+  flex-direction: column;
+}
+.mcs-commodity-detail .commodity-detail-title{
+  width: 470rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  margin-bottom: 20rpx;
+  color: #111111;
+  font-size: 30rpx;
+  line-height: 45rpx;
+}
+.commodity-detail-companyName{
+  color: #777777;
+  font-size: 26rpx;
+  margin-bottom: 30rpx;
+}
+.commodity-detail-a-p{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.commodity-detail-a-p>view{
+  position: relative;
+  padding-left: 32rpx;
+  color: #b2b2b2;
+  font-size: 26rpx;
+}
+.commodity-detail-a-p>view image{
+  position: absolute;
+  left: 0;
+  top: 6rpx;
+  width: 18rpx;
+  height: 24rpx;
+}
+.commodity-detail-a-p>text{
+  color: #d94e43;
+  font-size: 32rpx;
+}
+.mcs-btn-box{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 690rpx;
+  height: 120rpx;
+  padding: 0 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+}
+.mcs-btn-box>view{
+  width: 330rpx;
+  height: 70rpx;
+  border-radius: 35rpx;
+  line-height: 70rpx;
+}
+.mcs-btn-box>button{
+  width: 330rpx;
+  height: 70rpx;
+  border-radius: 35rpx;
+  line-height: 70rpx;
+}
+/*没有符合条件的商品*/
+.marketing-no-commodity{
+  text-align: center;
+}
+.marketing-no-commodity>image{
+  width: 200rpx;
+  height: 170rpx;
+  margin: 65rpx 0 60rpx 0;
+}
+.marketing-no-commodity>view{
+  color: #66a6ff;
+  font-size: 32rpx;
+  margin-bottom: 90rpx;
+}
+.marketing-no-commodity>text{
+  color: #666666;
+  font-size: 26rpx;
+}
+
+/*画布*/
+.poster-canvas{
+  /* display: none; */
+  /* width: 560rpx;
+  height: 996rpx; */
+  width: 750rpx;
+  height: 1700rpx;
+  margin: 200rpx auto 100rpx auto;
+}
+.canvas-hide{
+  position: absolute;
+  top: 20000rpx;
+  left: 0;
+  width:0px;
+  height:0px;
+  overflow:hidden;
+}
+.create-card{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 120rpx;
+  background: #fff;
+}
+.create-card>view{
+  margin: 16rpx auto;
+}
+.company-sharecontainer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 120rpx;
+  background: #fff;
+}
+
+.company-share {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 690rpx;
+  padding: 0 30rpx;
+  height: 120rpx;
+  margin: 0 auto;
+}
+
+.company-share view {
+  width: 330rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  background: #66a6ff;
+  text-align: center;
+  font-size: 32rpx;
+  color: #fff;
+  border-radius: 50rpx;
+}

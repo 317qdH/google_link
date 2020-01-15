@@ -1,0 +1,30 @@
+<!--pages/card-qrcode.wxml-->
+<top-nav inner-title="名片二维码"></top-nav>
+<view class="card-qrcode-box">
+  <view class="cq-text1">名片二维码</view>
+  <image src='{{qrcodeUrl}}'></image>
+  <view class="cq-text2">此二维码可以印刷在</view>
+  <view class="cq-text3">纸质名片、宣传单、海报、易拉宝、等宣传图册上</view>
+  <view class="cq-text4">扫描二维码可直接进入您得企业名片小程序</view>
+</view>
+
+<view class="paper-card-title">
+  纸制名片应用展示
+  <view class="pagination">
+    <view wx:for="{{imgUrls}}" wx:key="index" class="swiper-pagination-bullet {{current==index?'swiper-pagination-bullet-active':''}}"></view>
+  </view>
+</view>
+<swiper
+  circular
+  easing-function="easeInOutCubic"
+  bindchange="watchCurrent"
+  class="paper-card-swiper"
+  >
+  <swiper-item wx:for="{{imgUrls}}" wx:key="index">
+    <image src="{{item}}" class="slide-image"/>
+  </swiper-item>
+</swiper>
+<view class="save-code-box">
+  <view class="gradient-blue-btn save-code" bindtap='saveQrcode'>保存二维码</view>
+</view>
+<authorizedPopup author-show-flag="{{authorShowFlag}}"></authorizedPopup>

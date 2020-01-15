@@ -1,0 +1,272 @@
+/* 头部渐变区域 */
+page {
+  width: 100%;
+  height: 100%;
+  background: #f0f0f0;
+}
+.mine-header {
+  width: 100%;
+  height: 232rpx;
+  background: linear-gradient(to bottom, #66a6ff, #80e2f3);
+  margin-bottom: 20rpx;
+}
+.mine-containerleft, .mine-containerright{
+  display: flex;
+  align-items: center;
+}
+.mine-container {
+  display: flex;
+  justify-content: space-between;
+  width: 690rpx;
+  padding-top: 40rpx;
+  margin: 0 auto;
+  color: #fff;
+}
+.mine-containerleft > image {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 25rpx;
+  border-radius: 50%;
+}
+
+.mine-containerleft > .myimage {
+  width: 153rpx;
+  height: 153rpx;
+  margin-right: 25rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.mine-containerright text {
+  font-size: 30rpx;
+  margin-right: 12rpx;
+}
+.editicon {
+  width: 12rpx;
+  height: 20rpx;
+}
+.mine-usertext {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.mine-name {
+  display: flex;
+  align-items: center;
+  font-size: 38rpx;
+  margin-bottom: 4rpx;
+}
+.mine-date{
+  font-size: 24rpx;
+}
+
+/* 列表 */
+.mine-formcontainer {
+  width: 100%;
+  background: #fff;
+}
+.mine-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 690rpx;
+  height: 100rpx;
+  margin: 0 auto;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 32rpx;
+  color: #333333;
+}
+.mine-formleft, .mine-formright {
+  display: flex;
+  align-items: center;
+}
+.mine-formleft text, .mine-formright text {
+  line-height: 100rpx;
+}
+.mine-formright {
+  font-size: 30rpx;
+  color: #999999;
+}
+.mine-formright image {
+  width: 12rpx;
+  height: 24rpx;
+  margin-left: 12rpx;
+}
+.mine-icon {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  background: url(http://img0.912688.com/mc-mineicon.png?1) no-repeat;
+  background-position: left top;
+  background-size: 48rpx 516rpx;
+}
+.footer {
+  width: 100%;
+  padding: 34rpx 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #cccccc;
+}
+.mine-formcontainer .mine-formleft .mine-iconcard {
+  background-position: 0rpx -78rpx;
+}
+.mine-formcontainer .mine-formleft .mine-help {
+  background-position: 0rpx -155rpx;
+}
+.mine-formcontainer .mine-formleft .mine-suggetion {
+  background-position: 0rpx -234rpx;
+}
+.mine-formcontainer .mine-formleft .mine-about {
+  background-position: 0rpx -312rpx;
+}
+.mine-formcontainer .ctt-vip{
+  background-position: 0rpx -390rpx;
+}
+.mine-formcontainer .mine-call-service{
+  background-position: 0rpx -468rpx;
+}
+/* 账号关联成功弹窗 */
+.showtoast {
+  position: absolute;
+  top: 242rpx;
+  left: 140rpx;
+  width: 470rpx;
+  background: #66a6ff;
+  border-radius: 15rpx;
+  font-size: 32rpx;
+  overflow: hidden;
+  z-index: 999;
+}
+.showtoastheader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 470rpx;
+  height: 213rpx;
+  color: #fff;
+}
+.showtoasttext {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 470rpx;
+  height: 300rpx;
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  font-size: 26rpx;
+  color: #666;
+}
+.showtoasttext text {
+  margin-left: 39rpx;
+}
+.showtoastbutton {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 85rpx;
+  background: #fff;
+  color: #66a6ff;
+  border-bottom-right-radius: 15rpx;
+  border-bottom-left-radius: 15rpx;
+}
+.showtoastbutton text {
+  text-align: center;
+  flex: 1;
+  display: inline-block;
+  height: 85rpx;
+  line-height: 85rpx;
+}
+.addborder {
+  border-right: 1px solid #f0f0f0;
+}
+.toast {
+  position: fixed;
+  top: 45%;
+  margin-top: -271rpx;
+  left: 50%;
+  margin-left: -276rpx;
+  width: 552rpx;
+  height: 542rpx;
+  border-radius: 20rpx;
+  z-index: 999;
+  background: url(http://img0.912688.com/mc-toast.png) no-repeat;
+  background-size: 550rpx 540rpx;
+}
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+}
+.toast view {
+  text-align: center;
+}
+.toast view:nth-child(1) {
+  margin-top: 270rpx;
+  font-size: 34rpx;
+  color: #378bff;
+}
+.toast view:nth-child(2) {
+  margin-top: 25rpx;
+  font-size: 30rpx;
+  color: #333333;
+}
+.toast view:nth-child(3) {
+  margin-top: 52rpx;
+  margin-left: 30rpx;
+  width: 232rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  background: #66a7fe;
+  float: left;
+  font-size: 36rpx;
+  color: #fff;
+  border-radius: 50rpx;
+}
+.toast view:nth-child(4) {
+  margin-top: 52rpx;
+  margin-right: 30rpx;
+  width: 232rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  background: #66a7fe;
+  float: right;
+  font-size: 36rpx;
+  color: #fff;
+  border-radius: 50rpx;
+}
+/*用户授权*/
+.mine-login{
+  width: 230rpx;
+  height: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  color: #ffffff;
+  font-size: 32rpx;
+  border: 1rpx solid #fff;
+  border-radius: 35rpx;
+}
+/*采通通 会员模块*/
+.ctt-vip-guide{
+  position: relative;
+  padding-top: 44rpx;
+}
+.ctt-vip-guide>image{
+  width: 691rpx;
+  height: 91rpx;
+  position: absolute;
+  top: -76rpx;
+  left: 30rpx;
+}
+.mine-name-ctt-unvip{
+  width: 33rpx;
+  height: 35rpx;
+  margin-left: 14rpx;
+}

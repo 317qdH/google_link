@@ -1,0 +1,129 @@
+<!--pages/editCard/pages/create-card/create-card.wxml-->
+<!--pages/edit-card.wxml-->
+<!-- <view class="{{maskShowFlag?'indexFixed':''}}"> -->
+<top-nav inner-title="编辑名片"></top-nav>
+<view>
+<view class="user-card-bg">
+  <view class="u-card-box {{cardClassName}}" animation="{{slide_card}}">
+  <image mode="aspectFill" class="uc-avatar" src="{{userInfoObj.avatarPath}}"></image>
+    <!-- <view class="uc-avatar"><open-data type="userAvatarUrl"></open-data></view> -->
+    <view class="uc-title">
+      <view>{{userInfoObj.name}}</view>
+      <text>{{userInfoObj.position}}</text>
+    </view>
+    <image class="uc-bg" src='{{cardImageSrc}}'></image>
+    <view class="uc-infor">
+      <view class="us-company-name">{{userInfoObj.companyName}}</view>
+      <view class="us-iphone">{{userInfoObj.mobile}}</view>
+      <view class="us-email">{{userInfoObj.mail}}</view>
+    </view>
+  </view>
+</view>
+<view class="bg-select-title">模板选择</view>
+<cardBgSelection id="cardSelect" can-tab="{{canTab}}" template-id="{{userInfoObj.templateId}}" bindselectBgEvent="getCardInfor" bindinitBgEvent="initCardInfor"></cardBgSelection>
+<form class="card-infor-edit" bindsubmit="formSubmit">
+  <view class="cie-title">
+    <view>信息编辑</view>
+    <text>信息将在您的专属名片上展示</text>
+  </view>
+  <!-- <view class="choose-avatar" bindtap='chooseAvatar'>
+    <view hidden="{{removeMask}}" class="cie-mask">
+      <image src="/images/cie-camera.png"></image>
+    </view>
+  </view> -->
+  <view class="cie-item cie-item-avatar" bindtap='chooseAvatar'>
+    <text class="must-fill-icon">头像</text>
+    <!-- <input id="name" bindblur="completeAnInput" maxlength='8' name='username' value='{{userInfoObjtext.name}}'></input> -->
+    <image class="cie-avatar" mode="aspectFill" src='{{userInfoObjtext.avatarPath}}'></image>
+  </view>
+  <view class="cie-item">
+    <text class="must-fill-icon">姓名</text>
+    <input id="name" bindblur="completeAnInput" maxlength='8' name='username' value='{{userInfoObjtext.name}}'></input>
+  </view>
+  <view class="cie-item">
+    <text class="must-fill-icon">电话</text>
+    <input id="mobile" maxlength="15" type='number' bindblur="completeAnInput"  name='telephone' value='{{userInfoObjtext.mobile}}'></input>
+    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="cie-get-infor"><text class="iconfont iconzidonghuoqudianhua industry-icon"></text>快速获取</button>
+  </view>
+  <view class="cie-item">
+    <text class="must-fill-icon">公司</text>
+    <input id="companyName" maxlength='50' name='company' bindblur="completeAnInput" value='{{userInfoObjtext.companyName}}'></input>
+  </view>
+  <view class="cie-item picker-item" bindtap='openIndustryPicker'>
+    <text class="must-fill-icon">行业</text>
+    <text class="input-text">{{industry}}</text>
+    <view class="picker">
+      选择
+    </view>
+  </view>
+  <view class="cie-item">
+    <text class="must-fill-icon">职位</text>
+    <input id="position" name='object' maxlength='10' bindblur="completeAnInput" value='{{userInfoObjtext.position}}'></input>
+  </view>
+  <view class="cie-item">
+    <text class="must-fill-icon">邮箱</text>
+    <input id="mail" name='email' bindblur="completeAnInput" value='{{userInfoObjtext.mail}}'></input>
+  </view>
+  <view class="cie-item">
+    <text>微信</text>
+    <input id="weChat" name='weChat' bindblur="completeAnInput" value='{{userInfoObjtext.weChat}}'></input>
+  </view>
+  
+  <!-- <view class="cie-item picker-item" bindtap="chooseRegion">
+    <text>地区</text>
+    <text class="input-text">{{regionStr}}</text>
+    <view >
+      <view class="picker">
+        选择
+      </view>
+    </view>
+  </view> -->
+  <view class="cie-item mb120">
+    <text>地址</text>
+    <input id="address" name='addr' bindblur="completeAnInput" value='{{userInfoObjtext.address}}'></input>
+    <view bindtap="cieGetAddress" class="cie-get-infor"><text class="iconfont iconzidonghuoqudizhi industry-icon"></text>快速获取</view>
+  </view>
+  <cover-view class="save-setting" wx:if="{{!industryShowFlag}}"> 
+    <button class="gradient-blue-btn" form-type="submit">保存设置</button>
+  </cover-view>
+  <!-- <cover-view class="save-setting"> 
+    <cover-view class="gradient-blue-btn" bindtap="formSubmit">保存设置</cover-view>
+  </cover-view> -->
+</form>
+</view>
+<view class="mask" wx:if="{{maskShowFlag}}" catchtouchmove="preventTouchMove"></view>
+<!-- 主盒子 -->
+<view class="Industry-picker {{industryShowFlag?'Industry-picker-show':''}}">
+  <view class="i-pick-title">所属行业</view>
+  <view class="i-pick-main">
+  <!-- 左侧盒 -->
+    <scroll-view class="i-pick-left" scroll-y >
+      <block wx:for="{{cateItems}}" wx:key="index">
+        <view class="leftitem {{indexss == item.id ? 'active': ''}}"  data-id="{{item.id}}" data-catevalue="{{item.featureName}}" bindtap='switchRightTab'>{{item.featureName}}</view>
+      </block>
+    </scroll-view>
+  <!-- 右侧栏 -->
+    <scroll-view class="i-pick-right" scroll-y >
+      <block wx:for="{{cateItemtab}}" wx:key="index">
+        <view data-id='{{item.id}}' data-name="{{item.name}}" class="{{idxs == item.id ? 'addactive' : ''}}" bindtap='select'>{{item.name}}</view>
+      </block>
+    </scroll-view>
+  </view>
+  <!-- <view class="i-pick-btn">
+    <view class="gradient-blue-btn" bindtap="comfirmIndestry">确定</view>
+  </view> -->
+</view>
+
+<!-- 地区选择  -->
+<!-- <view class="region {{regionShowFlag?'region-active':''}}">
+  <view class="region-title">选择地区</view>
+  <view class="region-selected">
+    <text data-idx="{{index}}" wx:if="{{item.name}}" class="{{regionTab == index?'region-item-selected':''}}" bindtap="resetRegionClick" wx:for="{{regionSelectList}}" wx:key="item.id">{{item.name}}</text>
+  </view>
+  <scroll-view class="region-list" scroll-y >
+    <block>
+      <view class="region-list-item {{item.id==areaIdList[regionTab]?'region-list-item-active':''}}" data-obj="{{item}}" wx:for="{{regionShowList}}" wx:key="index" bindtap="selectRegion">{{item.name}}</view>
+    </block>
+  </scroll-view>  
+</view> -->
+<!-- region-list-item-active  -->
