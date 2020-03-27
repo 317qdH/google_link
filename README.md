@@ -1,5 +1,7 @@
 # google_link
 一些平时用的链接
+
+
 http://cn.redux.js.org/docs/introduction/Motivation.html Redux文档
 
 https://www.zhihu.com/question/29504639?sort=created 虚拟DOM原理分析
